@@ -1,0 +1,18 @@
+---
+export interface Props {
+  name?: string;
+  class?: string;
+}
+
+const { name, class: className = '' } = Astro.props;
+---
+
+<span
+  class:list={[
+    'tech-badge inline-flex items-center font-mono text-[13px] leading-tight px-2 py-0.5 rounded-[--radius-pill] bg-surface-2 text-ink-muted border border-line whitespace-nowrap shrink-0',
+    className,
+  ]}
+  data-tech-badge
+>
+  {name ? name : <slot />}
+</span>

@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="404 — Project Not Found">
+  <div class="max-w-md mx-auto py-24 text-center space-y-6">
+    <div class="text-6xl font-mono font-bold text-[var(--color-ink-muted)]">
+      404
+    </div>
+    <h1 class="font-display font-bold text-2xl text-[var(--color-ink)]">
+      System or Page Not Found
+    </h1>
+    <p class="text-sm text-[var(--color-ink-muted)] leading-relaxed">
+      The requested project route does not exist or has been relocated within the institutional catalog.
+    </p>
+    <div>
+      <a
+        href="/"
+        class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs font-medium bg-[var(--color-ink)] text-[var(--color-canvas)] hover:opacity-90 transition-opacity"
+      >
+        <span>Return to Full Portfolio Directory</span>
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</BaseLayout>

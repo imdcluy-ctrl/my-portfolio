@@ -16,9 +16,10 @@
   --font-sans:    "Inter Variable", ui-sans-serif, system-ui, sans-serif;
   --font-mono:    "JetBrains Mono Variable", ui-monospace, monospace;
 
-  --radius-tile:  16px;
-  --radius-card:  12px;
-  --radius-pill:  6px;
+  --radius-tile:   16px;
+  --radius-card:   12px;
+  --radius-button: 8px;
+  --radius-pill:   6px;
 
   --ease-out-soft: cubic-bezier(.2,.8,.2,1);
 }
@@ -39,10 +40,56 @@ html {
   color: var(--color-ink);
   color-scheme: light;
 }
-html.dark { color-scheme: dark; }
+
+html.dark {
+  color-scheme: dark;
+}
+
+/* Theme transition — only during toggle button interaction, never on initial page load */
+html.theme-switching,
+html.theme-switching * {
+  transition: background-color 220ms var(--ease-out-soft),
+              border-color 220ms var(--ease-out-soft),
+              color 220ms var(--ease-out-soft) !important;
+}
 
 :focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
   border-radius: 4px;
 }
+
+/* TC-303a Reduced Motion Suppression & Animation Reset */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .bento-stagger {
+    animation-delay: 0ms !important;
+  }
+}
+
+/* Zero-lag CSS domain filtering (T-22 & TC-106b) */
+#project-grid[data-active]:not([data-active="all"]) .project-card,
+[data-active-domain]:not([data-active-domain="all"]) [data-domain] {
+  display: none;
+}
+
+#project-grid[data-active="institutional"] .project-card[data-domain="institutional"],
+#project-grid[data-active="sports"]        .project-card[data-domain="sports"],
+#project-grid[data-active="edtech"]        .project-card[data-domain="edtech"],
+#project-grid[data-active="offline-lan"]   .project-card[data-domain="offline-lan"],
+#project-grid[data-active="platforms"]     .project-card[data-domain="platforms"],
+[data-active-domain="institutional"] [data-domain="institutional"],
+[data-active-domain="sports"]        [data-domain="sports"],
+[data-active-domain="edtech"]        [data-domain="edtech"],
+[data-active-domain="offline-lan"]   [data-domain="offline-lan"],
+[data-active-domain="platforms"]     [data-domain="platforms"] {
+  display: block;
+}
+

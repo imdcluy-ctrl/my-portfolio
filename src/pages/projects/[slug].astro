@@ -1,0 +1,198 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StatusPill from '../../components/StatusPill.astro';
+import TechBadge from '../../components/TechBadge.astro';
+import PosterFallback from '../../components/PosterFallback.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((p) => ({
+    params: { slug: p.id },
+    props: { project: p },
+  }));
+}
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+const p = project.data;
+const allStack = [
+  ...(p.stack.frontend || []),
+  ...(p.stack.backend || []),
+  ...(p.stack.data || []),
+  ...(p.stack.infra || []),
+];
+---
+
+<BaseLayout title={`${p.title} — Case Study`}>
+  <div class="max-w-3xl mx-auto py-6 space-y-8">
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-xs font-mono text-[var(--color-ink-muted)]">
+      <a href="/" class="hover:text-[var(--color-ink)] transition-colors">← All Systems</a>
+      <span>/</span>
+      <span>{p.domainLabel}</span>
+      <span>/</span>
+      <span class="text-[var(--color-ink)] truncate">{p.title}</span>
+    </nav>
+
+    <!-- Header Block -->
+    <header class="space-y-4">
+      <div class="flex items-center gap-2.5">
+        <StatusPill status={p.status} />
+        <span class="text-xs font-mono text-[var(--color-ink-muted)] uppercase tracking-wider">
+          {p.domainLabel}
+        </span>
+      </div>
+
+      <h1 class="font-display font-extrabold text-3xl sm:text-4xl text-[var(--color-ink)] leading-tight">
+        {p.title}
+      </h1>
+
+      <p class="text-base text-[var(--color-ink-muted)] leading-relaxed">
+        {p.tagline}
+      </p>
+
+      {/* Primary External Action */}
+      {p.status === 'live' && p.links.live && (
+        <div class="pt-2 flex flex-wrap gap-3">
+          <a
+            href={p.links.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs font-medium bg-emerald-600 text-white hover:bg-emerald-700 transition-colors shadow-xs"
+          >
+            <span>Launch Live Production App</span>
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+          {p.links.repo && (
+            <a
+              href={p.links.repo}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs font-medium bg-[var(--color-surface-2)] text-[var(--color-ink)] border border-[var(--color-line)] hover:bg-[var(--color-surface)] transition-colors"
+            >
+              <span>GitHub Repository</span>
+            </a>
+          )}
+        </div>
+      )}
+    </header>
+
+    <!-- Preview / Media Banner -->
+    <div class="w-full aspect-[16/9] rounded-xl overflow-hidden border border-[var(--color-line)] bg-[var(--color-surface-2)]">
+      {p.hero ? (
+        <img
+          src={p.hero}
+          alt={`${p.title} screenshot`}
+          class="w-full h-full object-cover object-top"
+        />
+      ) : (
+        <PosterFallback
+          name={p.title}
+          slug={project.id}
+          domain={p.domain}
+          stack={allStack}
+        />
+      )}
+    </div>
+
+    <!-- Credentials & Access Context -->
+    {p.accessNotes && (
+      <div class="p-5 rounded-xl bg-[var(--color-surface-2)] border border-[var(--color-line)] space-y-2">
+        <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-[var(--color-ink)]">
+          Access Context & Testing Credentials
+        </h3>
+        <p class="text-xs font-mono text-[var(--color-ink)] bg-[var(--color-surface)] p-3 rounded-lg border border-[var(--color-line)] break-all leading-relaxed">
+          {p.accessNotes}
+        </p>
+      </div>
+    )}
+
+    <!-- Local LAN Run Command -->
+    {p.runCommand && (
+      <div class="p-5 rounded-xl bg-indigo-500/5 border border-indigo-500/20 space-y-2">
+        <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
+          Local Network Deployment Command
+        </h3>
+        <code class="block text-xs font-mono bg-[var(--color-surface)] text-[var(--color-ink)] p-3 rounded-lg border border-[var(--color-line)] overflow-x-auto">
+          {p.runCommand}
+        </code>
+      </div>
+    )}
+
+    <!-- Problem Context -->
+    {p.caseStudy.problem && (
+      <section class="space-y-3">
+        <h2 class="font-display font-bold text-xl text-[var(--color-ink)]">
+          The Operational Challenge
+        </h2>
+        <div class="p-5 rounded-xl bg-[var(--color-surface)] border border-[var(--color-line)] text-sm text-[var(--color-ink)] leading-relaxed">
+          {p.caseStudy.problem}
+        </div>
+      </section>
+    )}
+
+    <!-- Features -->
+    {p.caseStudy.features && p.caseStudy.features.length > 0 && (
+      <section class="space-y-3">
+        <h2 class="font-display font-bold text-xl text-[var(--color-ink)]">
+          System Capabilities
+        </h2>
+        <ul class="grid grid-cols-1 gap-2.5">
+          {p.caseStudy.features.map((feat) => (
+            <li class="flex items-start gap-3 p-3 rounded-lg bg-[var(--color-surface)] border border-[var(--color-line)] text-xs text-[var(--color-ink)]">
+              <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] mt-1.5 shrink-0" />
+              <span>{feat}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <!-- Architecture & Stack Breakdown -->
+    <section class="space-y-3">
+      <h2 class="font-display font-bold text-xl text-[var(--color-ink)]">
+        Technical Stack & Architecture
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {p.stack.frontend && p.stack.frontend.length > 0 && (
+          <div class="p-4 rounded-xl bg-[var(--color-surface)] border border-[var(--color-line)]">
+            <div class="text-[11px] font-mono text-[var(--color-ink-muted)] uppercase mb-2">Frontend</div>
+            <div class="flex flex-wrap gap-1.5">
+              {p.stack.frontend.map((t) => <TechBadge name={t} />)}
+            </div>
+          </div>
+        )}
+        {p.stack.backend && p.stack.backend.length > 0 && (
+          <div class="p-4 rounded-xl bg-[var(--color-surface)] border border-[var(--color-line)]">
+            <div class="text-[11px] font-mono text-[var(--color-ink-muted)] uppercase mb-2">Backend</div>
+            <div class="flex flex-wrap gap-1.5">
+              {p.stack.backend.map((t) => <TechBadge name={t} />)}
+            </div>
+          </div>
+        )}
+        {p.stack.data && p.stack.data.length > 0 && (
+          <div class="p-4 rounded-xl bg-[var(--color-surface)] border border-[var(--color-line)]">
+            <div class="text-[11px] font-mono text-[var(--color-ink-muted)] uppercase mb-2">Data & Storage</div>
+            <div class="flex flex-wrap gap-1.5">
+              {p.stack.data.map((t) => <TechBadge name={t} />)}
+            </div>
+          </div>
+        )}
+        {p.stack.infra && p.stack.infra.length > 0 && (
+          <div class="p-4 rounded-xl bg-[var(--color-surface)] border border-[var(--color-line)]">
+            <div class="text-[11px] font-mono text-[var(--color-ink-muted)] uppercase mb-2">Infrastructure</div>
+            <div class="flex flex-wrap gap-1.5">
+              {p.stack.infra.map((t) => <TechBadge name={t} />)}
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  </div>
+</BaseLayout>

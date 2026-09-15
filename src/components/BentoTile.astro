@@ -1,0 +1,105 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import StatusPill from './StatusPill.astro';
+import TechBadge from './TechBadge.astro';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+  index: number;
+}
+
+const { project, index } = Astro.props;
+const p = project.data;
+const tile = p.bentoTile || 'A';
+const isLarge = tile === 'A';
+
+// Desktop grid positioning according to T-21 specification
+const placementClasses: Record<string, string> = {
+  A: 'lg:col-start-1 lg:col-span-4 lg:row-start-1 lg:row-span-2 md:col-span-2',
+  B: 'lg:col-start-5 lg:col-span-2 lg:row-start-1 lg:row-span-1 md:col-span-1',
+  C: 'lg:col-start-5 lg:col-span-2 lg:row-start-2 lg:row-span-1 md:col-span-1',
+  D: 'lg:col-start-1 lg:col-span-2 lg:row-start-3 lg:row-span-2 md:col-span-1',
+  E: 'lg:col-start-3 lg:col-span-4 lg:row-start-3 lg:row-span-1 md:col-span-1',
+  F: 'lg:col-start-3 lg:col-span-4 lg:row-start-4 lg:row-span-1 md:col-span-2',
+};
+
+const placement = placementClasses[tile] || '';
+const allStack = [...(p.stack.frontend || []), ...(p.stack.backend || []), ...(p.stack.data || [])];
+const topBadges = allStack.slice(0, 3);
+---
+
+<div
+  class={`group relative overflow-hidden flex flex-col justify-between rounded-[var(--radius-tile)] bg-[var(--color-surface)] border border-[var(--color-line)] p-6 transition-all duration-200 hover:border-[var(--color-accent)]/50 focus-within:ring-2 focus-within:ring-[var(--color-accent)] ${placement}`}
+  style={`--i: ${index};`}
+>
+  {isLarge ? (
+    <div class="flex flex-col h-full justify-between gap-6">
+      <div class="flex items-center justify-between gap-3">
+        <div class="flex items-center gap-2.5">
+          <StatusPill status={p.status} />
+          <span class="text-xs font-mono text-[var(--color-ink-muted)]">Flagship 01</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          {topBadges.map(tech => <TechBadge name={tech} />)}
+        </div>
+      </div>
+
+      <div class="my-auto py-2">
+        <h3 class="font-display font-bold text-2xl sm:text-3xl text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors">
+          {p.title}
+        </h3>
+        <p class="mt-2 text-sm sm:text-base text-[var(--color-ink-muted)] line-clamp-2 max-w-xl">
+          {p.tagline}
+        </p>
+      </div>
+
+      <div class="flex items-center justify-between pt-2 border-t border-[var(--color-line)]">
+        <div class="text-xs font-mono text-[var(--color-ink-muted)]">
+          {p.domainLabel}
+        </div>
+        <button
+          type="button"
+          data-project={project.id}
+          class="case-study-trigger inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-medium bg-[var(--color-surface-2)] text-[var(--color-ink)] border border-[var(--color-line)] hover:bg-[var(--color-accent)] hover:text-white hover:border-transparent transition-all cursor-pointer"
+        >
+          <span>Open Case Study</span>
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  ) : (
+    <div class="flex flex-col h-full justify-between gap-3">
+      <div class="flex items-center justify-between gap-2">
+        <StatusPill status={p.status} />
+        <span class="text-[11px] font-mono text-[var(--color-ink-muted)] truncate">{p.domainLabel}</span>
+      </div>
+
+      <div class="my-1">
+        <h4 class="font-display font-semibold text-lg text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors line-clamp-1">
+          {p.title}
+        </h4>
+        <p class="mt-1 text-xs text-[var(--color-ink-muted)] line-clamp-2">
+          {p.tagline}
+        </p>
+      </div>
+
+      <div class="flex items-center justify-between pt-2 border-t border-[var(--color-line)]">
+        <div class="flex items-center gap-1 overflow-hidden">
+          {topBadges.slice(0, 2).map(tech => <TechBadge name={tech} />)}
+        </div>
+        <button
+          type="button"
+          data-project={project.id}
+          class="case-study-trigger text-xs font-medium text-[var(--color-ink-muted)] hover:text-[var(--color-accent)] flex items-center gap-1 cursor-pointer"
+        >
+          <span>View</span>
+          <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  )}
+</div>

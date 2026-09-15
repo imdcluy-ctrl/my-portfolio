@@ -1,0 +1,94 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import StatusPill from './StatusPill.astro';
+import TechBadge from './TechBadge.astro';
+import PosterFallback from './PosterFallback.astro';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+const p = project.data;
+
+const allStack = [...(p.stack.frontend || []), ...(p.stack.backend || []), ...(p.stack.data || [])];
+const topBadges = allStack.slice(0, 3);
+const remainingCount = allStack.length - topBadges.length;
+---
+
+<article
+  class="group relative flex flex-col justify-between h-full rounded-[var(--radius-card)] bg-[var(--color-surface)] border border-[var(--color-line)] overflow-hidden transition-colors duration-150 hover:border-[var(--color-accent)]/50 focus-within:ring-2 focus-within:ring-[var(--color-accent)]"
+>
+  <!-- Card Hero / Poster Media (16:10 aspect ratio) -->
+  <div class="relative w-full aspect-[16/10] bg-[var(--color-surface-2)] overflow-hidden border-b border-[var(--color-line)]">
+    {p.hero ? (
+      <img
+        src={p.hero}
+        alt={`${p.title} preview`}
+        class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
+        loading="lazy"
+        decoding="async"
+      />
+    ) : (
+      <PosterFallback
+        name={p.title}
+        slug={project.id}
+        domain={p.domain}
+        stack={allStack}
+      />
+    )}
+
+    <!-- Category tag pill overlay -->
+    <div class="absolute top-2.5 left-2.5 z-10">
+      <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--color-surface)]/90 backdrop-blur-xs text-[var(--color-ink)] border border-[var(--color-line)]">
+        {p.domainLabel}
+      </span>
+    </div>
+  </div>
+
+  <!-- Content Block -->
+  <div class="flex flex-col flex-1 p-5 justify-between gap-4">
+    <div>
+      <div class="flex items-center justify-between gap-2 mb-2">
+        <StatusPill status={p.status} />
+        {p.highlightMetric && (
+          <span class="text-[11px] font-mono font-medium text-[var(--color-accent)]">
+            {p.highlightMetric.value}
+          </span>
+        )}
+      </div>
+
+      <h3 class="font-display font-semibold text-lg text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors line-clamp-1">
+        {p.title}
+      </h3>
+
+      <p class="mt-1.5 text-xs text-[var(--color-ink-muted)] line-clamp-2 leading-relaxed">
+        {p.tagline}
+      </p>
+    </div>
+
+    <!-- Card Footer -->
+    <div class="pt-3 border-t border-[var(--color-line)] flex items-center justify-between gap-2">
+      <div class="flex items-center gap-1.5 overflow-hidden flex-wrap">
+        {topBadges.map(tech => <TechBadge name={tech} />)}
+        {remainingCount > 0 && (
+          <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[var(--color-surface-2)] text-[var(--color-ink-muted)]">
+            +{remainingCount}
+          </span>
+        )}
+      </div>
+
+      <button
+        type="button"
+        data-project={project.id}
+        class="case-study-trigger text-xs font-medium text-[var(--color-ink)] hover:text-[var(--color-accent)] flex items-center gap-1 shrink-0 cursor-pointer p-1 rounded focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--color-accent)]"
+        aria-label={`Open case study for ${p.title}`}
+      >
+        <span>Details</span>
+        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</article>

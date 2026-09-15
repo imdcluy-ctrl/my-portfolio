@@ -1,0 +1,48 @@
+---
+import type { StatusKey } from '../content.config';
+
+export interface Props {
+  status: StatusKey;
+  class?: string;
+}
+
+const { status, class: className = '' } = Astro.props;
+
+const STATUS_CONFIG: Record<StatusKey, { label: string; dotClass: string }> = {
+  live: {
+    label: 'Live',
+    dotClass: 'bg-accent',
+  },
+  'offline-lan': {
+    label: 'Runs on LAN',
+    dotClass: 'bg-accent-alt',
+  },
+  internal: {
+    label: 'Internal tool',
+    dotClass: 'bg-zinc-400 dark:bg-zinc-500',
+  },
+  archived: {
+    label: 'Archived',
+    dotClass: 'bg-zinc-300 dark:bg-zinc-600',
+  },
+};
+
+const config = STATUS_CONFIG[status] ?? {
+  label: status,
+  dotClass: 'bg-zinc-400',
+};
+---
+
+<div
+  class:list={[
+    'status-pill',
+    `status-${status}`,
+    'inline-flex items-center gap-1.5 px-2 py-0.5 text-[12px] font-medium rounded-[--radius-pill] bg-surface-2 border border-line text-ink-muted shrink-0',
+    className,
+  ]}
+  data-status-pill
+  data-status={status}
+>
+  <span class:list={['dot inline-block w-2 h-2 rounded-full shrink-0', config.dotClass]} aria-hidden="true"></span>
+  <span>{config.label}</span>
+</div>

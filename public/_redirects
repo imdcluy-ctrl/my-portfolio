@@ -1,1 +1,6 @@
-# Redirect rules for Cloudflare Pages
+# Canonical and backward-compatibility redirects
+/gabay /projects/board-exam-reviewer-gabay 301
+/ched /projects/ched-compliance-management-app 301
+/chess /projects/epdu-palaro-2026-chess-tournament 301
+/batasph /projects/batasph-civicph 301
+/localclassroom /projects/localclassroom 301

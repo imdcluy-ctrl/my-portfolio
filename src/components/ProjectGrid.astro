@@ -1,0 +1,22 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import ProjectCard from './ProjectCard.astro';
+
+interface Props {
+  projects: CollectionEntry<'projects'>[];
+}
+
+const { projects } = Astro.props;
+---
+
+<div
+  id="project-grid"
+  data-active="all"
+  class="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full"
+>
+  {projects.map((p) => (
+    <div data-domain={p.data.domain} class="project-card h-full">
+      <ProjectCard project={p} />
+    </div>
+  ))}
+</div>

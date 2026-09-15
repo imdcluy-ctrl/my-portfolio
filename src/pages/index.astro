@@ -1,28 +1,135 @@
 ---
-import '../styles/global.css';
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BentoGrid from '../components/BentoGrid.astro';
+import ProjectGrid from '../components/ProjectGrid.astro';
+import DomainFilter from '../components/islands/DomainFilter';
+import CaseStudyDrawer from '../components/islands/CaseStudyDrawer';
+
+const allProjects = await getCollection('projects');
+
+// Sort: Flagships first, then live cloud, then alphabetical
+const sortedProjects = [...allProjects].sort((a, b) => {
+  if (a.data.featured !== b.data.featured) {
+    return a.data.featured ? -1 : 1;
+  }
+  if (a.data.status === 'live' && b.data.status !== 'live') {
+    return -1;
+  }
+  if (b.data.status === 'live' && a.data.status !== 'live') {
+    return 1;
+  }
+  return a.data.title.localeCompare(b.data.title);
+});
+
+// Build domain counts dynamically
+const domainCounts: Record<string, number> = {};
+for (const p of allProjects) {
+  domainCounts[p.data.domain] = (domainCounts[p.data.domain] || 0) + 1;
+}
+
+const liveCount = allProjects.filter(p => p.data.status === 'live').length;
+const lanCount = allProjects.filter(p => p.data.status === 'offline-lan').length;
+const totalCount = allProjects.length;
+
+// Projects data array for the client drawer island
+const projectsData = sortedProjects.map(p => p.data);
 ---
 
-<html lang="en" class="dark">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="generator" content={Astro.generator} />
-    <title>ZPPSU Institutional Developer Portfolio</title>
-  </head>
-  <body class="bg-canvas text-ink font-sans min-h-screen antialiased">
-    <main class="max-w-6xl mx-auto px-6 py-16">
-      <header class="mb-12">
-        <h1 class="text-4xl font-extrabold tracking-tight font-display mb-4">
-          ZPPSU Institutional Developer Portfolio
+<BaseLayout title="Duane Luy — Systems Architect & Developer Portfolio">
+  <div class="space-y-12">
+    <!-- Hero Section -->
+    <section class="space-y-6 pt-4 pb-2 border-b border-[var(--color-line)]">
+      <div class="space-y-2">
+        <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full text-xs font-mono bg-[var(--color-surface-2)] text-[var(--color-ink-muted)] border border-[var(--color-line)]">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>ZPPSU Computer Technology & Operations</span>
+        </div>
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-display text-[var(--color-ink)] leading-tight">
+          Duane Luy
         </h1>
-        <p class="text-ink-muted text-lg max-w-2xl">
-          37 institutional software systems, sports management platforms, and offline-first classroom architectures.
+        <p class="text-base sm:text-xl font-medium text-[var(--color-ink-muted)] max-w-2xl">
+          Systems Architect & Institutional Software Engineer
         </p>
-      </header>
-      <div class="p-6 rounded-card border border-line bg-surface">
-        <p class="text-sm font-mono text-accent">Scaffold initialized successfully. Ready for data ingestion (T-10..T-13).</p>
       </div>
-    </main>
-  </body>
-</html>
+
+      <p class="text-sm sm:text-base text-[var(--color-ink-muted)] max-w-3xl leading-relaxed">
+        Engineering high-reliability university software, FIDE sports tournament networks, and offline-first classroom systems designed to operate without internet dependency across Zamboanga Peninsula Polytechnic State University.
+      </p>
+
+      <!-- Key Engineering Metrics Banner -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 py-2">
+        <div class="p-3.5 rounded-xl bg-[var(--color-surface)] border border-[var(--color-line)]">
+          <div class="text-2xl font-bold font-mono text-[var(--color-ink)]">{totalCount}</div>
+          <div class="text-xs text-[var(--color-ink-muted)] mt-0.5">Software Systems</div>
+        </div>
+        <div class="p-3.5 rounded-xl bg-[var(--color-surface)] border border-[var(--color-line)]">
+          <div class="text-2xl font-bold font-mono text-emerald-600 dark:text-emerald-400">{liveCount}</div>
+          <div class="text-xs text-[var(--color-ink-muted)] mt-0.5">Live Production Apps</div>
+        </div>
+        <div class="p-3.5 rounded-xl bg-[var(--color-surface)] border border-[var(--color-line)]">
+          <div class="text-2xl font-bold font-mono text-indigo-600 dark:text-indigo-400">{lanCount}+</div>
+          <div class="text-xs text-[var(--color-ink-muted)] mt-0.5">Offline LAN Deployments</div>
+        </div>
+        <div class="p-3.5 rounded-xl bg-[var(--color-surface)] border border-[var(--color-line)]">
+          <div class="text-2xl font-bold font-mono text-[var(--color-ink)]">$0/mo</div>
+          <div class="text-xs text-[var(--color-ink-muted)] mt-0.5">Serverless Edge Cost</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Marquee Bento Hero (6 Flagships) -->
+    <BentoGrid projects={sortedProjects} />
+
+    <!-- Full Categorized Catalog -->
+    <section id="catalog" class="space-y-6 pt-4">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+        <div>
+          <h2 class="font-display font-bold text-2xl sm:text-3xl text-[var(--color-ink)]">
+            Complete Systems Directory
+          </h2>
+          <p class="text-sm text-[var(--color-ink-muted)]">
+            Filter through all 37 systems across university operations, sports tournaments, AI tools, and offline hubs.
+          </p>
+        </div>
+        <span class="text-xs font-mono text-[var(--color-ink-muted)]">
+          Click any card to inspect case study & test credentials
+        </span>
+      </div>
+
+      <!-- Zero-Lag Domain Filter Island -->
+      <DomainFilter
+        client:idle
+        counts={domainCounts}
+        totalCount={totalCount}
+      />
+
+      <!-- Static HTML Grid (Pure CSS Filter Matching) -->
+      <ProjectGrid projects={sortedProjects} />
+    </section>
+
+    <!-- Interactive Case Study Drawer Island -->
+    <CaseStudyDrawer client:idle projects={projectsData} />
+
+    <!-- Footer -->
+    <footer class="pt-12 pb-8 border-t border-[var(--color-line)] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[var(--color-ink-muted)]">
+      <div>
+        <span>Duane Luy (`imdcluy`) · ZPPSU AMBC</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span>Astro 5 SSG</span>
+        <span>•</span>
+        <span>Cloudflare Pages</span>
+        <span>•</span>
+        <a
+          href="https://github.com/imdcluy-ctrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-[var(--color-ink)] transition-colors"
+        >
+          GitHub Profile
+        </a>
+      </div>
+    </footer>
+  </div>
+</BaseLayout>

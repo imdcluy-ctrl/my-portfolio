@@ -1,0 +1,201 @@
+---
+import '@fontsource-variable/bricolage-grotesque';
+import '@fontsource-variable/inter';
+import '@fontsource-variable/jetbrains-mono';
+import '../styles/global.css';
+import ThemeToggle from '../components/islands/ThemeToggle';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  canonicalUrl?: string;
+}
+
+const {
+  title = 'ZPPSU Institutional Developer Portfolio',
+  description = '37 institutional software systems, sports management platforms, and offline-first classroom architectures.',
+  ogImage = '/og/default.png',
+  canonicalUrl,
+} = Astro.props;
+
+const siteUrl = Astro.site?.origin || 'https://zppsu-portfolio.pages.dev';
+const canonical = canonicalUrl || new URL(Astro.url.pathname, siteUrl).href;
+const buildTimestamp = new Date().toISOString();
+const buildFormatted = new Date().toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+});
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonical} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- OpenGraph & Social Metadata -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(ogImage, siteUrl).href} />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonical} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(ogImage, siteUrl).href} />
+
+    <!-- Anti-FOUC Synchronous Head Blocking Script -->
+    <!-- Placed BEFORE stylesheets to execute before first render -->
+    <script is:inline>
+      (function() {
+        try {
+          var stored = localStorage.getItem('theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (stored === 'dark' || (!stored && prefersDark)) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {
+          // In case localStorage is disabled/sandboxed, default to dark per TC-202b
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+
+    <!-- Page-Specific Head Injections -->
+    <slot name="head" />
+  </head>
+
+  <body class="bg-canvas text-ink font-sans min-h-screen flex flex-col antialiased selection:bg-accent selection:text-white">
+    <!-- Accessible Skip-to-Content Anchor -->
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:p-3 focus:bg-surface focus:text-ink focus:border focus:border-line focus:rounded-[--radius-pill] shadow-lg focus:outline-none focus:ring-2 focus:ring-accent"
+    >
+      Skip to projects
+    </a>
+
+    <!-- Scroll Sentinel for 40px Header Border Transition -->
+    <div
+      id="scroll-sentinel"
+      class="absolute top-0 left-0 w-full h-[40px] pointer-events-none -z-10"
+      aria-hidden="true"
+    ></div>
+
+    <!-- Blurred Sticky Header -->
+    <header
+      id="site-header"
+      class="sticky top-0 z-40 w-full bg-canvas/80 backdrop-blur-md transition-[border-color] duration-200 border-b border-transparent"
+    >
+      <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+        <!-- Monogram / Branding -->
+        <a
+          href="/"
+          class="group flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+          aria-label="ZPPSU Portfolio Homepage"
+        >
+          <div class="w-8 h-8 rounded-[--radius-pill] bg-surface-2 border border-line flex items-center justify-center font-display font-black text-sm text-ink group-hover:border-accent group-hover:text-accent transition-colors">
+            Z
+          </div>
+          <div class="flex flex-col">
+            <span class="font-display font-bold text-sm sm:text-base tracking-tight text-ink leading-tight">
+              ZPPSU Systems
+            </span>
+            <span class="font-mono text-[10px] sm:text-xs text-ink-muted leading-tight">
+              Developer Portfolio
+            </span>
+          </div>
+        </a>
+
+        <!-- Header Navigation & Island Container -->
+        <div class="flex items-center gap-4 sm:gap-6">
+          <nav class="flex items-center gap-4 text-sm font-medium" aria-label="Main Navigation">
+            <a
+              href="/#bento-hero"
+              class="text-ink-muted hover:text-ink transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm px-1 py-0.5"
+            >
+              Flagship
+            </a>
+            <a
+              href="/#project-grid"
+              class="text-ink-muted hover:text-ink transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm px-1 py-0.5"
+            >
+              Projects
+            </a>
+          </nav>
+
+          <div class="h-4 w-[1px] bg-line" aria-hidden="true"></div>
+
+          <!-- Theme Toggle React Island -->
+          <ThemeToggle client:load />
+        </div>
+      </div>
+    </header>
+
+    <!-- Header Scroll Sentinel Observer Script -->
+    <script is:inline>
+      (function() {
+        var sentinel = document.getElementById('scroll-sentinel');
+        var header = document.getElementById('site-header');
+        if (sentinel && header && 'IntersectionObserver' in window) {
+          var observer = new IntersectionObserver(
+            function(entries) {
+              var entry = entries[0];
+              if (!entry.isIntersecting) {
+                header.classList.add('border-line');
+                header.classList.remove('border-transparent');
+              } else {
+                header.classList.remove('border-line');
+                header.classList.add('border-transparent');
+              }
+            },
+            { rootMargin: '0px', threshold: 0 }
+          );
+          observer.observe(sentinel);
+        }
+      })();
+    </script>
+
+    <!-- Semantic Main Landmark with Tabindex for Skip-Link Focus Target -->
+    <main
+      id="main"
+      class="flex-1 w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 focus:outline-none"
+      tabindex="-1"
+    >
+      <slot />
+    </main>
+
+    <!-- Semantic Institutional Footer -->
+    <footer class="w-full border-t border-line bg-surface-2/40 mt-auto">
+      <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-ink-muted">
+        <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
+          <span class="font-display font-semibold text-ink">ZPPSU Developer Portfolio</span>
+          <span class="hidden sm:inline" aria-hidden="true">•</span>
+          <span>A.Y. 2026–2027 Institutional Systems Engineering</span>
+        </div>
+
+        <div class="flex items-center gap-4 font-mono text-[11px]">
+          <span>Built: <time datetime={buildTimestamp}>{buildFormatted}</time></span>
+          <span aria-hidden="true">•</span>
+          <a
+            href="#"
+            class="hover:text-ink transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+          >
+            Top ↑
+          </a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
