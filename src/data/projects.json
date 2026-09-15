@@ -11,7 +11,7 @@
     "tier": "flagship",
     "featured": true,
     "bentoOrder": 4,
-    "bentoTile": "B",
+    "bentoTile": "D",
     "tagline": "Built for the Computer Technology Department Chair and CHED Regional Quality Assessment Team (RQAT)...",
     "summary": "Built for the Computer Technology Department Chair and CHED Regional Quality Assessment Team (RQAT) evaluators to audit BIndTech compliance under CMO No. 79.",
     "highlightMetric": {
@@ -42,7 +42,7 @@
       ]
     },
     "links": {
-      "live": "https://zppsu-ched-compliance.pages.dev",
+      "live": "https://zppsu-ched-compliance.pages.dev/",
       "repo": null,
       "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\CHED Compliance Management App",
       "notes": "Chair (Admin): chair.malangas@zppsu.edu.ph / admin123 | Evaluator: evaluator.ched@ched.gov.ph / ched2026 | Faculty: faculty123 (19 instructors)"
@@ -80,8 +80,8 @@
     "name": "Comtech One Web App",
     "domain": "institutional",
     "domainLabel": "Institutional Systems",
-    "status": "internal",
-    "statusLabel": "Internal Tool",
+    "status": "live",
+    "statusLabel": "Live Cloud",
     "tier": "production",
     "featured": false,
     "bentoOrder": null,
@@ -115,7 +115,7 @@
       ]
     },
     "links": {
-      "live": null,
+      "live": "https://comtech-one.pages.dev/",
       "repo": null,
       "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\Comtech One Web App",
       "notes": null
@@ -292,10 +292,10 @@
     "domainLabel": "Institutional Systems",
     "status": "live",
     "statusLabel": "Live Cloud",
-    "tier": "flagship",
-    "featured": true,
-    "bentoOrder": 6,
-    "bentoTile": "F",
+    "tier": "production",
+    "featured": false,
+    "bentoOrder": null,
+    "bentoTile": null,
     "tagline": "Executive admissions screening tracker for Program Chairs and Deans.",
     "summary": "Executive admissions screening tracker for Program Chairs and Deans.",
     "highlightMetric": null,
@@ -355,16 +355,16 @@
   {
     "id": "screening-app",
     "slug": "screening-app",
-    "title": "Screening_App",
+    "title": "Admissions Screening Web App",
     "name": "Screening_App",
     "domain": "institutional",
     "domainLabel": "Institutional Systems",
     "status": "offline-lan",
     "statusLabel": "Offline LAN",
-    "tier": "production",
-    "featured": false,
-    "bentoOrder": null,
-    "bentoTile": null,
+    "tier": "flagship",
+    "featured": true,
+    "bentoOrder": 7,
+    "bentoTile": "G",
     "tagline": "Battle-tested physical admissions intake system handling hundreds of applicants on screening days.",
     "summary": "Battle-tested physical admissions intake system handling hundreds of applicants on screening days.",
     "highlightMetric": {
@@ -418,7 +418,7 @@
       "outcome": null,
       "screenshots": []
     },
-    "hero": null,
+    "hero": "/projects/screening-app/logo.png",
     "gallery": [],
     "year": 2026
   },
@@ -490,16 +490,16 @@
   {
     "id": "enrollment-app",
     "slug": "enrollment-app",
-    "title": "Enrollment_App",
+    "title": "Pre-Enrollment & Student Advising Web App",
     "name": "Enrollment_App",
     "domain": "institutional",
     "domainLabel": "Institutional Systems",
     "status": "offline-lan",
     "statusLabel": "Offline LAN",
-    "tier": "production",
-    "featured": false,
-    "bentoOrder": null,
-    "bentoTile": null,
+    "tier": "flagship",
+    "featured": true,
+    "bentoOrder": 6,
+    "bentoTile": "F",
     "tagline": "Student advising and section balancing portal.",
     "summary": "Student advising and section balancing portal.",
     "highlightMetric": null,
@@ -551,7 +551,7 @@
       "outcome": null,
       "screenshots": []
     },
-    "hero": null,
+    "hero": "/projects/enrollment-app/logo.png",
     "gallery": [],
     "year": 2026
   },
@@ -693,10 +693,10 @@
     "domainLabel": "Institutional Systems",
     "status": "offline-lan",
     "statusLabel": "Offline LAN",
-    "tier": "production",
-    "featured": false,
-    "bentoOrder": null,
-    "bentoTile": null,
+    "tier": "flagship",
+    "featured": true,
+    "bentoOrder": 8,
+    "bentoTile": "H",
     "tagline": "Evaluates historical student records against curriculum prerequisites and compiles pixel-perfect official...",
     "summary": "Evaluates historical student records against curriculum prerequisites and compiles pixel-perfect official printable prospectus PDFs.",
     "highlightMetric": null,
@@ -757,8 +757,8 @@
     "statusLabel": "Live Cloud",
     "tier": "flagship",
     "featured": true,
-    "bentoOrder": 3,
-    "bentoTile": "C",
+    "bentoOrder": 5,
+    "bentoTile": "E",
     "tagline": "Inter-campus chess tournament platform managing 5 ZPPSU external campuses (Kabasalan, Siay, Malangas, etc.).",
     "summary": "Inter-campus chess tournament platform managing 5 ZPPSU external campuses (Kabasalan, Siay, Malangas, etc.).",
     "highlightMetric": {
@@ -789,7 +789,7 @@
       ]
     },
     "links": {
-      "live": "https://epdu-chess-2026.imdcluy.workers.dev",
+      "live": "https://epdu-chess-2026.imdcluy.workers.dev/",
       "repo": null,
       "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\EPDU Palaro 2026 - Chess Tournament",
       "notes": "Admin Route: /admin/login | Master Password: palaro2026admin"
@@ -826,10 +826,10 @@
     "domainLabel": "Sports & Tournaments",
     "status": "live",
     "statusLabel": "Live Cloud",
-    "tier": "production",
-    "featured": false,
-    "bentoOrder": null,
-    "bentoTile": null,
+    "tier": "flagship",
+    "featured": true,
+    "bentoOrder": 1,
+    "bentoTile": "A",
     "tagline": "Departmental sports fest management system for 302 athletes across 32 sporting and cultural events.",
     "summary": "Departmental sports fest management system for 302 athletes across 32 sporting and cultural events.",
     "highlightMetric": {
@@ -862,7 +862,7 @@
       ]
     },
     "links": {
-      "live": "https://cpt-palaro.netlify.app",
+      "live": "https://cpt-palaro-management-sys.pages.dev/",
       "repo": "https://github.com/DarkPrince15/Cpt-Palaro-Management-Sys.git",
       "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\CPT Palaro Management System",
       "notes": "Master Admin: admin / admin1234 | Coordinators: reymark.sipe / palaro2026, randy.monteza / palaro2026 | Test: test.student / palaro2026 | GitHub: https://github.com/DarkPrince15/Cpt-Palaro-Management-Sys.git"
@@ -886,7 +886,7 @@
       "outcome": null,
       "screenshots": []
     },
-    "hero": null,
+    "hero": "/brand/zppsu-logo.png",
     "gallery": [],
     "year": 2026
   },
@@ -1121,7 +1121,7 @@
       "infra": []
     },
     "links": {
-      "live": "https://script.google.com/macros/s/AKfycbzcRiQZuykFxn9JyoSelVM0oCRsNEQz3jmDTe-oX_UMWT9zyxPTQ_yOfWNCTtSiXj9oxg/exec",
+      "live": "https://ancient-wind-0de7.imdcluy.workers.dev/",
       "repo": null,
       "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\palaro submission of music",
       "notes": "Public Intake (Cheerdance, Solo, Duet, Pop Dance audio uploads directly to Google Drive)"
@@ -1155,12 +1155,12 @@
     "name": "Board Exam Reviewer Web App (Gabay)",
     "domain": "edtech",
     "domainLabel": "EdTech & AI",
-    "status": "offline-lan",
-    "statusLabel": "Offline LAN",
+    "status": "live",
+    "statusLabel": "Live Cloud",
     "tier": "flagship",
     "featured": true,
-    "bentoOrder": 1,
-    "bentoTile": "A",
+    "bentoOrder": 2,
+    "bentoTile": "B",
     "tagline": "Offline-first reviewer preparing examinees for the Philippine Civil Service Examination (CSE-PPT...",
     "summary": "Offline-first reviewer preparing examinees for the Philippine Civil Service Examination (CSE-PPT Professional).",
     "highlightMetric": {
@@ -1192,7 +1192,7 @@
       ]
     },
     "links": {
-      "live": null,
+      "live": "https://gabay-reviewer.vercel.app/dashboard",
       "repo": null,
       "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\Board Exam Reviewer Web App",
       "notes": null
@@ -1219,7 +1219,7 @@
       "outcome": null,
       "screenshots": []
     },
-    "hero": null,
+    "hero": "/projects/board-exam-reviewer-gabay/logo.jpg",
     "gallery": [],
     "year": 2026
   },
@@ -1563,10 +1563,10 @@
     "domainLabel": "EdTech & AI",
     "status": "internal",
     "statusLabel": "Internal Tool",
-    "tier": "production",
-    "featured": false,
-    "bentoOrder": null,
-    "bentoTile": null,
+    "tier": "flagship",
+    "featured": true,
+    "bentoOrder": 10,
+    "bentoTile": "J",
     "tagline": "Parses faculty syllabi and compiles standardized institutional weekly Lesson Plans (LPs).",
     "summary": "Parses faculty syllabi and compiles standardized institutional weekly Lesson Plans (LPs).",
     "highlightMetric": null,
@@ -1624,10 +1624,10 @@
     "domainLabel": "EdTech & AI",
     "status": "internal",
     "statusLabel": "Internal Tool",
-    "tier": "production",
-    "featured": false,
-    "bentoOrder": null,
-    "bentoTile": null,
+    "tier": "flagship",
+    "featured": true,
+    "bentoOrder": 9,
+    "bentoTile": "I",
     "tagline": "Complete relational database archive, visual editor, and batch document exporter for college syllabi.",
     "summary": "Complete relational database archive, visual editor, and batch document exporter for college syllabi.",
     "highlightMetric": null,
@@ -1688,10 +1688,10 @@
     "statusLabel": "Offline LAN",
     "tier": "flagship",
     "featured": true,
-    "bentoOrder": 2,
-    "bentoTile": "D",
-    "tagline": "Operates on a local wireless router with zero internet connection to deliver synchronized lectures and...",
-    "summary": "Operates on a local wireless router with zero internet connection to deliver synchronized lectures and track student work.",
+    "bentoOrder": 3,
+    "bentoTile": "C",
+    "tagline": "Offline-first LMS & real-time lecture delivery engine operating over a local Wi-Fi hotspot with 0 internet.",
+    "summary": "Complete offline Learning Management System (LMS) and real-time classroom orchestration tool designed for off-grid education over a local Wi-Fi hotspot with zero internet dependency.",
     "highlightMetric": {
       "value": "67 Slides",
       "label": "On-Disk Schematics"
@@ -1732,19 +1732,22 @@
     },
     "caseStudy": {
       "role": "Operates on a local wireless router with zero internet connection to deliver synchronized lectures and track student work.",
-      "problem": "Operates on a local wireless router with zero internet connection to deliver synchronized lectures and track student work.",
+      "problem": "In off-grid and bandwidth-constrained campus environments, students lack internet access for modern digital learning platforms. LocalClassroom turns any instructor laptop into a zero-internet Wi-Fi server hosting synchronized slides, live quizzes, assignment turn-ins, and file libraries.",
       "architecture": "Offline Wi-Fi LAN Hub",
       "features": [
-        "Real-time WebSocket slide synchronization",
-        "live in-lecture student polling",
-        "digital lab submission dropboxes",
-        "local IP discovery",
-        "gradebook export."
+        "Multi-Course & Section Isolation: BCP112, BCP211, BCP311, and IOM courses with section-filtered portals",
+        "Real-Time WebSocket Slide Broadcast: Synchronizes instructor slides across student mobile screens in real time",
+        "Interactive Live MCQ Polling: Real-time vote graphing with screen locking on answer reveal",
+        "Time-Bound Coursework & Extension Engine: Strict submission windows with individual late-pass grant overrides",
+        "Sandboxed In-Browser Code Inspector: Safely previews student HTML/JS uploads with XSS containment",
+        "Offline Shared Library Drive: High-speed local Wi-Fi distribution of large APKs, PDFs, and course binaries",
+        "Automated Local IP Discovery: Auto-detects hotspot IP and provides QR connection onboarding",
+        "67 High-Resolution Technical Schematics: Comprehensive visual library for PLC ladder logic, CSS box model, and safety layouts"
       ],
       "outcome": null,
       "screenshots": []
     },
-    "hero": null,
+    "hero": "/projects/localclassroom/fig1_1_plc_vs_relay_panel.png",
     "gallery": [],
     "year": 2026
   },
@@ -1950,10 +1953,10 @@
     "domainLabel": "Platforms & Utilities",
     "status": "live",
     "statusLabel": "Live Cloud",
-    "tier": "flagship",
-    "featured": true,
-    "bentoOrder": 5,
-    "bentoTile": "E",
+    "tier": "production",
+    "featured": false,
+    "bentoOrder": null,
+    "bentoTile": null,
     "tagline": "Free public civic legal repository for Philippine Republic Acts, City Ordinances, and Supreme Court rulings.",
     "summary": "Free public civic legal repository for Philippine Republic Acts, City Ordinances, and Supreme Court rulings.",
     "highlightMetric": null,

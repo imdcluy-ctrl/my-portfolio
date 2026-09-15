@@ -8,30 +8,51 @@ interface Props {
 
 const { projects } = Astro.props;
 
-// Filter and sort the 6 marquee bento flagship projects
+// Filter and sort the 10 user-designated flagship projects
 const flagships = projects
-  .filter(p => p.data.bentoOrder !== null)
+  .filter(p => p.data.featured && p.data.bentoOrder !== null)
   .sort((a, b) => (a.data.bentoOrder || 0) - (b.data.bentoOrder || 0));
+
+const duo = flagships.slice(0, 2);
+const spotlight = flagships[2]; // LocalClassroom
+const standard = flagships.slice(3);
 ---
 
-<section class="w-full my-8">
-  <div class="mb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+<section class="w-full my-8 space-y-6">
+  <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-[var(--color-line)] pb-3">
     <div>
       <h2 class="font-display font-bold text-2xl sm:text-3xl text-[var(--color-ink)]">
         Flagship Systems
       </h2>
       <p class="text-sm text-[var(--color-ink-muted)]">
-        Marquee institutional platforms, offline engines, and civic tools.
+        The 10 primary institutional platforms, athletic tournament suites, AI generators, and offline networks.
       </p>
     </div>
-    <span class="text-xs font-mono text-[var(--color-ink-muted)]">
-      6 Flagships · 100% Operational
+    <span class="text-xs font-mono text-[var(--color-ink-muted)] shrink-0">
+      10 Flagships · 100% Operational
     </span>
   </div>
 
-  <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-6 lg:auto-rows-[minmax(180px,1fr)]">
-    {flagships.map((project, idx) => (
-      <BentoTile project={project} index={idx} />
-    ))}
-  </div>
+  <!-- Marquee Duo -->
+  {duo.length > 0 && (
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      {duo.map((project, idx) => (
+        <BentoTile project={project} index={idx} featuredTier="duo" />
+      ))}
+    </div>
+  )}
+
+  <!-- Architectural Spotlight (LocalClassroom) -->
+  {spotlight && (
+    <BentoTile project={spotlight} index={2} featuredTier="spotlight" />
+  )}
+
+  <!-- Remaining 7 Flagship Systems -->
+  {standard.length > 0 && (
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {standard.map((project, idx) => (
+        <BentoTile project={project} index={idx + 3} featuredTier="standard" />
+      ))}
+    </div>
+  )}
 </section>

@@ -57,7 +57,7 @@ export const projectSchema = z.object({
   statusLabel: z.string().min(1).describe('Human-readable status badge text (e.g. Live Web, Offline LAN)'),
   tier: z.enum(TIERS).default('production').describe('Project tier: flagship, production, or archive'),
   featured: z.boolean().default(false).describe('Flag indicating if project is featured / flagship'),
-  bentoOrder: z.number().int().min(1).max(6).nullable().default(null).describe('1-6 for the 6 marquee bento hero tiles, null for all others'),
+  bentoOrder: z.number().int().min(1).max(12).nullable().default(null).describe('1-10 for marquee bento hero tiles, null for all others'),
   bentoTile: z.string().nullable().default(null).describe('A-F tile identifier for desktop bento grid layout (e.g. A, B, C, D, E, F)'),
 
   // Content & Messaging
