@@ -1,0 +1,2470 @@
+[
+  {
+    "id": "ched-compliance-management-app",
+    "slug": "ched-compliance-management-app",
+    "title": "CHED Compliance Management App",
+    "name": "CHED Compliance Management App",
+    "domain": "institutional",
+    "domainLabel": "Institutional Systems",
+    "status": "live",
+    "statusLabel": "Live Cloud",
+    "tier": "flagship",
+    "featured": true,
+    "bentoOrder": 4,
+    "bentoTile": "B",
+    "tagline": "Built for the Computer Technology Department Chair and CHED Regional Quality Assessment Team (RQAT)...",
+    "summary": "Built for the Computer Technology Department Chair and CHED Regional Quality Assessment Team (RQAT) evaluators to audit BIndTech compliance under CMO No. 79.",
+    "highlightMetric": {
+      "value": "CMO 79",
+      "label": "BIndTech Audit Engine"
+    },
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "React",
+        "Next.js",
+        "Tailwind CSS",
+        "TypeScript",
+        "HTML5/CSS3"
+      ],
+      "backend": [
+        "Google Apps Script"
+      ],
+      "data": [
+        "Cloudflare D1"
+      ],
+      "infra": [
+        "Cloudflare Pages"
+      ]
+    },
+    "links": {
+      "live": "https://zppsu-ched-compliance.pages.dev",
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\CHED Compliance Management App",
+      "notes": "Chair (Admin): chair.malangas@zppsu.edu.ph / admin123 | Evaluator: evaluator.ched@ched.gov.ph / ched2026 | Faculty: faculty123 (19 instructors)"
+    },
+    "accessNotes": "Chair (Admin): chair.malangas@zppsu.edu.ph / admin123 | Evaluator: evaluator.ched@ched.gov.ph / ched2026 | Faculty: faculty123 (19 instructors)",
+    "runCommand": "npm run dev (Port 3000)",
+    "run": {
+      "commands": [
+        "npm run dev (Port 3000)"
+      ],
+      "url": "http://localhost:3000"
+    },
+    "caseStudy": {
+      "role": "Built for the **Computer Technology Department Chair** and **CHED Regional Quality Assessment Team (RQAT)** evaluators to audit BIndTech compliance under CMO No. 79.",
+      "problem": "Built for the Computer Technology Department Chair and CHED Regional Quality Assessment Team (RQAT) evaluators to audit BIndTech compliance under CMO No. 79.",
+      "architecture": "Live Cloud (https://zppsu-ched-compliance.pages.dev)",
+      "features": [
+        "Folders A–H compliance progress dials",
+        "PDF document review queue",
+        "faculty roster credential inspection (19 instructors)",
+        "CHED Annex C/D/E automated export",
+        "interactive evaluator inspection mode."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "comtech-one-web-app",
+    "slug": "comtech-one-web-app",
+    "title": "Comtech One Web App",
+    "name": "Comtech One Web App",
+    "domain": "institutional",
+    "domainLabel": "Institutional Systems",
+    "status": "internal",
+    "statusLabel": "Internal Tool",
+    "tier": "production",
+    "featured": false,
+    "bentoOrder": null,
+    "bentoTile": null,
+    "tagline": "Central institutional portal for the BIndTech Computer Technology department.",
+    "summary": "Central institutional portal for the BIndTech Computer Technology department.",
+    "highlightMetric": null,
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "Vite",
+        "Tailwind CSS",
+        "HTML5/CSS3"
+      ],
+      "backend": [
+        "Hono"
+      ],
+      "data": [
+        "SQLite",
+        "Cloudflare D1",
+        "Cloudflare R2",
+        "Drizzle ORM"
+      ],
+      "infra": [
+        "Cloudflare Pages",
+        "Cloudflare Workers"
+      ]
+    },
+    "links": {
+      "live": null,
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\Comtech One Web App",
+      "notes": null
+    },
+    "accessNotes": null,
+    "runCommand": "npm run dev / wrangler pages deploy dist",
+    "run": {
+      "commands": [
+        "npm run dev / wrangler pages deploy dist"
+      ],
+      "url": null
+    },
+    "caseStudy": {
+      "role": "Central institutional portal for the BIndTech Computer Technology department.",
+      "problem": "Central institutional portal for the BIndTech Computer Technology department.",
+      "architecture": "Cloudflare Pages",
+      "features": [
+        "Edge serverless backend",
+        "D1 database migrations",
+        "curriculum mapping framework",
+        "syllabus repository",
+        "ready-to-render wireframe showcases."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "school-directory-system",
+    "slug": "school-directory-system",
+    "title": "School Directory System",
+    "name": "School Directory System",
+    "domain": "institutional",
+    "domainLabel": "Institutional Systems",
+    "status": "internal",
+    "statusLabel": "Internal Tool",
+    "tier": "production",
+    "featured": false,
+    "bentoOrder": null,
+    "bentoTile": null,
+    "tagline": "Institutional knowledge hub for students, faculty, and administrative staff.",
+    "summary": "Institutional knowledge hub for students, faculty, and administrative staff.",
+    "highlightMetric": null,
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "React",
+        "Next.js",
+        "Tailwind CSS",
+        "HTML5/CSS3",
+        "Lucide React"
+      ],
+      "backend": [],
+      "data": [
+        "Supabase"
+      ],
+      "infra": []
+    },
+    "links": {
+      "live": null,
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\School Directory System",
+      "notes": null
+    },
+    "accessNotes": null,
+    "runCommand": "npm run dev / run_dev.bat",
+    "run": {
+      "commands": [
+        "npm run dev / run_dev.bat"
+      ],
+      "url": null
+    },
+    "caseStudy": {
+      "role": "Institutional knowledge hub for students, faculty, and administrative staff.",
+      "problem": "Institutional knowledge hub for students, faculty, and administrative staff.",
+      "architecture": "Cloud-Ready / Local",
+      "features": [
+        "Campus memo circulars",
+        "school policy handbooks",
+        "university organizational charts",
+        "DRRMO 24/7 disaster response & emergency hotlines."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "student-document-receipt-tracker",
+    "slug": "student-document-receipt-tracker",
+    "title": "Student Document-Receipt Tracker",
+    "name": "Student Document-Receipt Tracker",
+    "domain": "institutional",
+    "domainLabel": "Institutional Systems",
+    "status": "internal",
+    "statusLabel": "Internal Tool",
+    "tier": "production",
+    "featured": false,
+    "bentoOrder": null,
+    "bentoTile": null,
+    "tagline": "High-volume student document ingestion, verification, and receipt tracking.",
+    "summary": "High-volume student document ingestion, verification, and receipt tracking.",
+    "highlightMetric": null,
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "React",
+        "Next.js",
+        "Tailwind CSS",
+        "HTML5/CSS3",
+        "Shadcn UI",
+        "Base UI"
+      ],
+      "backend": [
+        "Playwright"
+      ],
+      "data": [
+        "Cloudflare R2",
+        "AWS S3",
+        "Supabase"
+      ],
+      "infra": []
+    },
+    "links": {
+      "live": null,
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\Student Document-Receipt Tracker",
+      "notes": null
+    },
+    "accessNotes": null,
+    "runCommand": "npm run dev -p 8088",
+    "run": {
+      "commands": [
+        "npm run dev -p 8088"
+      ],
+      "url": "http://localhost:8088"
+    },
+    "caseStudy": {
+      "role": "High-volume student document ingestion, verification, and receipt tracking.",
+      "problem": "High-volume student document ingestion, verification, and receipt tracking.",
+      "architecture": "Cloud-Native / Local",
+      "features": [
+        "Direct-to-storage presigned uploads",
+        "Supabase database synchronization",
+        "CSV bulk imports",
+        "rigorous end-to-end Playwright tests."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "flexible-daily-admissions-tracking-web-app",
+    "slug": "flexible-daily-admissions-tracking-web-app",
+    "title": "Flexible Daily Admissions Tracking Web App",
+    "name": "Flexible Daily Admissions Tracking Web App",
+    "domain": "institutional",
+    "domainLabel": "Institutional Systems",
+    "status": "live",
+    "statusLabel": "Live Cloud",
+    "tier": "flagship",
+    "featured": true,
+    "bentoOrder": 6,
+    "bentoTile": "F",
+    "tagline": "Executive admissions screening tracker for Program Chairs and Deans.",
+    "summary": "Executive admissions screening tracker for Program Chairs and Deans.",
+    "highlightMetric": null,
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "HTML5/CSS3",
+        "Lucide React"
+      ],
+      "backend": [],
+      "data": [
+        "Supabase"
+      ],
+      "infra": [
+        "Vercel"
+      ]
+    },
+    "links": {
+      "live": "https://zppsu-admissions.vercel.app",
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\Flexible Daily Admissions Tracking Web App",
+      "notes": "Dean: superior.admin@school.edu.ph / AdminPass2026! | Chair: chair.comtech@school.edu.ph / CptChair2026! | Instant LocalStorage Demo Mode"
+    },
+    "accessNotes": "Dean: superior.admin@school.edu.ph / AdminPass2026! | Chair: chair.comtech@school.edu.ph / CptChair2026! | Instant LocalStorage Demo Mode",
+    "runCommand": "npm run dev",
+    "run": {
+      "commands": [
+        "npm run dev"
+      ],
+      "url": null
+    },
+    "caseStudy": {
+      "role": "Executive admissions screening tracker for Program Chairs and Deans.",
+      "problem": "Executive admissions screening tracker for Program Chairs and Deans.",
+      "architecture": "Live Cloud (https://zppsu-admissions.vercel.app)",
+      "features": [
+        "Automated arithmetic validation checks",
+        "drag-and-drop roster attachment uploader",
+        "executive dashboard with custom SVG trend charts",
+        "clearance rate metrics",
+        "dual LocalStorage demo / Supabase cloud modes."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "screening-app",
+    "slug": "screening-app",
+    "title": "Screening_App",
+    "name": "Screening_App",
+    "domain": "institutional",
+    "domainLabel": "Institutional Systems",
+    "status": "offline-lan",
+    "statusLabel": "Offline LAN",
+    "tier": "production",
+    "featured": false,
+    "bentoOrder": null,
+    "bentoTile": null,
+    "tagline": "Battle-tested physical admissions intake system handling hundreds of applicants on screening days.",
+    "summary": "Battle-tested physical admissions intake system handling hundreds of applicants on screening days.",
+    "highlightMetric": {
+      "value": "5 Stations",
+      "label": "Physical Intake Line"
+    },
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "Jinja2"
+      ],
+      "backend": [
+        "Flask",
+        "Python",
+        "Speech Synthesis"
+      ],
+      "data": [
+        "CSV"
+      ],
+      "infra": []
+    },
+    "links": {
+      "live": null,
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\Screening_App",
+      "notes": null
+    },
+    "accessNotes": null,
+    "runCommand": "python app.py (Port 5000)",
+    "run": {
+      "commands": [
+        "python app.py (Port 5000)"
+      ],
+      "url": "http://localhost:5000"
+    },
+    "caseStudy": {
+      "role": "Battle-tested physical admissions intake system handling hundreds of applicants on screening days.",
+      "problem": "Battle-tested physical admissions intake system handling hundreds of applicants on screening days.",
+      "architecture": "Local LAN Physical Multi-Station Setup",
+      "features": [
+        "5 physical stations: Station 1 (Intake)",
+        "Station 2 (Timed Essay Writing Desk)",
+        "Station 3 (Oral Reading Assessment)",
+        "Station 4 (Speech-synthesized TV Queue Display)",
+        "Station 5 (Chair Live Monitor & Messenger GC roster compiler)."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "screening-app-v2",
+    "slug": "screening-app-v2",
+    "title": "Screening_App_V2",
+    "name": "Screening_App_V2",
+    "domain": "institutional",
+    "domainLabel": "Institutional Systems",
+    "status": "offline-lan",
+    "statusLabel": "Offline LAN",
+    "tier": "production",
+    "featured": false,
+    "bentoOrder": null,
+    "bentoTile": null,
+    "tagline": "Relational rewrite of the screening engine with ACID transactions and multi-campus context switching.",
+    "summary": "Relational rewrite of the screening engine with ACID transactions and multi-campus context switching.",
+    "highlightMetric": null,
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "Jinja2"
+      ],
+      "backend": [
+        "Flask",
+        "Python"
+      ],
+      "data": [
+        "SQLite"
+      ],
+      "infra": []
+    },
+    "links": {
+      "live": null,
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\Screening_App_V2",
+      "notes": null
+    },
+    "accessNotes": null,
+    "runCommand": "python app.py",
+    "run": {
+      "commands": [
+        "python app.py"
+      ],
+      "url": null
+    },
+    "caseStudy": {
+      "role": "Relational rewrite of the screening engine with ACID transactions and multi-campus context switching.",
+      "problem": "Relational rewrite of the screening engine with ACID transactions and multi-campus context switching.",
+      "architecture": "Local LAN Station System",
+      "features": [
+        "Program realities matrix",
+        "relational student tracking",
+        "deficiency logging",
+        "instantaneous status reporting."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "enrollment-app",
+    "slug": "enrollment-app",
+    "title": "Enrollment_App",
+    "name": "Enrollment_App",
+    "domain": "institutional",
+    "domainLabel": "Institutional Systems",
+    "status": "offline-lan",
+    "statusLabel": "Offline LAN",
+    "tier": "production",
+    "featured": false,
+    "bentoOrder": null,
+    "bentoTile": null,
+    "tagline": "Student advising and section balancing portal.",
+    "summary": "Student advising and section balancing portal.",
+    "highlightMetric": null,
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "Jinja2"
+      ],
+      "backend": [
+        "Flask",
+        "Python",
+        "ReportLab",
+        "python-docx"
+      ],
+      "data": [
+        "CSV"
+      ],
+      "infra": []
+    },
+    "links": {
+      "live": null,
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\Enrollment_App",
+      "notes": null
+    },
+    "accessNotes": null,
+    "runCommand": "python Advising_App.py",
+    "run": {
+      "commands": [
+        "python Advising_App.py"
+      ],
+      "url": null
+    },
+    "caseStudy": {
+      "role": "Student advising and section balancing portal.",
+      "problem": "Student advising and section balancing portal.",
+      "architecture": "Local LAN System",
+      "features": [
+        "Tracks incoming student standing",
+        "back subjects",
+        "blue forms",
+        "and cashier receipts",
+        "automated daily PDF/DOCX transmittal report generation."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "document-submission-tracker-monitoring",
+    "slug": "document-submission-tracker-monitoring",
+    "title": "Document_Submission_Tracker-Monitoring",
+    "name": "Document_Submission_Tracker-Monitoring",
+    "domain": "institutional",
+    "domainLabel": "Institutional Systems",
+    "status": "live",
+    "statusLabel": "Live Cloud",
+    "tier": "production",
+    "featured": false,
+    "bentoOrder": null,
+    "bentoTile": null,
+    "tagline": "$0-cost department document submission portal.",
+    "summary": "$0-cost department document submission portal.",
+    "highlightMetric": null,
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "HTML5/CSS3"
+      ],
+      "backend": [
+        "Google Apps Script"
+      ],
+      "data": [
+        "Google Sheets",
+        "Google Drive API"
+      ],
+      "infra": []
+    },
+    "links": {
+      "live": "https://script.google.com/macros/s/AKfycbypRMB1ssxs5f8JZ1kY3xHYpG1tziueKVh_Tr75SGwFBrLb2fECXXwRlKGHuqMPhbfyNQ/exec",
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\Document_Submission_Tracker-Monitoring",
+      "notes": "Program Chair Passcode: ZPPSU-CT-2026"
+    },
+    "accessNotes": "Program Chair Passcode: ZPPSU-CT-2026",
+    "runCommand": null,
+    "run": {
+      "commands": [],
+      "url": null
+    },
+    "caseStudy": {
+      "role": "$0-cost department document submission portal.",
+      "problem": "$0-cost department document submission portal.",
+      "architecture": "Live Cloud (Live GAS Web App)",
+      "features": [
+        "Direct Google Drive file storage",
+        "Google Sheets ledger",
+        "faculty upload portal",
+        "passcode-secured Program Chair dashboard (ZPPSU-CT-2026)."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "nc-tracker",
+    "slug": "nc-tracker",
+    "title": "NC Tracker",
+    "name": "NC Tracker",
+    "domain": "institutional",
+    "domainLabel": "Institutional Systems",
+    "status": "internal",
+    "statusLabel": "Internal Tool",
+    "tier": "production",
+    "featured": false,
+    "bentoOrder": null,
+    "bentoTile": null,
+    "tagline": "TESDA National Certificate qualification tracking for BIndTech-CpT students.",
+    "summary": "TESDA National Certificate qualification tracking for BIndTech-CpT students.",
+    "highlightMetric": null,
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "Streamlit"
+      ],
+      "backend": [
+        "Python"
+      ],
+      "data": [
+        "SQLite",
+        "Pandas"
+      ],
+      "infra": []
+    },
+    "links": {
+      "live": null,
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\NC Tracker",
+      "notes": null
+    },
+    "accessNotes": null,
+    "runCommand": "streamlit run app.py",
+    "run": {
+      "commands": [
+        "streamlit run app.py"
+      ],
+      "url": null
+    },
+    "caseStudy": {
+      "role": "TESDA National Certificate qualification tracking for BIndTech-CpT students.",
+      "problem": "TESDA National Certificate qualification tracking for BIndTech-CpT students.",
+      "architecture": "Local Desktop Web App",
+      "features": [
+        "Monitors CSS NC II",
+        "Visual Graphic Design NC III",
+        "Technical Drafting NC II",
+        "Broadband Installation NC II",
+        "and Programming NC III training hours and certification status."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "prospectus-generator",
+    "slug": "prospectus-generator",
+    "title": "Prospectus Generator",
+    "name": "Prospectus Generator",
+    "domain": "institutional",
+    "domainLabel": "Institutional Systems",
+    "status": "offline-lan",
+    "statusLabel": "Offline LAN",
+    "tier": "production",
+    "featured": false,
+    "bentoOrder": null,
+    "bentoTile": null,
+    "tagline": "Evaluates historical student records against curriculum prerequisites and compiles pixel-perfect official...",
+    "summary": "Evaluates historical student records against curriculum prerequisites and compiles pixel-perfect official printable prospectus PDFs.",
+    "highlightMetric": null,
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "Jinja2"
+      ],
+      "backend": [
+        "FastAPI",
+        "Python",
+        "Playwright",
+        "openpyxl"
+      ],
+      "data": [],
+      "infra": []
+    },
+    "links": {
+      "live": null,
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\Prospectus Generator",
+      "notes": null
+    },
+    "accessNotes": null,
+    "runCommand": "python backend/main.py",
+    "run": {
+      "commands": [
+        "python backend/main.py"
+      ],
+      "url": null
+    },
+    "caseStudy": {
+      "role": "Evaluates historical student records against curriculum prerequisites and compiles pixel-perfect official printable prospectus PDFs.",
+      "problem": "Evaluates historical student records against curriculum prerequisites and compiles pixel-perfect official printable prospectus PDFs.",
+      "architecture": "Local LAN / PDF Engine",
+      "features": [
+        "Evaluates historical student records against curriculum prerequisites and compiles pixel-perfect official printable prospectus PDFs."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "epdu-palaro-2026-chess-tournament",
+    "slug": "epdu-palaro-2026-chess-tournament",
+    "title": "EPDU Palaro 2026 - Chess Tournament",
+    "name": "EPDU Palaro 2026 - Chess Tournament",
+    "domain": "sports",
+    "domainLabel": "Sports & Tournaments",
+    "status": "live",
+    "statusLabel": "Live Cloud",
+    "tier": "flagship",
+    "featured": true,
+    "bentoOrder": 3,
+    "bentoTile": "C",
+    "tagline": "Inter-campus chess tournament platform managing 5 ZPPSU external campuses (Kabasalan, Siay, Malangas, etc.).",
+    "summary": "Inter-campus chess tournament platform managing 5 ZPPSU external campuses (Kabasalan, Siay, Malangas, etc.).",
+    "highlightMetric": {
+      "value": "5 Campuses",
+      "label": "Inter-Campus Network"
+    },
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "TypeScript",
+        "HTML5/CSS3"
+      ],
+      "backend": [
+        "Hono"
+      ],
+      "data": [
+        "SQLite",
+        "Cloudflare D1",
+        "Drizzle ORM"
+      ],
+      "infra": [
+        "Cloudflare Workers",
+        "Vitest"
+      ]
+    },
+    "links": {
+      "live": "https://epdu-chess-2026.imdcluy.workers.dev",
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\EPDU Palaro 2026 - Chess Tournament",
+      "notes": "Admin Route: /admin/login | Master Password: palaro2026admin"
+    },
+    "accessNotes": "Admin Route: /admin/login | Master Password: palaro2026admin",
+    "runCommand": null,
+    "run": {
+      "commands": [],
+      "url": null
+    },
+    "caseStudy": {
+      "role": "Inter-campus chess tournament platform managing 5 ZPPSU external campuses (Kabasalan, Siay, Malangas, etc.).",
+      "problem": "Inter-campus chess tournament platform managing 5 ZPPSU external campuses (Kabasalan, Siay, Malangas, etc.).",
+      "architecture": "Live Cloud (https://epdu-chess-2026.imdcluy.workers.dev)",
+      "features": [
+        "Online athlete registration",
+        "document verification",
+        "snapshot JSON export to offline venue LAN server",
+        "arbiter scoring sync. Admin route: /admin/login (palaro2026admin)."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "cpt-palaro-management-system",
+    "slug": "cpt-palaro-management-system",
+    "title": "CPT Palaro Management System",
+    "name": "CPT Palaro Management System",
+    "domain": "sports",
+    "domainLabel": "Sports & Tournaments",
+    "status": "live",
+    "statusLabel": "Live Cloud",
+    "tier": "production",
+    "featured": false,
+    "bentoOrder": null,
+    "bentoTile": null,
+    "tagline": "Departmental sports fest management system for 302 athletes across 32 sporting and cultural events.",
+    "summary": "Departmental sports fest management system for 302 athletes across 32 sporting and cultural events.",
+    "highlightMetric": {
+      "value": "302 Athletes",
+      "label": "32 Campus Events"
+    },
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": "302 athletes"
+    },
+    "stack": {
+      "frontend": [
+        "React",
+        "Vite",
+        "TanStack Query",
+        "QR Codes"
+      ],
+      "backend": [
+        "Node.js",
+        "Express"
+      ],
+      "data": [
+        "Better-SQLite3",
+        "SQLite",
+        "Supabase"
+      ],
+      "infra": [
+        "Netlify"
+      ]
+    },
+    "links": {
+      "live": "https://cpt-palaro.netlify.app",
+      "repo": "https://github.com/DarkPrince15/Cpt-Palaro-Management-Sys.git",
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\CPT Palaro Management System",
+      "notes": "Master Admin: admin / admin1234 | Coordinators: reymark.sipe / palaro2026, randy.monteza / palaro2026 | Test: test.student / palaro2026 | GitHub: https://github.com/DarkPrince15/Cpt-Palaro-Management-Sys.git"
+    },
+    "accessNotes": "Master Admin: admin / admin1234 | Coordinators: reymark.sipe / palaro2026, randy.monteza / palaro2026 | Test: test.student / palaro2026 | GitHub: https://github.com/DarkPrince15/Cpt-Palaro-Management-Sys.git",
+    "runCommand": null,
+    "run": {
+      "commands": [],
+      "url": null
+    },
+    "caseStudy": {
+      "role": "Departmental sports fest management system for 302 athletes across 32 sporting and cultural events.",
+      "problem": "Departmental sports fest management system for 302 athletes across 32 sporting and cultural events.",
+      "architecture": "Live Cloud (https://cpt-palaro.netlify.app & https://comtech-palaro-webapp.netlify.app)",
+      "features": [
+        "Dynamic QR code athlete credentials",
+        "coach/arbiter approval queues",
+        "public team standings",
+        "role-based dashboards (admin1234, palaro2026)."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "local-palaro-chess-tournament-management-system",
+    "slug": "local-palaro-chess-tournament-management-system",
+    "title": "Local Palaro Chess Tournament Management System",
+    "name": "Local Palaro Chess Tournament Management System",
+    "domain": "sports",
+    "domainLabel": "Sports & Tournaments",
+    "status": "internal",
+    "statusLabel": "Internal Tool",
+    "tier": "production",
+    "featured": false,
+    "bentoOrder": null,
+    "bentoTile": null,
+    "tagline": "Standalone organizer laptop server powering venue TV screens and arbiter tablets during live matches...",
+    "summary": "Standalone organizer laptop server powering venue TV screens and arbiter tablets during live matches without internet.",
+    "highlightMetric": null,
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "QR Codes"
+      ],
+      "backend": [
+        "Node.js",
+        "Express",
+        "Multer",
+        "Server-Sent Events"
+      ],
+      "data": [
+        "Better-SQLite3",
+        "SQLite"
+      ],
+      "infra": []
+    },
+    "links": {
+      "live": null,
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\Local Palaro Chess Tournament Management System",
+      "notes": null
+    },
+    "accessNotes": null,
+    "runCommand": "node server.js / start.bat (Port 3000)",
+    "run": {
+      "commands": [
+        "node server.js / start.bat (Port 3000)"
+      ],
+      "url": "http://localhost:3000"
+    },
+    "caseStudy": {
+      "role": "Standalone organizer laptop server powering venue TV screens and arbiter tablets during live matches without internet.",
+      "problem": "Standalone organizer laptop server powering venue TV screens and arbiter tablets during live matches without internet.",
+      "architecture": "Standalone Hardware Venue Server",
+      "features": [
+        "Dynamic TV display modes",
+        "automated Swiss pairing generation",
+        "real-time board updates via SSE",
+        "Wi-Fi QR onboarding."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "chess-tournament-management-system",
+    "slug": "chess-tournament-management-system",
+    "title": "Chess Tournament Management System",
+    "name": "Chess Tournament Management System",
+    "domain": "sports",
+    "domainLabel": "Sports & Tournaments",
+    "status": "offline-lan",
+    "statusLabel": "Offline LAN",
+    "tier": "production",
+    "featured": false,
+    "bentoOrder": null,
+    "bentoTile": null,
+    "tagline": "Pairing engine and tiebreak calculator.",
+    "summary": "Pairing engine and tiebreak calculator.",
+    "highlightMetric": null,
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "HTML5/CSS3"
+      ],
+      "backend": [
+        "Node.js",
+        "Express"
+      ],
+      "data": [],
+      "infra": []
+    },
+    "links": {
+      "live": null,
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\Chess Tournament Management System",
+      "notes": null
+    },
+    "accessNotes": null,
+    "runCommand": "node server.js",
+    "run": {
+      "commands": [
+        "node server.js"
+      ],
+      "url": null
+    },
+    "caseStudy": {
+      "role": "Pairing engine and tiebreak calculator.",
+      "problem": "Pairing engine and tiebreak calculator.",
+      "architecture": "Local LAN Tool",
+      "features": [
+        "Calculates FIDE-standard Buchholz",
+        "Sonneborn-Berger",
+        "and Direct Encounter tiebreaks",
+        "round-robin and Swiss pairing schedules."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "event-attendance-logger",
+    "slug": "event-attendance-logger",
+    "title": "Event Attendance Logger",
+    "name": "Event Attendance Logger",
+    "domain": "sports",
+    "domainLabel": "Sports & Tournaments",
+    "status": "offline-lan",
+    "statusLabel": "Offline LAN",
+    "tier": "production",
+    "featured": false,
+    "bentoOrder": null,
+    "bentoTile": null,
+    "tagline": "Single-user organizer app for campus loyalty weeks and seminars.",
+    "summary": "Single-user organizer app for campus loyalty weeks and seminars.",
+    "highlightMetric": null,
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "HTML5/CSS3"
+      ],
+      "backend": [
+        "FastAPI",
+        "Python",
+        "Uvicorn",
+        "python-docx"
+      ],
+      "data": [
+        "SQLite"
+      ],
+      "infra": []
+    },
+    "links": {
+      "live": null,
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\Event Attendance Logger",
+      "notes": null
+    },
+    "accessNotes": null,
+    "runCommand": "uvicorn app.main:app --reload",
+    "run": {
+      "commands": [
+        "uvicorn app.main:app --reload"
+      ],
+      "url": null
+    },
+    "caseStudy": {
+      "role": "Single-user organizer app for campus loyalty weeks and seminars.",
+      "problem": "Single-user organizer app for campus loyalty weeks and seminars.",
+      "architecture": "Local LAN Tool",
+      "features": [
+        "Event session builder",
+        "attendance tracking",
+        "team ranking engine",
+        "automated .docx summary compilation."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "palaro-submission-of-music",
+    "slug": "palaro-submission-of-music",
+    "title": "Palaro Submission of Music",
+    "name": "Palaro Submission of Music",
+    "domain": "sports",
+    "domainLabel": "Sports & Tournaments",
+    "status": "live",
+    "statusLabel": "Live Cloud",
+    "tier": "production",
+    "featured": false,
+    "bentoOrder": null,
+    "bentoTile": null,
+    "tagline": "Audio submission hub for cultural competitions (Cheerdance, Solo, Duet).",
+    "summary": "Audio submission hub for cultural competitions (Cheerdance, Solo, Duet).",
+    "highlightMetric": null,
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "JavaScript",
+        "HTML5/CSS3"
+      ],
+      "backend": [
+        "Google Apps Script"
+      ],
+      "data": [],
+      "infra": []
+    },
+    "links": {
+      "live": "https://script.google.com/macros/s/AKfycbzcRiQZuykFxn9JyoSelVM0oCRsNEQz3jmDTe-oX_UMWT9zyxPTQ_yOfWNCTtSiXj9oxg/exec",
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\palaro submission of music",
+      "notes": "Public Intake (Cheerdance, Solo, Duet, Pop Dance audio uploads directly to Google Drive)"
+    },
+    "accessNotes": "Public Intake (Cheerdance, Solo, Duet, Pop Dance audio uploads directly to Google Drive)",
+    "runCommand": null,
+    "run": {
+      "commands": [],
+      "url": null
+    },
+    "caseStudy": {
+      "role": "Audio submission hub for cultural competitions (Cheerdance, Solo, Duet).",
+      "problem": "Audio submission hub for cultural competitions (Cheerdance, Solo, Duet).",
+      "architecture": "Live Cloud (Live Webhook)",
+      "features": [
+        "Direct Google Drive high-speed audio uploads",
+        "competition category tagging",
+        "coordinator review dashboard."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "board-exam-reviewer-gabay",
+    "slug": "board-exam-reviewer-gabay",
+    "title": "Board Exam Reviewer Web App (Gabay)",
+    "name": "Board Exam Reviewer Web App (Gabay)",
+    "domain": "edtech",
+    "domainLabel": "EdTech & AI",
+    "status": "offline-lan",
+    "statusLabel": "Offline LAN",
+    "tier": "flagship",
+    "featured": true,
+    "bentoOrder": 1,
+    "bentoTile": "A",
+    "tagline": "Offline-first reviewer preparing examinees for the Philippine Civil Service Examination (CSE-PPT...",
+    "summary": "Offline-first reviewer preparing examinees for the Philippine Civil Service Examination (CSE-PPT Professional).",
+    "highlightMetric": {
+      "value": "170 Items",
+      "label": "Timed Exam Simulation"
+    },
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "React",
+        "Vite"
+      ],
+      "backend": [
+        "Google Gemini API"
+      ],
+      "data": [
+        "Supabase",
+        "Dexie.js",
+        "IndexedDB"
+      ],
+      "infra": [
+        "PWA",
+        "Sentry",
+        "PostHog"
+      ]
+    },
+    "links": {
+      "live": null,
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\Board Exam Reviewer Web App",
+      "notes": null
+    },
+    "accessNotes": null,
+    "runCommand": "npm run dev",
+    "run": {
+      "commands": [
+        "npm run dev"
+      ],
+      "url": null
+    },
+    "caseStudy": {
+      "role": "Offline-first reviewer preparing examinees for the Philippine Civil Service Examination (CSE-PPT Professional).",
+      "problem": "Offline-first reviewer preparing examinees for the Philippine Civil Service Examination (CSE-PPT Professional).",
+      "architecture": "Offline-First PWA / Cloud Sync Ready",
+      "features": [
+        "5-tier Leitner spaced repetition box system",
+        "automatic leech question detection",
+        "170-item timed mocks",
+        "Anxiety Toolkit (Box Breathing & Worry Dump)",
+        "AI item generation scripts powered by Google Gemini and DeepSeek."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "let-reviewer-web-app",
+    "slug": "let-reviewer-web-app",
+    "title": "LET Reviewer Web App",
+    "name": "LET Reviewer Web App",
+    "domain": "edtech",
+    "domainLabel": "EdTech & AI",
+    "status": "internal",
+    "statusLabel": "Internal Tool",
+    "tier": "production",
+    "featured": false,
+    "bentoOrder": null,
+    "bentoTile": null,
+    "tagline": "Table of Specifications (TOS) analytics platform for the Philippine Licensure Examination for Teachers (LET).",
+    "summary": "Table of Specifications (TOS) analytics platform for the Philippine Licensure Examination for Teachers (LET).",
+    "highlightMetric": null,
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "React",
+        "Vite",
+        "HTML5/CSS3"
+      ],
+      "backend": [
+        "Hono"
+      ],
+      "data": [
+        "PostgreSQL"
+      ],
+      "infra": [
+        "PWA"
+      ]
+    },
+    "links": {
+      "live": null,
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\LET Reviewer WEb App",
+      "notes": null
+    },
+    "accessNotes": null,
+    "runCommand": null,
+    "run": {
+      "commands": [],
+      "url": null
+    },
+    "caseStudy": {
+      "role": "Table of Specifications (TOS) analytics platform for the Philippine Licensure Examination for Teachers (LET).",
+      "problem": "Table of Specifications (TOS) analytics platform for the Philippine Licensure Examination for Teachers (LET).",
+      "architecture": "Cloud / Institutional Prototype",
+      "features": [
+        "Institutional competency tracking",
+        "cohort weakness diagnostics",
+        "accreditation-ready readiness reports."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "ai-esl-tutor",
+    "slug": "ai-esl-tutor",
+    "title": "AI ESL Tutor",
+    "name": "AI ESL Tutor",
+    "domain": "edtech",
+    "domainLabel": "EdTech & AI",
+    "status": "internal",
+    "statusLabel": "Internal Tool",
+    "tier": "production",
+    "featured": false,
+    "bentoOrder": null,
+    "bentoTile": null,
+    "tagline": "Task-based conversational ESL coach.",
+    "summary": "Task-based conversational ESL coach.",
+    "highlightMetric": null,
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "React",
+        "Next.js",
+        "Tailwind CSS",
+        "TypeScript",
+        "HTML5/CSS3",
+        "Web Speech API"
+      ],
+      "backend": [
+        "DeepSeek API"
+      ],
+      "data": [
+        "Drizzle ORM",
+        "PostgreSQL"
+      ],
+      "infra": []
+    },
+    "links": {
+      "live": null,
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\Ai ESL Tutor",
+      "notes": null
+    },
+    "accessNotes": null,
+    "runCommand": "next dev -p 3080",
+    "run": {
+      "commands": [
+        "next dev -p 3080"
+      ],
+      "url": "http://localhost:3080"
+    },
+    "caseStudy": {
+      "role": "Task-based conversational ESL coach.",
+      "problem": "Task-based conversational ESL coach.",
+      "architecture": "AI Web Application",
+      "features": [
+        "3-step SLA graduated scaffolding (Location → Clue → Recast)",
+        "Web Speech voice recognition and synthesis",
+        "CEFR 5-skill radar diagnostic",
+        "spaced review center (1, 3, 7, 14 days)",
+        "spoken roleplay and written email evaluation."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "learning-module-generator",
+    "slug": "learning-module-generator",
+    "title": "Learning Module Generator",
+    "name": "Learning Module Generator",
+    "domain": "edtech",
+    "domainLabel": "EdTech & AI",
+    "status": "internal",
+    "statusLabel": "Internal Tool",
+    "tier": "production",
+    "featured": false,
+    "bentoOrder": null,
+    "bentoTile": null,
+    "tagline": "Generates Philippine DepEd/CHED self-learning modules from syllabus files.",
+    "summary": "Generates Philippine DepEd/CHED self-learning modules from syllabus files.",
+    "highlightMetric": null,
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "Vite",
+        "JavaScript"
+      ],
+      "backend": [
+        "Node.js",
+        "Express",
+        "python-docx",
+        "mammoth"
+      ],
+      "data": [],
+      "infra": []
+    },
+    "links": {
+      "live": null,
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\Learning Module Generator",
+      "notes": null
+    },
+    "accessNotes": null,
+    "runCommand": "npm run dev",
+    "run": {
+      "commands": [
+        "npm run dev"
+      ],
+      "url": null
+    },
+    "caseStudy": {
+      "role": "Generates Philippine DepEd/CHED self-learning modules from syllabus files.",
+      "problem": "Generates Philippine DepEd/CHED self-learning modules from syllabus files.",
+      "architecture": "Local Pedagogical Tool",
+      "features": [
+        "Implements the official IDEA framework (Introduction → Development → Engagement → Assimilation)",
+        "BYOK LLM pipeline",
+        "automated DOCX compilation."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "obe-content-generator",
+    "slug": "obe-content-generator",
+    "title": "OBE Content Generator",
+    "name": "OBE Content Generator",
+    "domain": "edtech",
+    "domainLabel": "EdTech & AI",
+    "status": "internal",
+    "statusLabel": "Internal Tool",
+    "tier": "production",
+    "featured": false,
+    "bentoOrder": null,
+    "bentoTile": null,
+    "tagline": "Generates 18-week Outcome-Based Education (OBE) course outlines for BIndTech courses.",
+    "summary": "Generates 18-week Outcome-Based Education (OBE) course outlines for BIndTech courses.",
+    "highlightMetric": null,
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "HTML5/CSS3"
+      ],
+      "backend": [
+        "Node.js",
+        "Express"
+      ],
+      "data": [
+        "CSV"
+      ],
+      "infra": []
+    },
+    "links": {
+      "live": null,
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\OBE Content Generator",
+      "notes": null
+    },
+    "accessNotes": null,
+    "runCommand": "npm run dev",
+    "run": {
+      "commands": [
+        "npm run dev"
+      ],
+      "url": null
+    },
+    "caseStudy": {
+      "role": "Generates 18-week Outcome-Based Education (OBE) course outlines for BIndTech courses.",
+      "problem": "Generates 18-week Outcome-Based Education (OBE) course outlines for BIndTech courses.",
+      "architecture": "Local Tool",
+      "features": [
+        "Generates 18-week Outcome-Based Education (OBE) course outlines for BIndTech courses."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "obe-content-generator-v2-deepseek",
+    "slug": "obe-content-generator-v2-deepseek",
+    "title": "OBE Content Generator v2(deepseek)",
+    "name": "OBE Content Generator v2(deepseek)",
+    "domain": "edtech",
+    "domainLabel": "EdTech & AI",
+    "status": "internal",
+    "statusLabel": "Internal Tool",
+    "tier": "production",
+    "featured": false,
+    "bentoOrder": null,
+    "bentoTile": null,
+    "tagline": "Production syllabus studio generating 264-row structured HYBRID matrices adhering strictly to ZPPSU...",
+    "summary": "Production syllabus studio generating 264-row structured HYBRID matrices adhering strictly to ZPPSU institutional formats.",
+    "highlightMetric": {
+      "value": "60/60 Passing",
+      "label": "Automated Unit Tests"
+    },
+    "metrics": {
+      "loc": null,
+      "tests": "60/60 passing",
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "HTML5/CSS3"
+      ],
+      "backend": [
+        "Node.js",
+        "Express",
+        "DeepSeek API"
+      ],
+      "data": [
+        "CSV"
+      ],
+      "infra": []
+    },
+    "links": {
+      "live": null,
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\OBE Content Generator v2(deepseek)",
+      "notes": null
+    },
+    "accessNotes": null,
+    "runCommand": "npm run dev",
+    "run": {
+      "commands": [
+        "npm run dev"
+      ],
+      "url": null
+    },
+    "caseStudy": {
+      "role": "Production syllabus studio generating **264-row structured HYBRID matrices** adhering strictly to ZPPSU institutional formats.",
+      "problem": "Production syllabus studio generating 264-row structured HYBRID matrices adhering strictly to ZPPSU institutional formats.",
+      "architecture": "Local AI Generation Studio",
+      "features": [
+        "Verified with 60 passing automated unit tests (npm test)",
+        "course outcome alignments (CO1–CO4)",
+        "18-week learning plans."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "obe-lp-generator",
+    "slug": "obe-lp-generator",
+    "title": "OBE-LP Generator",
+    "name": "OBE-LP Generator",
+    "domain": "edtech",
+    "domainLabel": "EdTech & AI",
+    "status": "internal",
+    "statusLabel": "Internal Tool",
+    "tier": "production",
+    "featured": false,
+    "bentoOrder": null,
+    "bentoTile": null,
+    "tagline": "Parses faculty syllabi and compiles standardized institutional weekly Lesson Plans (LPs).",
+    "summary": "Parses faculty syllabi and compiles standardized institutional weekly Lesson Plans (LPs).",
+    "highlightMetric": null,
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "Streamlit"
+      ],
+      "backend": [
+        "Python",
+        "python-docx",
+        "PyMuPDF"
+      ],
+      "data": [],
+      "infra": []
+    },
+    "links": {
+      "live": null,
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\OBE-LP Generator",
+      "notes": null
+    },
+    "accessNotes": null,
+    "runCommand": "streamlit run app.py",
+    "run": {
+      "commands": [
+        "streamlit run app.py"
+      ],
+      "url": null
+    },
+    "caseStudy": {
+      "role": "Parses faculty syllabi and compiles standardized institutional weekly Lesson Plans (LPs).",
+      "problem": "Parses faculty syllabi and compiles standardized institutional weekly Lesson Plans (LPs).",
+      "architecture": "Local Desktop App",
+      "features": [
+        "Parses faculty syllabi and compiles standardized institutional weekly Lesson Plans (LPs)."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "obe-syllabus-generator",
+    "slug": "obe-syllabus-generator",
+    "title": "OBE-Syllabus Generator",
+    "name": "OBE-Syllabus Generator",
+    "domain": "edtech",
+    "domainLabel": "EdTech & AI",
+    "status": "internal",
+    "statusLabel": "Internal Tool",
+    "tier": "production",
+    "featured": false,
+    "bentoOrder": null,
+    "bentoTile": null,
+    "tagline": "Complete relational database archive, visual editor, and batch document exporter for college syllabi.",
+    "summary": "Complete relational database archive, visual editor, and batch document exporter for college syllabi.",
+    "highlightMetric": null,
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "Streamlit"
+      ],
+      "backend": [
+        "FastAPI",
+        "Python"
+      ],
+      "data": [
+        "SQLite"
+      ],
+      "infra": []
+    },
+    "links": {
+      "live": null,
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\OBE-Syllabus Generator",
+      "notes": null
+    },
+    "accessNotes": null,
+    "runCommand": "streamlit run app.py",
+    "run": {
+      "commands": [
+        "streamlit run app.py"
+      ],
+      "url": null
+    },
+    "caseStudy": {
+      "role": "Complete relational database archive, visual editor, and batch document exporter for college syllabi.",
+      "problem": "Complete relational database archive, visual editor, and batch document exporter for college syllabi.",
+      "architecture": "Local Desktop Web Suite",
+      "features": [
+        "Complete relational database archive, visual editor, and batch document exporter for college syllabi."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "localclassroom",
+    "slug": "localclassroom",
+    "title": "LocalClassroom",
+    "name": "LocalClassroom",
+    "domain": "offline-lan",
+    "domainLabel": "Offline LAN Infrastructure",
+    "status": "offline-lan",
+    "statusLabel": "Offline LAN",
+    "tier": "flagship",
+    "featured": true,
+    "bentoOrder": 2,
+    "bentoTile": "D",
+    "tagline": "Operates on a local wireless router with zero internet connection to deliver synchronized lectures and...",
+    "summary": "Operates on a local wireless router with zero internet connection to deliver synchronized lectures and track student work.",
+    "highlightMetric": {
+      "value": "67 Slides",
+      "label": "On-Disk Schematics"
+    },
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "HTML5/CSS3"
+      ],
+      "backend": [
+        "Node.js",
+        "Express",
+        "Socket.io",
+        "Puppeteer"
+      ],
+      "data": [
+        "SQLite"
+      ],
+      "infra": []
+    },
+    "links": {
+      "live": null,
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\LocalClassroom",
+      "notes": null
+    },
+    "accessNotes": null,
+    "runCommand": "npm start",
+    "run": {
+      "commands": [
+        "npm start"
+      ],
+      "url": null
+    },
+    "caseStudy": {
+      "role": "Operates on a local wireless router with zero internet connection to deliver synchronized lectures and track student work.",
+      "problem": "Operates on a local wireless router with zero internet connection to deliver synchronized lectures and track student work.",
+      "architecture": "Offline Wi-Fi LAN Hub",
+      "features": [
+        "Real-time WebSocket slide synchronization",
+        "live in-lecture student polling",
+        "digital lab submission dropboxes",
+        "local IP discovery",
+        "gradebook export."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "learning-management-system",
+    "slug": "learning-management-system",
+    "title": "Learning Management System (Offline LMS)",
+    "name": "Learning Management System (Offline LMS)",
+    "domain": "offline-lan",
+    "domainLabel": "Offline LAN Infrastructure",
+    "status": "offline-lan",
+    "statusLabel": "Offline LAN",
+    "tier": "production",
+    "featured": false,
+    "bentoOrder": null,
+    "bentoTile": null,
+    "tagline": "Standalone LMS for computer labs without internet connectivity.",
+    "summary": "Standalone LMS for computer labs without internet connectivity.",
+    "highlightMetric": null,
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "HTML5/CSS3"
+      ],
+      "backend": [
+        "Flask",
+        "Python"
+      ],
+      "data": [
+        "SQLite",
+        "SQLAlchemy"
+      ],
+      "infra": []
+    },
+    "links": {
+      "live": null,
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\Learning Management System",
+      "notes": null
+    },
+    "accessNotes": null,
+    "runCommand": "python app.py",
+    "run": {
+      "commands": [
+        "python app.py"
+      ],
+      "url": "http://0.0.0.0:5000"
+    },
+    "caseStudy": {
+      "role": "Standalone LMS for computer labs without internet connectivity.",
+      "problem": "Standalone LMS for computer labs without internet connectivity.",
+      "architecture": "Router-Hosted Offline LMS (0.0.0.0:5000)",
+      "features": [
+        "Synchronized lecture broadcasts",
+        "self-paced student reading modules",
+        "interactive quizzes",
+        "automated grading."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "faculty-chat",
+    "slug": "faculty-chat",
+    "title": "Faculty_Chat",
+    "name": "Faculty_Chat",
+    "domain": "offline-lan",
+    "domainLabel": "Offline LAN Infrastructure",
+    "status": "offline-lan",
+    "statusLabel": "Offline LAN",
+    "tier": "production",
+    "featured": false,
+    "bentoOrder": null,
+    "bentoTile": null,
+    "tagline": "Ephemeral local chat tool for faculty during meetings and paper grading.",
+    "summary": "Ephemeral local chat tool for faculty during meetings and paper grading.",
+    "highlightMetric": null,
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "HTML5/CSS3"
+      ],
+      "backend": [
+        "Flask",
+        "Python"
+      ],
+      "data": [],
+      "infra": []
+    },
+    "links": {
+      "live": null,
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\Faculty_Chat",
+      "notes": null
+    },
+    "accessNotes": null,
+    "runCommand": "python app.py",
+    "run": {
+      "commands": [
+        "python app.py"
+      ],
+      "url": null
+    },
+    "caseStudy": {
+      "role": "Ephemeral local chat tool for faculty during meetings and paper grading.",
+      "problem": "Ephemeral local chat tool for faculty during meetings and paper grading.",
+      "architecture": "Local LAN Chat (Port 5001)",
+      "features": [
+        "Ephemeral local chat tool for faculty during meetings and paper grading."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "localmedia",
+    "slug": "localmedia",
+    "title": "LocalMedia",
+    "name": "LocalMedia",
+    "domain": "offline-lan",
+    "domainLabel": "Offline LAN Infrastructure",
+    "status": "offline-lan",
+    "statusLabel": "Offline LAN",
+    "tier": "production",
+    "featured": false,
+    "bentoOrder": null,
+    "bentoTile": null,
+    "tagline": "Offline-first campus social feed and media server running in tandem with LocalClassroom.",
+    "summary": "Offline-first campus social feed and media server running in tandem with LocalClassroom.",
+    "highlightMetric": null,
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "HTML5/CSS3"
+      ],
+      "backend": [
+        "Node.js",
+        "Express",
+        "Socket.io",
+        "Multer"
+      ],
+      "data": [
+        "SQLite"
+      ],
+      "infra": []
+    },
+    "links": {
+      "live": null,
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\LocalMedia",
+      "notes": null
+    },
+    "accessNotes": null,
+    "runCommand": "npm start",
+    "run": {
+      "commands": [
+        "npm start"
+      ],
+      "url": null
+    },
+    "caseStudy": {
+      "role": "Offline-first campus social feed and media server running in tandem with LocalClassroom.",
+      "problem": "Offline-first campus social feed and media server running in tandem with LocalClassroom.",
+      "architecture": "Local LAN Server",
+      "features": [
+        "Student user accounts",
+        "media sharing",
+        "offline photo posts",
+        "and course document downloads."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "batasph-civicph",
+    "slug": "batasph-civicph",
+    "title": "BatasPh (CivicPH)",
+    "name": "BatasPh (CivicPH)",
+    "domain": "platforms",
+    "domainLabel": "Platforms & Utilities",
+    "status": "live",
+    "statusLabel": "Live Cloud",
+    "tier": "flagship",
+    "featured": true,
+    "bentoOrder": 5,
+    "bentoTile": "E",
+    "tagline": "Free public civic legal repository for Philippine Republic Acts, City Ordinances, and Supreme Court rulings.",
+    "summary": "Free public civic legal repository for Philippine Republic Acts, City Ordinances, and Supreme Court rulings.",
+    "highlightMetric": null,
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "React",
+        "Next.js",
+        "Tailwind CSS",
+        "HTML5/CSS3",
+        "Framer Motion",
+        "Zustand",
+        "Vaul"
+      ],
+      "backend": [],
+      "data": [
+        "Prisma"
+      ],
+      "infra": [
+        "Vercel",
+        "Capacitor Android"
+      ]
+    },
+    "links": {
+      "live": "https://civic-ph.vercel.app",
+      "repo": "https://github.com/imdcluy-ctrl/BatasPh.git",
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\BatasPh",
+      "notes": "Public Access (Legal search, Republic Acts, City Ordinances) | Android APK: com.civicph.app | GitHub: https://github.com/imdcluy-ctrl/BatasPh.git"
+    },
+    "accessNotes": "Public Access (Legal search, Republic Acts, City Ordinances) | Android APK: com.civicph.app | GitHub: https://github.com/imdcluy-ctrl/BatasPh.git",
+    "runCommand": "npm run dev",
+    "run": {
+      "commands": [
+        "npm run dev"
+      ],
+      "url": null
+    },
+    "caseStudy": {
+      "role": "Free public civic legal repository for Philippine Republic Acts, City Ordinances, and Supreme Court rulings.",
+      "problem": "Free public civic legal repository for Philippine Republic Acts, City Ordinances, and Supreme Court rulings.",
+      "architecture": "Live Cloud (https://civic-ph.vercel.app) & Android App (com.civicph.app)",
+      "features": [
+        "Automated Python web crawlers",
+        "full-text legal search",
+        "mobile-responsive reader with dark/light theme",
+        "packaged as a native Android APK via Capacitor."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "receipt-submission-pe-nstp",
+    "slug": "receipt-submission-pe-nstp",
+    "title": "Receipt Submission for PE & NSTP tshirt",
+    "name": "Receipt Submission for PE & NSTP tshirt",
+    "domain": "platforms",
+    "domainLabel": "Platforms & Utilities",
+    "status": "live",
+    "statusLabel": "Live Cloud",
+    "tier": "production",
+    "featured": false,
+    "bentoOrder": null,
+    "bentoTile": null,
+    "tagline": "Mobile fee receipt submission portal.",
+    "summary": "Mobile fee receipt submission portal.",
+    "highlightMetric": null,
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "JavaScript",
+        "HTML5/CSS3"
+      ],
+      "backend": [],
+      "data": [
+        "Supabase"
+      ],
+      "infra": [
+        "Netlify"
+      ]
+    },
+    "links": {
+      "live": "https://ntstp-pe-receipt-submission-tracker.netlify.app/",
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\Receipt Submission for PE & NSTP tshirt",
+      "notes": "Public Student Access (Mobile receipt uploader with image preview & verification)"
+    },
+    "accessNotes": "Public Student Access (Mobile receipt uploader with image preview & verification)",
+    "runCommand": null,
+    "run": {
+      "commands": [],
+      "url": null
+    },
+    "caseStudy": {
+      "role": "Mobile fee receipt submission portal.",
+      "problem": "Mobile fee receipt submission portal.",
+      "architecture": "Live Cloud (https://ntstp-pe-receipt-submission-tracker.netlify.app/)",
+      "features": [
+        "Client-side image preview",
+        "name format verification",
+        "direct Supabase storage bucket sync."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "task-manager",
+    "slug": "task-manager",
+    "title": "Task Manager",
+    "name": "Task Manager",
+    "domain": "platforms",
+    "domainLabel": "Platforms & Utilities",
+    "status": "offline-lan",
+    "statusLabel": "Offline LAN",
+    "tier": "production",
+    "featured": false,
+    "bentoOrder": null,
+    "bentoTile": null,
+    "tagline": "High-speed distraction-free personal task management PWA.",
+    "summary": "High-speed distraction-free personal task management PWA.",
+    "highlightMetric": null,
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "Vite",
+        "SvelteKit",
+        "Svelte",
+        "Tailwind CSS",
+        "HTML5/CSS3",
+        "Canvas Confetti",
+        "Marked"
+      ],
+      "backend": [],
+      "data": [
+        "Dexie.js",
+        "IndexedDB"
+      ],
+      "infra": [
+        "PWA"
+      ]
+    },
+    "links": {
+      "live": null,
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\Task Manager",
+      "notes": null
+    },
+    "accessNotes": null,
+    "runCommand": "npm run dev",
+    "run": {
+      "commands": [
+        "npm run dev"
+      ],
+      "url": null
+    },
+    "caseStudy": {
+      "role": "High-speed distraction-free personal task management PWA.",
+      "problem": "High-speed distraction-free personal task management PWA.",
+      "architecture": "Offline-First PWA",
+      "features": [
+        "Offline IndexedDB persistence",
+        "markdown notes",
+        "confetti completion celebrations",
+        "installable as desktop/mobile app."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "financial-assistant",
+    "slug": "financial-assistant",
+    "title": "Financial Assistant",
+    "name": "Financial Assistant",
+    "domain": "platforms",
+    "domainLabel": "Platforms & Utilities",
+    "status": "internal",
+    "statusLabel": "Internal Tool",
+    "tier": "production",
+    "featured": false,
+    "bentoOrder": null,
+    "bentoTile": null,
+    "tagline": "Private personal financial retirement and phased wealth ledger.",
+    "summary": "Private personal financial retirement and phased wealth ledger.",
+    "highlightMetric": null,
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "JavaScript",
+        "HTML5/CSS3",
+        "Chart.js"
+      ],
+      "backend": [],
+      "data": [],
+      "infra": []
+    },
+    "links": {
+      "live": null,
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\Financial Assistant",
+      "notes": null
+    },
+    "accessNotes": null,
+    "runCommand": "Open index.html in browser or run run.bat",
+    "run": {
+      "commands": [
+        "Open index.html in browser or run run.bat"
+      ],
+      "url": null
+    },
+    "caseStudy": {
+      "role": "Private personal financial retirement and phased wealth ledger.",
+      "problem": "Private personal financial retirement and phased wealth ledger.",
+      "architecture": "Client-Side Secure Web App (Zero Telemetry)",
+      "features": [
+        "Master PIN protection screen",
+        "dynamic compound interest and retirement runway graphs",
+        "complete offline privacy (zero backend)",
+        "JSON data import/export."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "brain-testing-for-cognitive-expert",
+    "slug": "brain-testing-for-cognitive-expert",
+    "title": "Brain Testing for Cognitive Expert",
+    "name": "Brain Testing for Cognitive Expert",
+    "domain": "platforms",
+    "domainLabel": "Platforms & Utilities",
+    "status": "internal",
+    "statusLabel": "Internal Tool",
+    "tier": "production",
+    "featured": false,
+    "bentoOrder": null,
+    "bentoTile": null,
+    "tagline": "Health journaling application compiling AI cognitive testing transcripts (from Google Gemini Gem) for...",
+    "summary": "Health journaling application compiling AI cognitive testing transcripts (from Google Gemini Gem) for review by neurological specialists.",
+    "highlightMetric": null,
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "HTML5/CSS3"
+      ],
+      "backend": [
+        "Flask",
+        "Python"
+      ],
+      "data": [
+        "SQLite"
+      ],
+      "infra": []
+    },
+    "links": {
+      "live": null,
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\Brain Testing for Cognitive Expert",
+      "notes": null
+    },
+    "accessNotes": null,
+    "runCommand": "python app.py (Port 5000)",
+    "run": {
+      "commands": [
+        "python app.py (Port 5000)"
+      ],
+      "url": "http://localhost:5000"
+    },
+    "caseStudy": {
+      "role": "Health journaling application compiling AI cognitive testing transcripts (from Google Gemini Gem) for review by neurological specialists.",
+      "problem": "Health journaling application compiling AI cognitive testing transcripts (from Google Gemini Gem) for review by neurological specialists.",
+      "architecture": "Local Health Journal",
+      "features": [
+        "Health journaling application compiling AI cognitive testing transcripts (from Google Gemini Gem) for review by neurological specialists."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "lotto-cracker",
+    "slug": "lotto-cracker",
+    "title": "Lotto Cracker",
+    "name": "Lotto Cracker",
+    "domain": "platforms",
+    "domainLabel": "Platforms & Utilities",
+    "status": "internal",
+    "statusLabel": "Internal Tool",
+    "tier": "production",
+    "featured": false,
+    "bentoOrder": null,
+    "bentoTile": null,
+    "tagline": "Statistical probability analyzer and historical trend visualization platform for PCSO Philippine lotto games.",
+    "summary": "Statistical probability analyzer and historical trend visualization platform for PCSO Philippine lotto games.",
+    "highlightMetric": null,
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "Vite",
+        "Vue",
+        "HTML5/CSS3",
+        "Apache ECharts",
+        "Pinia"
+      ],
+      "backend": [
+        "FastAPI",
+        "Python"
+      ],
+      "data": [
+        "SQLite",
+        "Pandas"
+      ],
+      "infra": []
+    },
+    "links": {
+      "live": null,
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\Lotto Cracker",
+      "notes": null
+    },
+    "accessNotes": null,
+    "runCommand": "uvicorn backend.main:app --reload & npm run dev",
+    "run": {
+      "commands": [
+        "uvicorn backend.main:app --reload & npm run dev"
+      ],
+      "url": null
+    },
+    "caseStudy": {
+      "role": "Statistical probability analyzer and historical trend visualization platform for PCSO Philippine lotto games.",
+      "problem": "Statistical probability analyzer and historical trend visualization platform for PCSO Philippine lotto games.",
+      "architecture": "Analytical Web Application",
+      "features": [
+        "Automated draw result scrapers",
+        "frequency rankings",
+        "Monte Carlo simulation engine",
+        "wheeling algorithm generation."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "sms-email-bulk-sender",
+    "slug": "sms-email-bulk-sender",
+    "title": "Sms-email bulk sender",
+    "name": "Sms-email bulk sender",
+    "domain": "platforms",
+    "domainLabel": "Platforms & Utilities",
+    "status": "internal",
+    "statusLabel": "Internal Tool",
+    "tier": "production",
+    "featured": false,
+    "bentoOrder": null,
+    "bentoTile": null,
+    "tagline": "Institutional announcement dispatcher.",
+    "summary": "Institutional announcement dispatcher.",
+    "highlightMetric": null,
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "HTML5/CSS3"
+      ],
+      "backend": [
+        "Node.js",
+        "Express",
+        "Nodemailer",
+        "Multer"
+      ],
+      "data": [
+        "SQLite"
+      ],
+      "infra": []
+    },
+    "links": {
+      "live": null,
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\Sms-email bulk sender",
+      "notes": null
+    },
+    "accessNotes": null,
+    "runCommand": "npm start (Port 3001)",
+    "run": {
+      "commands": [
+        "npm start (Port 3001)"
+      ],
+      "url": "http://localhost:3001"
+    },
+    "caseStudy": {
+      "role": "Institutional announcement dispatcher.",
+      "problem": "Institutional announcement dispatcher.",
+      "architecture": "Local Communication Tool",
+      "features": [
+        "CSV roster upload",
+        "template tag interpolation ({{name}}, {{status}})",
+        "batch SMTP email dispatch",
+        "retry queues."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  },
+  {
+    "id": "app-trend-tracker",
+    "slug": "app-trend-tracker",
+    "title": "App Trend Tracker",
+    "name": "App Trend Tracker",
+    "domain": "platforms",
+    "domainLabel": "Platforms & Utilities",
+    "status": "internal",
+    "statusLabel": "Internal Tool",
+    "tier": "production",
+    "featured": false,
+    "bentoOrder": null,
+    "bentoTile": null,
+    "tagline": "Niche SaaS market research dashboard analyzing underserved software opportunities and Big Tech retention...",
+    "summary": "Niche SaaS market research dashboard analyzing underserved software opportunities and Big Tech retention patterns.",
+    "highlightMetric": null,
+    "metrics": {
+      "loc": null,
+      "tests": null,
+      "scale": null
+    },
+    "stack": {
+      "frontend": [
+        "Jinja2",
+        "HTML5/CSS3"
+      ],
+      "backend": [
+        "FastAPI",
+        "Python"
+      ],
+      "data": [],
+      "infra": []
+    },
+    "links": {
+      "live": null,
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\app trend tracker",
+      "notes": null
+    },
+    "accessNotes": null,
+    "runCommand": "uvicorn main:app --reload",
+    "run": {
+      "commands": [
+        "uvicorn main:app --reload"
+      ],
+      "url": null
+    },
+    "caseStudy": {
+      "role": "Niche SaaS market research dashboard analyzing underserved software opportunities and Big Tech retention patterns.",
+      "problem": "Niche SaaS market research dashboard analyzing underserved software opportunities and Big Tech retention patterns.",
+      "architecture": "Local Analytical Dashboard",
+      "features": [
+        "Niche SaaS market research dashboard analyzing underserved software opportunities and Big Tech retention patterns."
+      ],
+      "outcome": null,
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026
+  }
+]
