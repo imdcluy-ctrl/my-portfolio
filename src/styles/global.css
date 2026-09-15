@@ -85,11 +85,13 @@ html.theme-switching * {
 #project-grid[data-active="edtech"]        .project-card[data-domain="edtech"],
 #project-grid[data-active="offline-lan"]   .project-card[data-domain="offline-lan"],
 #project-grid[data-active="platforms"]     .project-card[data-domain="platforms"],
+#project-grid[data-active="live"]          .project-card[data-status="live"],
 [data-active-domain="institutional"] [data-domain="institutional"],
 [data-active-domain="sports"]        [data-domain="sports"],
 [data-active-domain="edtech"]        [data-domain="edtech"],
 [data-active-domain="offline-lan"]   [data-domain="offline-lan"],
-[data-active-domain="platforms"]     [data-domain="platforms"] {
+[data-active-domain="platforms"]     [data-domain="platforms"],
+[data-active-domain="live"]          [data-status="live"] {
   display: block;
 }
 

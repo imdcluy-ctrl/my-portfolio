@@ -13,6 +13,7 @@ interface TabDef {
 
 const TABS: TabDef[] = [
   { key: 'all', label: 'All Projects', short: 'All' },
+  { key: 'live', label: 'Live Cloud Deployments', short: 'Live Cloud' },
   { key: 'institutional', label: 'Institutional Systems', short: 'Institutional' },
   { key: 'sports', label: 'Sports & Tournaments', short: 'Sports' },
   { key: 'edtech', label: 'EdTech & Pedagogical AI', short: 'EdTech' },
@@ -101,6 +102,9 @@ export default function DomainFilter({ counts, totalCount }: DomainFilterProps) 
                   : 'text-[var(--color-ink-muted)] hover:text-[var(--color-ink)] hover:bg-[var(--color-surface-2)]'
               }`}
             >
+              {tab.key === 'live' && (
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+              )}
               <span>{tab.short}</span>
               <span
                 className={`text-[10px] font-mono px-1.5 py-0.2 rounded-full ${

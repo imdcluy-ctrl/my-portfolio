@@ -29,6 +29,7 @@ for (const p of allProjects) {
 }
 
 const liveCount = allProjects.filter(p => p.data.status === 'live').length;
+domainCounts['live'] = liveCount;
 const lanCount = allProjects.filter(p => p.data.status === 'offline-lan').length;
 const totalCount = allProjects.length;
 

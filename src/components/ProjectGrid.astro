@@ -15,7 +15,7 @@ const { projects } = Astro.props;
   class="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full"
 >
   {projects.map((p) => (
-    <div data-domain={p.data.domain} class="project-card h-full">
+    <div data-domain={p.data.domain} data-status={p.data.status} class="project-card h-full">
       <ProjectCard project={p} />
     </div>
   ))}
