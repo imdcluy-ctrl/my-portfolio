@@ -418,7 +418,7 @@
       "outcome": null,
       "screenshots": []
     },
-    "hero": "/projects/screening-app/logo.png",
+    "hero": "/projects/screening-app/screenshot.png",
     "gallery": [],
     "year": 2026
   },
@@ -483,7 +483,7 @@
       "outcome": null,
       "screenshots": []
     },
-    "hero": null,
+    "hero": "/projects/screening-app-v2/screenshot.png",
     "gallery": [],
     "year": 2026
   },
@@ -551,7 +551,7 @@
       "outcome": null,
       "screenshots": []
     },
-    "hero": "/projects/enrollment-app/logo.png",
+    "hero": "/projects/enrollment-app/screenshot.png",
     "gallery": [],
     "year": 2026
   },
@@ -742,7 +742,7 @@
       "outcome": null,
       "screenshots": []
     },
-    "hero": null,
+    "hero": "/projects/prospectus-generator/screenshot.png",
     "gallery": [],
     "year": 2026
   },
@@ -954,7 +954,7 @@
       "outcome": null,
       "screenshots": []
     },
-    "hero": null,
+    "hero": "/projects/local-palaro-chess-tournament-management-system/screenshot.png",
     "gallery": [],
     "year": 2026
   },
@@ -1084,7 +1084,7 @@
       "outcome": null,
       "screenshots": []
     },
-    "hero": null,
+    "hero": "/projects/event-attendance-logger/screenshot.png",
     "gallery": [],
     "year": 2026
   },
@@ -1144,7 +1144,7 @@
       "outcome": null,
       "screenshots": []
     },
-    "hero": null,
+    "hero": "/projects/palaro-submission-of-music/screenshot.png",
     "gallery": [],
     "year": 2026
   },
@@ -1284,7 +1284,7 @@
       "outcome": null,
       "screenshots": []
     },
-    "hero": null,
+    "hero": "/projects/let-reviewer-web-app/screenshot.png",
     "gallery": [],
     "year": 2026
   },
@@ -1420,7 +1420,7 @@
       "outcome": null,
       "screenshots": []
     },
-    "hero": null,
+    "hero": "/projects/learning-module-generator/screenshot.png",
     "gallery": [],
     "year": 2026
   },
@@ -1482,7 +1482,7 @@
       "outcome": null,
       "screenshots": []
     },
-    "hero": null,
+    "hero": "/projects/obe-content-generator/screenshot.png",
     "gallery": [],
     "year": 2026
   },
@@ -1550,7 +1550,7 @@
       "outcome": null,
       "screenshots": []
     },
-    "hero": null,
+    "hero": "/projects/obe-content-generator-v2-deepseek/screenshot.png",
     "gallery": [],
     "year": 2026
   },
@@ -1611,7 +1611,7 @@
       "outcome": null,
       "screenshots": []
     },
-    "hero": null,
+    "hero": "/projects/obe-lp-generator/screenshot.png",
     "gallery": [],
     "year": 2026
   },
@@ -1940,7 +1940,7 @@
       "outcome": null,
       "screenshots": []
     },
-    "hero": null,
+    "hero": "/projects/localmedia/screenshot.png",
     "gallery": [],
     "year": 2026
   },
@@ -2268,7 +2268,7 @@
       "outcome": null,
       "screenshots": []
     },
-    "hero": null,
+    "hero": "/projects/brain-testing-for-cognitive-expert/screenshot.png",
     "gallery": [],
     "year": 2026
   },
@@ -2405,7 +2405,7 @@
       "outcome": null,
       "screenshots": []
     },
-    "hero": null,
+    "hero": "/projects/sms-email-bulk-sender/screenshot.png",
     "gallery": [],
     "year": 2026
   },
@@ -2466,7 +2466,7 @@
       "outcome": null,
       "screenshots": []
     },
-    "hero": null,
+    "hero": "/projects/app-trend-tracker/screenshot.png",
     "gallery": [],
     "year": 2026
   }

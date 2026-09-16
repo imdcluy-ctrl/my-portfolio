@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advising & Enrollment Ledger | AY 2026-2027</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; padding: 25px; color: #333; margin: 0; }
+        .wrapper { max-width: 1400px; margin: auto; display: flex; gap: 30px; margin-top: 25px; }
+        .main-panel { flex: 7; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .side-form { flex: 4; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); height: fit-content; position: sticky; top: 25px; border-top: 5px solid #004488; }
+        
+        h1, h2, h3 { color: #004488; margin-top: 0; }
+        .form-group { margin-bottom: 18px; }
+        select, input[type="text"], textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; box-sizing: border-box; }
+        
+        .section-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .tab-btn { background: #e2e8f0; border: none; padding: 10px 16px; font-weight: bold; border-radius: 4px 4px 0 0; cursor: pointer; color: #4a5568; }
+        .tab-btn.active { background: #004488; color: white; }
+        
+        /* Stats Dashboard */
+        .stats-dash { display: flex; gap: 20px; background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 20px; }
+        .stat-box { flex: 1; }
+        .stat-box h4 { margin: 0 0 12px 0; font-size: 15px; color: #4a5568; text-transform: uppercase; }
+        .badge { background: #004488; color: white; padding: 6px 12px; border-radius: 15px; font-size: 16px; font-weight: bold; margin-right: 8px; margin-bottom: 8px; display: inline-block;}
+        
+        /* Policy Box */
+        .policy-box { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin-bottom: 20px; font-size: 12px; border-radius: 0 4px 4px 0; }
+        .policy-box h4 { margin: 0 0 8px 0; color: #856404; }
+        .policy-box ul { margin: 0; padding-left: 15px; color: #856404; }
+        .policy-box li { margin-bottom: 6px; }
+
+        /* Accordion */
+        .checklist { display: none; background: #f9f9f9; padding: 15px; border: 1px solid #ddd; border-radius: 4px; margin-top: 10px; }
+        details { background: white; border: 1px solid #ddd; border-radius: 4px; margin-bottom: 8px; padding: 8px 12px; }
+        summary { font-weight: bold; cursor: pointer; outline: none; color: #004488; padding: 5px 0; }
+        .sem-title { display: block; font-size: 11px; font-weight: bold; color: #dc3545; margin: 10px 0 5px 0; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #eee; padding-bottom: 2px; }
+        .checkbox-grid { display: grid; grid-template-columns: 1fr; gap: 5px; margin-bottom: 10px; }
+        .checkbox-grid label { font-size: 12.5px; cursor: pointer; display: flex; align-items: flex-start; }
+        .checkbox-grid input { margin-top: 2px; margin-right: 8px; }
+        
+        .btn-action { background: #004488; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 13px; }
+        .btn-action:hover { background: #002d5c; }
+        .btn-submit { background: #28a745; color: white; padding: 12px; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 15px; }
+        .btn-submit:hover { background: #218838; }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px; }
+        th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+        th { background-color: #f8fafc; color: #4a5568; font-weight: 600; position: sticky; top: 0; }
+        .scrollbox { max-height: 400px; overflow-y: auto; border: 1px solid #e2e8f0; border-radius: 4px; }
+        .status-badge { padding: 3px 6px; border-radius: 3px; font-size: 11px; font-weight: bold; color: white; }
+        
+        /* Specialized Roster Print CSS */
+        @media print {
+            body { font-size: 11px; background-color: white; color: black; padding: 0; margin: 0; }
+            
+            /* Cleanly hide all screen-only elements without using visibility: hidden */
+            body > div:not(.wrapper),
+            .stats-dash,
+            .side-form,
+            .section-tabs,
+            #declinedPrintArea,
+            .wrapper > div:not(.main-panel),
+            .main-panel > div:not(#rosterPrintArea),
+            .main-panel > h2,
+            .roster-controls {
+                display: none !important;
+            }
+            
+            /* Ensure parents do not establish flex or card layouts when printing */
+            .wrapper, .main-panel {
+                display: block !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                background: none !important;
+                box-shadow: none !important;
+                border: none !important;
+                width: 100% !important;
+                max-width: none !important;
+            }
+            
+            #rosterPrintArea {
+                display: block !important;
+                position: static !important;
+                width: 100% !important;
+            }
+            
+            .scrollbox { 
+                max-height: none !important; 
+                overflow: visible !important; 
+                border: none !important; 
+                display: block !important;
+                position: static !important;
+            }
+            
+            @page { size: portrait; margin: 0.4in; }
+            
+            /* Print Optimization for Table */
+            table { font-size: 11px; margin-top: 5px; width: 100%; border-collapse: collapse; page-break-inside: auto; }
+            thead { display: table-header-group !important; }
+            tr { page-break-inside: avoid !important; break-inside: avoid !important; }
+            th, td { padding: 4px 6px !important; border-bottom: 1px solid #cbd5e1 !important; text-align: left; }
+            
+            /* Print column width distribution (7 columns) */
+            #rosterPrintArea th:nth-child(1) { width: 28% !important; }
+            #rosterPrintArea th:nth-child(2) { width: 10% !important; }
+            #rosterPrintArea th:nth-child(3) { width: 20% !important; }
+            #rosterPrintArea th:nth-child(4) { width: 20% !important; }
+            #rosterPrintArea th:nth-child(5) { width: 7.3% !important; }
+            #rosterPrintArea th:nth-child(6) { width: 7.3% !important; }
+            #rosterPrintArea th:nth-child(7) { width: 7.4% !important; }
+            
+            /* Hide forms/dropdowns and show text instead */
+            form select { display: none !important; }
+            .print-section-text { display: inline-block !important; font-weight: bold; }
+            
+            /* Hide checkboxes and show checkmarks/symbols or text */
+            input[type="checkbox"] { display: none !important; }
+            .print-checkbox-text { display: inline-block !important; font-weight: bold; }
+            
+            /* Reduce spacing in badges and remarks */
+            .status-badge { padding: 1px 4px !important; font-size: 9px !important; border: 1px solid #94a3b8; }
+            .enrolled-row div { font-size: 9px !important; line-height: 1.1; }
+            
+            h2 { font-size: 15px; margin: 0 0 5px 0; color: #004488; }
+        }
+    </style>
+</head>
+<body>
+
+<div style="max-width: 1400px; margin: auto; margin-bottom: 20px;">
+    <h1 style="margin-bottom: 5px; color: #004488; font-weight: bold;">ZPPSU CPT Advising & Enrollment Ledger | AY 2026-2027</h1>
+</div>
+
+<div class="wrapper">
+    <div class="main-panel">
+        
+        <div class="stats-dash" style="margin-bottom: 25px;">
+            <div class="stat-box">
+                <h4>Total Enrolled By Year</h4>
+                <span class="badge">1st Yr: 0</span>
+                <span class="badge">2nd Yr: 0</span>
+                <span class="badge">3rd Yr: 0</span>
+                <span class="badge" style="background:#28a745;">Total: 0</span>
+            </div>
+            <div class="stat-box">
+                <h4>Total Enrolled By Section</h4>
+                <span class="badge" style="background:#6c757d;">1A: 0</span>
+                <span class="badge" style="background:#6c757d;">1B: 0</span>
+                <span class="badge" style="background:#6c757d;">2A: 0</span>
+                <span class="badge" style="background:#6c757d;">2B: 0</span>
+                <span class="badge" style="background:#6c757d;">2C: 0</span>
+                <span class="badge" style="background:#6c757d;">3A: 0</span>
+                <span class="badge" style="background:#6c757d;">3B: 0</span>
+            </div>
+        </div>
+
+        <div style="display: flex; gap: 12px; margin-bottom: 35px; align-items: center; flex-wrap: wrap;">
+            <!-- NEW MANUAL PDF BUTTON -->
+            <a href="/trigger_dashboard" onclick="alert('PDF Dashboard generated! Check your Google Drive folder.');" class="btn-action" style="text-decoration: none; background: #6f42c1; padding: 10px 15px;">
+                📊 Generate Cloud Dashboard PDF
+            </a>
+            
+            
+            <span style="color: #28a745; font-weight: bold; font-size: 14px; padding: 10px;">
+                ✅ All enrolled students have been submitted to the Registrar.
+            </span>
+            
+        </div>
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <h2 style="margin: 0;">Pending Evaluation Queue</h2>
+            <div style="display: flex; gap: 8px;">
+                <a href="/print_pending" target="_blank" class="btn-action" style="text-decoration: none; background: #17a2b8; padding: 6px 12px; font-size: 13px; display: inline-flex; align-items: center; gap: 4px;">
+                    🖨️ Print Pending List
+                </a>
+                <button onclick="copyMessengerList()" class="btn-action" style="background: #28a745; padding: 6px 12px; font-size: 13px; display: inline-flex; align-items: center; gap: 4px;">
+                    💬 Copy Follow-up List
+                </button>
+            </div>
+        </div>
+        <div class="section-tabs">
+            <button class="tab-btn active" onclick="switchTab('ALL')">All Pending (0)</button>
+            <button class="tab-btn" onclick="switchTab('CPT-1A')">1A</button>
+            <button class="tab-btn" onclick="switchTab('CPT-1B')">1B</button>
+            <button class="tab-btn" onclick="switchTab('CPT-2A')">2A</button>
+            <button class="tab-btn" onclick="switchTab('CPT-2B')">2B</button>
+            <button class="tab-btn" onclick="switchTab('CPT-2C')">2C</button>
+            <button class="tab-btn" onclick="switchTab('CPT-3A')">3A</button>
+            <button class="tab-btn" onclick="switchTab('CPT-3B')">3B</button>
+        </div>
+
+        <div class="scrollbox" style="margin-bottom: 40px;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Applicant Name</th>
+                        <th>Year</th>
+                        <th>Assigned Roster</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+        
+        <div id="rosterPrintArea">
+             <h2 style="margin-bottom: 10px;">Advised / Enrolled Roster / Blueform / Receipt</h2>
+            
+            <div class="roster-controls" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 15px; background: #e2e8f0; padding: 10px; border-radius: 4px; border-left: 4px solid #004488;">
+                <select id="filterSection" onchange="filterRoster()" style="width: auto; padding: 5px;">
+                    <option value="ALL">All Sections</option>
+                    <option value="CPT-1A">CPT-1A</option>
+                    <option value="CPT-1B">CPT-1B</option>
+                    <option value="CPT-2A">CPT-2A</option>
+                    <option value="CPT-2B">CPT-2B</option>
+                    <option value="CPT-2C">CPT-2C</option>
+                    <option value="CPT-3A">CPT-3A</option>
+                    <option value="CPT-3B">CPT-3B</option>
+                </select>
+                
+                <select id="filterDeficiency" onchange="filterRoster()" style="width: auto; padding: 5px;">
+                    <option value="ALL">All Academic Loads</option>
+                    <option value="Irregular">Has Back Subjects (Irregular)</option>
+                </select>
+
+                <select id="filterRetention" onchange="filterRoster()" style="width: auto; padding: 5px;">
+                    <option value="ALL">All Standings</option>
+                    <option value="Under Monitoring">Under Monitoring</option>
+                    <option value="Probationary">Probationary</option>
+                    <option value="Denied">Denied / Disqualified</option>
+                </select>
+
+                <button onclick="window.print()" class="btn-action" style="margin-left: auto; background: #28a745; padding: 6px 15px;">🖨️ Print Current View</button>
+            </div>
+
+            <div class="scrollbox" style="max-height: 400px;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Section</th>
+                            <th>Academic Load</th>
+                            <th>Retention Standing</th>
+                            <th style="text-align: center;">Portal Completed</th>
+                            <th style="text-align: center;">Blueform</th>
+                            <th style="text-align: center;">Receipt</th>
+                            <th class="roster-controls">Withdraw Enrollment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>
+            </div>
+
+        <!-- DECLINED / NOT ENROLLING ROSTER -->
+        <div id="declinedPrintArea" style="margin-top: 40px; border-top: 3px solid #dc3545; padding-top: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <h2 style="color: #dc3545; margin: 0;">Declined Enrollment / Not Enrolling List (0)</h2>
+                <div style="display: flex; gap: 10px;">
+                    <a href="/print_not_enrolling" target="_blank" class="btn-action" style="text-decoration: none; background: #6f42c1; padding: 6px 15px;">
+                        🖨️ Print Declined List
+                    </a>
+                </div>
+            </div>
+            
+            <div class="scrollbox" style="max-height: 300px;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student Name</th>
+                            <th>Year Level</th>
+                            <th>Target Section</th>
+                            <th>Reason for Not Enrolling</th>
+                            <th class="roster-controls">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                            <tr>
+                                <td colspan="5" style="text-align: center; color: #6c757d; font-style: italic; padding: 20px;">
+                                    No students marked as Declined/Not Enrolling.
+                                </td>
+                            </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Column Sidebar -->
+    <div style="flex: 4; display: flex; flex-direction: column; gap: 25px; position: sticky; top: 25px; height: fit-content;">
+        <div class="side-form" style="position: static; width: 100%; box-sizing: border-box; margin: 0;">
+            <h3>Advising Workbench</h3>
+            
+            <div class="workbench-tabs" style="display: flex; gap: 5px; margin-bottom: 15px; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px;">
+                <button type="button" class="tab-btn active" id="wb-tab-enroll" onclick="switchWorkbenchTab('enroll')" style="font-size: 13px; padding: 8px 12px; flex: 1;">✍️ Enroll / Advise</button>
+                <button type="button" class="tab-btn" id="wb-tab-decline" onclick="switchWorkbenchTab('decline')" style="font-size: 13px; padding: 8px 12px; flex: 1;">❌ Declined</button>
+            </div>
+
+            <div class="policy-box" id="policyBox">
+                <h4>CET Retention Policy Guide:</h4>
+                <ul>
+                    <li><strong>Maintain:</strong> 2.5 average grade.</li>
+                    <li><strong>Disqualify if:</strong> 2 failures in Major, or former disqualified student.</li>
+                    <li><strong>Probation if:</strong> GPA below 2.5, OR GPA 2.5 but 5.0 in a minor, OR 3 INC grades.</li>
+                    <li><strong>Disqualify if:</strong> 3 dropped subjects in one school year.</li>
+                    <li><strong>Under Monitoring:</strong> Close to probation or has INC grades or Failed in one major or minor</li>
+                </ul>
+            </div>
+
+            <form method="POST" action="/" id="enrollForm">
+                <div class="form-group">
+                    <label><strong>Active Student:</strong></label>
+                    <input type="text" class="display_name" readonly placeholder="Select a student..." style="background: #edf2f7; font-weight: bold; color: #004488;">
+                    <input type="hidden" name="student_name" class="hidden_name" required>
+                </div>
+
+                <div class="form-group">
+                    <label><strong>Confirm Section Assignment:</strong></label>
+                    <select name="section" id="form_section" required>
+                        <option value="">-- Select Section --</option>
+                        <option value="CPT-1A">CPT-1A</option>
+                        <option value="CPT-1B">CPT-1B</option>
+                        <option value="CPT-2A">CPT-2A</option>
+                        <option value="CPT-2B">CPT-2B</option>
+                        <option value="CPT-2C">CPT-2C</option>
+                        <option value="CPT-3A">CPT-3A</option>
+                        <option value="CPT-3B">CPT-3B</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label><strong>Academic Load / Curriculum:</strong></label>
+                    <select name="status" id="statusSelect" onchange="toggleChecklist()" required>
+                        <option value="Regular">Regular Load (No Back Subjects)</option>
+                        <option value="Irregular">Irregular (Has Deficiencies)</option>
+                    </select>
+                </div>
+
+                <div class="checklist" id="backSubjectsDiv">
+                    <strong style="font-size: 13px; color: #dc3545;">Select Unresolved Deficiencies:</strong>
+                    
+                    <details>
+                        <summary>1st Year Curriculum</summary>
+                        <span class="sem-title">1st Semester</span>
+                        <div class="checkbox-grid">
+                            <label><input type="checkbox" name="back_subjects" value="BCP 111"> BCP 111 (OSH)</label>
+                            <label><input type="checkbox" name="back_subjects" value="BCP 112"> BCP 112 (Prog 1)</label>
+                            <label><input type="checkbox" name="back_subjects" value="BCP 113"> BCP 113 (Dig Elec)</label>
+                            <label><input type="checkbox" name="back_subjects" value="GE 111"> GE 111 (Self)</label>
+                            <label><input type="checkbox" name="back_subjects" value="GE 114"> GE 114 (Math)</label>
+                            <label><input type="checkbox" name="back_subjects" value="ID"> ID (Drawing)</label>
+                        </div>
+                        <span class="sem-title">2nd Semester</span>
+                        <div class="checkbox-grid">
+                            <label><input type="checkbox" name="back_subjects" value="BCP 121"> BCP 121 (Prog 2)</label>
+                            <label><input type="checkbox" name="back_subjects" value="BCP 122"> BCP 122 (CAD 2D)</label>
+                            <label><input type="checkbox" name="back_subjects" value="BCP 123"> BCP 123 (Ind Elec)</label>
+                            <label><input type="checkbox" name="back_subjects" value="BCP 124"> BCP 124 (Comp Serv 1)</label>
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>2nd Year Curriculum</summary>
+                        <span class="sem-title">1st Semester</span>
+                        <div class="checkbox-grid">
+                            <label><input type="checkbox" name="back_subjects" value="BCP 211"> BCP 211 (Prog 3)</label>
+                            <label><input type="checkbox" name="back_subjects" value="BCP 212"> BCP 212 (CAD 3D)</label>
+                            <label><input type="checkbox" name="back_subjects" value="BCP 213"> BCP 213 (Comp Serv 2)</label>
+                        </div>
+                        <span class="sem-title">2nd Semester</span>
+                        <div class="checkbox-grid">
+                            <label><input type="checkbox" name="back_subjects" value="BCP 221"> BCP 221 (Prog 4)</label>
+                            <label><input type="checkbox" name="back_subjects" value="BCP 222"> BCP 222 (IIoT)</label>
+                            <label><input type="checkbox" name="back_subjects" value="BCP 223"> BCP 223 (Embedded)</label>
+                        </div>
+                    </details>
+
+                    <div style="margin-top: 10px;">
+                        <input type="text" name="other_subject" placeholder="Manual Subject Entry...">
+                    </div>
+                </div>
+                
+                <hr style="border: 0; border-top: 1px solid #ddd; margin: 20px 0;">
+
+                <div class="form-group">
+                    <label><strong>Policy Standing (CET Rule):</strong></label>
+                    <select name="standing" id="standingSelect" required onchange="toggleRemarks()">
+                        <option value="Regular">Regular (Good Standing)</option>
+                        <option value="Under Monitoring">Under Monitoring</option>
+                        <option value="Probationary">Probationary</option>
+                        <option value="Denied">Denied Enrollment / Disqualified</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="remarksDiv" style="display: none;">
+                    <label><strong>Reason for Probation/Denial:</strong></label>
+                    <textarea name="remarks" rows="2" placeholder="E.g., GPA < 2.5, 3 INC grades..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">💾 Save & Log Enrollment</button>
+            </form>
+
+            <form method="POST" action="/not_enrolling" id="declineForm" style="display: none;">
+                <div class="form-group">
+                    <label><strong>Active Student:</strong></label>
+                    <input type="text" class="display_name" readonly placeholder="Select a student..." style="background: #edf2f7; font-weight: bold; color: #dc3545;">
+                    <input type="hidden" name="student_name" class="hidden_name" required>
+                </div>
+
+                <div class="form-group">
+                    <label><strong>Reason for Not Enrolling:</strong></label>
+                    <select name="reason" id="decline_reason" required onchange="toggleDeclineOtherReason()">
+                        <option value="">-- Select Reason --</option>
+                        <option value="Employment / Working Student">Employment / Working Student</option>
+                        <option value="Financial Constraints">Financial Constraints</option>
+                        <option value="Transferring to another school">Transferring to another school</option>
+                        <option value="Personal / Family Reasons">Personal / Family Reasons</option>
+                        <option value="Health Issues">Health Issues</option>
+                        <option value="No response / Cannot be contacted">No response / Cannot be contacted</option>
+                        <option value="Other">Other (Please specify...)</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="declineOtherReasonDiv" style="display: none;">
+                    <label><strong>Specify Other Reason:</strong></label>
+                    <textarea name="other_reason" id="decline_other_reason" rows="3" placeholder="Explain the reason..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit" style="background: #dc3545;">❌ Mark as Not Enrolling</button>
+            </form>
+        </div>
+
+        <div class="side-form" style="position: static; width: 100%; border-top: 5px solid #28a745; box-sizing: border-box; margin: 0;">
+            <h3>📤 Bulk Import Roster</h3>
+            <form method="POST" action="/import_csv" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label><strong>Upload CSV File:</strong></label>
+                    <input type="file" name="file" accept=".csv" required style="width: 100%; box-sizing: border-box; padding: 6px; font-size: 13px;">
+                </div>
+                
+                <div style="font-size: 11px; color: #856404; background: #fff3cd; padding: 10px; border-radius: 4px; border-left: 4px solid #ffc107; margin-bottom: 15px;">
+                    <strong>CSV Requirements:</strong><br>
+                    • Column 1: Student Name (<i>Last Name, First Name M.</i>)<br>
+                    • Column 2: Section (e.g. <i>CPT-1A</i>)<br>
+                    * Existing student names will be skipped. Year level is deduced from section code.
+                </div>
+                
+                <button type="submit" class="btn-submit" style="background: #28a745; margin-top: 5px;">📤 Import Students</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function switchTab(section) {
+        let tabs = document.querySelectorAll('.tab-btn');
+        tabs.forEach(t => t.classList.remove('active'));
+        event.target.classList.add('active');
+
+        let rows = document.querySelectorAll('.student-row');
+        rows.forEach(row => {
+            if (section === 'ALL' || row.getAttribute('data-section') === section) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    }
+
+    function loadStudent(name, section) {
+        document.querySelectorAll('.display_name').forEach(el => el.value = name);
+        document.querySelectorAll('.hidden_name').forEach(el => el.value = name);
+        document.getElementById('form_section').value = section;
+    }
+
+    function switchWorkbenchTab(tab) {
+        let enrollBtn = document.getElementById('wb-tab-enroll');
+        let declineBtn = document.getElementById('wb-tab-decline');
+        let enrollPanel = document.getElementById('enrollForm');
+        let declinePanel = document.getElementById('declineForm');
+        let policyBox = document.getElementById('policyBox');
+        
+        if (tab === 'enroll') {
+            enrollBtn.classList.add('active');
+            declineBtn.classList.remove('active');
+            enrollPanel.style.display = 'block';
+            declinePanel.style.display = 'none';
+            policyBox.style.display = 'block';
+        } else {
+            enrollBtn.classList.remove('active');
+            declineBtn.classList.add('active');
+            enrollPanel.style.display = 'none';
+            declinePanel.style.display = 'block';
+            policyBox.style.display = 'none';
+        }
+    }
+
+    function toggleDeclineOtherReason() {
+        const reason = document.getElementById('decline_reason').value;
+        const otherDiv = document.getElementById('declineOtherReasonDiv');
+        const otherInput = document.getElementById('decline_other_reason');
+        if (reason === 'Other') {
+            otherDiv.style.display = 'block';
+            otherInput.setAttribute('required', 'required');
+        } else {
+            otherDiv.style.display = 'none';
+            otherInput.removeAttribute('required');
+            otherInput.value = '';
+        }
+    }
+
+    function copyMessengerList() {
+        let rows = document.querySelectorAll('.student-row');
+        let text = "📢 *PENDING ENROLLMENT FOLLOW-UP LIST*\n\n";
+        let count = 0;
+        
+        rows.forEach(row => {
+            if (row.style.display !== 'none') {
+                let name = row.cells[0].innerText.trim();
+                let section = row.cells[2].innerText.trim();
+                text += `• ${name} (${section})\n`;
+                count++;
+            }
+        });
+        
+        if (count === 0) {
+            alert("No pending students to copy.");
+            return;
+        }
+        
+        navigator.clipboard.writeText(text).then(() => {
+            alert(`📋 Copied ${count} pending student(s) to clipboard in Messenger-friendly format!`);
+        }).catch(err => {
+            console.error('Error copying text: ', err);
+            alert("Failed to copy. Please manually copy the list.");
+        });
+    }
+
+    function toggleChecklist() {
+        const status = document.getElementById('statusSelect').value;
+        const checklist = document.getElementById('backSubjectsDiv');
+        checklist.style.display = (status === 'Irregular') ? 'block' : 'none';
+        if(status !== 'Irregular') {
+            document.querySelectorAll('#backSubjectsDiv input[type="checkbox"]').forEach(cb => cb.checked = false);
+            document.querySelector('input[name="other_subject"]').value = '';
+        }
+    }
+
+    function toggleRemarks() {
+        const standing = document.getElementById('standingSelect').value;
+        const remarksDiv = document.getElementById('remarksDiv');
+        remarksDiv.style.display = (standing === 'Probationary' || standing === 'Denied' || standing === 'Under Monitoring') ? 'block' : 'none';
+    }
+
+    function toggleStudentStatus(checkbox, studentName, fieldName) {
+        const status = checkbox.checked ? 'Completed' : 'Pending';
+        checkbox.disabled = true;
+        
+        fetch('/toggle_status', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `student_name=${encodeURIComponent(studentName)}&field=${encodeURIComponent(fieldName)}&status=${encodeURIComponent(status)}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            checkbox.disabled = false;
+            if (!data.success) {
+                alert('Failed to update status: ' + data.error);
+                checkbox.checked = !checkbox.checked; // revert
+            }
+        })
+        .catch(error => {
+            checkbox.disabled = false;
+            console.error('Error:', error);
+            alert('Network error. Failed to update status.');
+            checkbox.checked = !checkbox.checked; // revert
+        });
+    }
+
+    function filterRoster() {
+        let sec = document.getElementById('filterSection').value;
+        let def = document.getElementById('filterDeficiency').value;
+        let ret = document.getElementById('filterRetention').value;
+        
+        let rows = document.querySelectorAll('.enrolled-row');
+        
+        rows.forEach(row => {
+            let matchSec = (sec === 'ALL' || row.getAttribute('data-section') === sec);
+            let matchDef = (def === 'ALL' || row.getAttribute('data-load') === def);
+            let matchRet = (ret === 'ALL' || row.getAttribute('data-standing') === ret);
+            
+            // Only display the row if it matches all active dropdown filters
+            if (matchSec && matchDef && matchRet) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('success')) {
+            let sName = urlParams.get('student');
+            let successType = urlParams.get('success');
+            if (successType === '1') {
+                alert("✅ Successfully enrolled: " + sName);
+            } else if (successType === 'not_enrolled') {
+                alert("❌ Student marked as Not Enrolling: " + sName);
+            } else if (successType === 'section_changed') {
+                alert("🔄 Section updated successfully for: " + sName);
+            } else if (successType === 'imported') {
+                const added = urlParams.get('added') || '0';
+                const skipped = urlParams.get('skipped') || '0';
+                alert(`📤 Bulk Import Complete:\n✅ Added ${added} new student(s)\n⚠️ Skipped ${skipped} duplicate student(s) already in the system.`);
+            }
+            // Clean up the URL so the alert doesn't show on refresh
+            window.history.replaceState({}, document.title, "/");
+        }
+    });
+</script>
+</body>
+</html>
