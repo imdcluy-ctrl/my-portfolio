@@ -23,7 +23,7 @@ export default function AudioToggle() {
       onClick={handleToggle}
       aria-label={isMuted ? 'Turn on ambient audio and sound effects' : 'Mute audio'}
       aria-pressed={!isMuted}
-      title={isMuted ? 'Enable ambient music & SFX' : 'Mute audio'}
+      title={isMuted ? 'Enable ambient soundtrack & SFX ("Touching Moments Four - Melody" by Kevin MacLeod · CC-BY 4.0)' : 'Mute audio'}
       className={`group relative inline-flex items-center gap-2 px-2.5 py-1.5 rounded-[--radius-pill] text-xs font-mono transition-all duration-200 cursor-pointer select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent border ${
         !isMuted
           ? 'bg-accent/10 border-accent/40 text-accent shadow-xs'
