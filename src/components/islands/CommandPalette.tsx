@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Search, X, ArrowRight } from 'lucide-react';
 import type { ProjectData } from './CaseStudyDrawer';
-import { sound } from '../../utils/audio';
 
 interface CommandPaletteProps {
   projects: ProjectData[];
@@ -18,11 +17,7 @@ export default function CommandPalette({ projects }: CommandPaletteProps) {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
-        setIsOpen(prev => {
-          const next = !prev;
-          if (next) sound.playClick(880);
-          return next;
-        });
+        setIsOpen(prev => !prev);
       }
       if (e.key === 'Escape' && isOpen) {
         setIsOpen(false);
@@ -56,7 +51,6 @@ export default function CommandPalette({ projects }: CommandPaletteProps) {
 
   const selectProject = (id: string) => {
     setIsOpen(false);
-    sound.playDrawerChime();
     // Trigger case study drawer click
     const trigger = document.querySelector(`.case-study-trigger[data-project="${id}"]`) as HTMLElement;
     if (trigger) {
@@ -70,18 +64,10 @@ export default function CommandPalette({ projects }: CommandPaletteProps) {
   const handleInputKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'ArrowDown') {
       e.preventDefault();
-      setSelectedIndex(prev => {
-        const next = prev < filtered.length - 1 ? prev + 1 : 0;
-        sound.playHover();
-        return next;
-      });
+      setSelectedIndex(prev => (prev < filtered.length - 1 ? prev + 1 : 0));
     } else if (e.key === 'ArrowUp') {
       e.preventDefault();
-      setSelectedIndex(prev => {
-        const next = prev > 0 ? prev - 1 : filtered.length - 1;
-        sound.playHover();
-        return next;
-      });
+      setSelectedIndex(prev => (prev > 0 ? prev - 1 : filtered.length - 1));
     } else if (e.key === 'Enter' && filtered[selectedIndex]) {
       e.preventDefault();
       selectProject(filtered[selectedIndex].id);
@@ -89,7 +75,6 @@ export default function CommandPalette({ projects }: CommandPaletteProps) {
   };
 
   const openPalette = () => {
-    sound.playClick(880);
     setIsOpen(true);
   };
 
@@ -158,10 +143,7 @@ export default function CommandPalette({ projects }: CommandPaletteProps) {
                       key={p.id}
                       type="button"
                       onClick={() => selectProject(p.id)}
-                      onMouseEnter={() => {
-                        setSelectedIndex(idx);
-                        sound.playHover();
-                      }}
+                      onMouseEnter={() => setSelectedIndex(idx)}
                       className={`w-full text-left p-3 rounded-xl transition-all flex items-center justify-between gap-3 cursor-pointer ${
                         isSel
                           ? 'bg-emerald-500/15 text-[var(--color-ink)] border border-emerald-500/40 shadow-xs'

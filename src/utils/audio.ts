@@ -1,10 +1,8 @@
 // src/utils/audio.ts
-// Hybrid Audio Engine for Duane Luy's Portfolio
-// - Real Acoustic / Atmospheric Ambient Soundtrack (Kevin MacLeod - CC-BY 4.0)
-// - Instant Procedural Micro-Haptics (Web Audio API)
+// Clean Ambient Soundtrack Engine for Duane Luy's Portfolio
+// Music: "Touching Moments Four - Melody" by Kevin MacLeod (incompetech.com) · CC-BY 4.0
 
 class SoundEngine {
-  private ctx: AudioContext | null = null;
   private isMuted: boolean = true;
   private ambientAudio: HTMLAudioElement | null = null;
   private fadeInterval: ReturnType<typeof setInterval> | null = null;
@@ -16,29 +14,11 @@ class SoundEngine {
     }
   }
 
-  private initContext(): boolean {
-    if (typeof window === 'undefined') return false;
-    try {
-      if (!this.ctx) {
-        const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
-        if (!AudioCtx) return false;
-        this.ctx = new AudioCtx();
-      }
-      if (this.ctx.state === 'suspended') {
-        this.ctx.resume();
-      }
-      return true;
-    } catch {
-      return false;
-    }
-  }
-
   public getMuted(): boolean {
     return this.isMuted;
   }
 
   public toggleMute(): boolean {
-    this.initContext();
     this.isMuted = !this.isMuted;
     if (typeof window !== 'undefined') {
       localStorage.setItem('portfolio_muted', String(this.isMuted));
@@ -54,7 +34,7 @@ class SoundEngine {
   }
 
   /**
-   * Real atmospheric ambient soundtrack playback with smooth volume cross-fade
+   * Real atmospheric ambient soundtrack playback with smooth volume fade
    */
   public startAmbientMusic() {
     if (this.isMuted || typeof window === 'undefined') return;
@@ -74,8 +54,8 @@ class SoundEngine {
     if (playPromise !== undefined) {
       playPromise
         .then(() => {
-          // Smoothly ramp volume from current to 0.32 over 1.2s
-          const targetVol = 0.32;
+          // Smoothly ramp volume to a relaxing background level (0.28) over 1.2s
+          const targetVol = 0.28;
           const step = 0.02;
           this.fadeInterval = setInterval(() => {
             if (!this.ambientAudio) return;
@@ -89,13 +69,13 @@ class SoundEngine {
           }, 50);
         })
         .catch(() => {
-          // Browser prevented autoplay before explicit user gesture
+          // Handled gracefully if browser blocks before gesture
         });
     }
   }
 
   /**
-   * Smoothly fade out ambient soundtrack over 0.5s
+   * Smoothly fade out ambient soundtrack over 0.4s
    */
   public stopAmbientMusic() {
     if (!this.ambientAudio) return;
@@ -119,95 +99,10 @@ class SoundEngine {
     }, 40);
   }
 
-  /**
-   * Procedural tactile click micro-haptic (40ms sine drop)
-   */
-  public playClick(freq = 720) {
-    if (this.isMuted || !this.initContext() || !this.ctx) return;
-
-    try {
-      const osc = this.ctx.createOscillator();
-      const gain = this.ctx.createGain();
-      const now = this.ctx.currentTime;
-
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(freq, now);
-      osc.frequency.exponentialRampToValueAtTime(Math.max(40, freq * 0.35), now + 0.04);
-
-      gain.gain.setValueAtTime(0.12, now);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
-
-      osc.connect(gain);
-      gain.connect(this.ctx.destination);
-
-      osc.start(now);
-      osc.stop(now + 0.04);
-    } catch {
-      // Catch interrupted context
-    }
-  }
-
-  /**
-   * Ultra-subtle hover blip for interactive lists / search results
-   */
-  public playHover() {
-    if (this.isMuted || !this.initContext() || !this.ctx) return;
-
-    try {
-      const osc = this.ctx.createOscillator();
-      const gain = this.ctx.createGain();
-      const now = this.ctx.currentTime;
-
-      osc.type = 'triangle';
-      osc.frequency.setValueAtTime(950, now);
-      osc.frequency.exponentialRampToValueAtTime(1100, now + 0.025);
-
-      gain.gain.setValueAtTime(0.03, now);
-      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.025);
-
-      osc.connect(gain);
-      gain.connect(this.ctx.destination);
-
-      osc.start(now);
-      osc.stop(now + 0.025);
-    } catch {
-      // Silently catch
-    }
-  }
-
-  /**
-   * Procedural Sci-Fi Harmonic Drawer Chime (C5, E5, G5 ascending triad)
-   */
-  public playDrawerChime() {
-    if (this.isMuted || !this.initContext() || !this.ctx) return;
-
-    try {
-      const notes = [523.25, 659.25, 783.99]; // C5, E5, G5
-      const now = this.ctx.currentTime;
-
-      notes.forEach((freq, idx) => {
-        if (!this.ctx) return;
-        const osc = this.ctx.createOscillator();
-        const gain = this.ctx.createGain();
-        const startDelay = idx * 0.04;
-
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(freq, now + startDelay);
-
-        gain.gain.setValueAtTime(0.0001, now + startDelay);
-        gain.gain.linearRampToValueAtTime(0.08, now + startDelay + 0.02);
-        gain.gain.exponentialRampToValueAtTime(0.0001, now + startDelay + 0.4);
-
-        osc.connect(gain);
-        gain.connect(this.ctx.destination);
-
-        osc.start(now + startDelay);
-        osc.stop(now + startDelay + 0.4);
-      });
-    } catch {
-      // Silently catch
-    }
-  }
+  // Completely silenced / removed synthetic oscillator beeps
+  public playClick(_freq?: number) {}
+  public playHover() {}
+  public playDrawerChime() {}
 }
 
 export const sound = new SoundEngine();

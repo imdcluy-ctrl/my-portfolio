@@ -91,18 +91,6 @@ export function initScrollReveal() {
 
     requestAnimationFrame(update);
   }
-
-  // 3. Global Sound Haptics for elements with data-sound
-  document.addEventListener('click', (e) => {
-    const target = (e.target as HTMLElement).closest('[data-sound]');
-    if (target) {
-      const soundType = target.getAttribute('data-sound');
-      import('./audio').then(({ sound }) => {
-        if (soundType === 'chime') sound.playDrawerChime();
-        else sound.playClick();
-      });
-    }
-  }, { passive: true });
 }
 
 // Auto-run when loaded in browser
