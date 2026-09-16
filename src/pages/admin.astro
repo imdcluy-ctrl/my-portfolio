@@ -6,13 +6,82 @@ const allProjects = await getCollection('projects');
 const projectsData = allProjects.map(p => p.data);
 ---
 
-<BaseLayout title="Portfolio Studio — Design & Content Management">
-  <div class="space-y-8 py-6">
+<BaseLayout title="Security Authentication — Portfolio Control Studio">
+  <!-- Authentication Lock Screen (Default View) -->
+  <div id="authPortal" class="min-h-[75vh] flex items-center justify-center p-4">
+    <div class="w-full max-w-md p-8 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-line)] shadow-2xl space-y-6">
+      <div class="text-center space-y-2">
+        <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mx-auto text-emerald-500 font-display font-black text-xl shadow-lg">
+          Z
+        </div>
+        <h1 class="text-2xl font-bold font-display text-[var(--color-ink)] tracking-tight">
+          Portfolio Studio Login
+        </h1>
+        <p class="text-xs font-mono text-[var(--color-ink-muted)]">
+          Restricted Administrative Access · Authorized Personnel Only
+        </p>
+      </div>
+
+      <form id="loginForm" class="space-y-4 pt-2">
+        <div>
+          <label class="block text-xs font-mono text-[var(--color-ink-muted)] mb-1">
+            Administrator Username
+          </label>
+          <input
+            type="text"
+            id="adminUsername"
+            required
+            autocomplete="username"
+            placeholder="Enter admin username"
+            class="w-full text-xs font-mono bg-[var(--color-surface-2)] border border-[var(--color-line)] rounded-lg p-3 text-[var(--color-ink)] focus:outline-none focus:border-emerald-500 transition-colors"
+          />
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between mb-1">
+            <label class="text-xs font-mono text-[var(--color-ink-muted)]">
+              Master Password
+            </label>
+            <span id="attemptWarning" class="text-[10px] font-mono text-rose-400 hidden">
+              Invalid credentials
+            </span>
+          </div>
+          <input
+            type="password"
+            id="adminPassword"
+            required
+            autocomplete="current-password"
+            placeholder="••••••••••••"
+            class="w-full text-xs font-mono bg-[var(--color-surface-2)] border border-[var(--color-line)] rounded-lg p-3 text-[var(--color-ink)] focus:outline-none focus:border-emerald-500 transition-colors"
+          />
+        </div>
+
+        <button
+          type="submit"
+          id="loginBtn"
+          class="w-full py-3 rounded-lg text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white transition-all shadow-md shadow-emerald-950 flex items-center justify-center gap-2 cursor-pointer"
+        >
+          <span>Authenticate Session</span>
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+        </button>
+      </form>
+
+      <div class="pt-4 border-t border-[var(--color-line)] flex items-center justify-between text-[10px] font-mono text-[var(--color-ink-muted)]">
+        <span>SHA-256 Hashed Verification</span>
+        <a href="/" class="hover:text-[var(--color-ink)] transition-colors">← Public Portfolio</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Authenticated Studio Dashboard (Hidden until login) -->
+  <div id="studioDashboard" class="hidden space-y-8 py-6">
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[var(--color-line)]">
       <div>
         <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full text-xs font-mono bg-emerald-500/10 text-emerald-500 border border-emerald-500/30">
           <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span>Local Admin Studio</span>
+          <span>Authenticated Administrator Session</span>
         </div>
         <h1 class="text-3xl font-extrabold text-[var(--color-ink)] mt-2 font-display">
           Portfolio Content & Design Studio
@@ -23,15 +92,15 @@ const projectsData = allProjects.map(p => p.data);
       </div>
 
       <div class="flex items-center gap-3">
-        <a
-          href="/"
-          class="px-4 py-2 rounded-lg text-xs font-mono border border-[var(--color-line)] text-[var(--color-ink)] hover:bg-[var(--color-surface-2)] transition-colors"
+        <button
+          id="logoutBtn"
+          class="px-3.5 py-2 rounded-lg text-xs font-mono border border-rose-500/30 text-rose-400 hover:bg-rose-500/10 transition-colors"
         >
-          ← Return to Portfolio
-        </a>
+          Sign Out ⎋
+        </button>
         <button
           id="exportBtn"
-          class="px-4 py-2 rounded-lg text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white transition-colors flex items-center gap-1.5 shadow-sm"
+          class="px-4 py-2 rounded-lg text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white transition-colors flex items-center gap-1.5 shadow-sm cursor-pointer"
         >
           <span>Download Updated projects.json</span>
         </button>
@@ -52,13 +121,13 @@ const projectsData = allProjects.map(p => p.data);
       </a>
     </div>
 
-    <!-- Interactive In-Browser Studio Grid -->
+    <!-- Interactive Studio Grid -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
       <!-- Project List Sidebar -->
       <div class="lg:col-span-4 space-y-3">
         <div class="flex items-center justify-between text-xs font-mono text-[var(--color-ink-muted)]">
           <span>Select System ({projectsData.length})</span>
-          <span class="text-emerald-500">All Changes Live-Synced</span>
+          <span class="text-emerald-500">Live Editor Active</span>
         </div>
         <input
           type="text"
@@ -70,7 +139,7 @@ const projectsData = allProjects.map(p => p.data);
           {projectsData.map((p, idx) => (
             <button
               data-index={idx}
-              class="project-item w-full text-left p-3 rounded-xl border border-[var(--color-line)] bg-[var(--color-surface)] hover:bg-[var(--color-surface-2)] transition-colors flex flex-col gap-1 text-xs"
+              class="project-item w-full text-left p-3 rounded-xl border border-[var(--color-line)] bg-[var(--color-surface)] hover:bg-[var(--color-surface-2)] transition-colors flex flex-col gap-1 text-xs cursor-pointer"
             >
               <div class="flex items-center justify-between text-[10px] font-mono text-[var(--color-ink-muted)]">
                 <span class="uppercase">{p.domain}</span>
@@ -124,7 +193,7 @@ const projectsData = allProjects.map(p => p.data);
                 <div class="text-xs font-semibold text-[var(--color-ink)]">Public GitHub Repository Link</div>
                 <div class="text-[11px] text-[var(--color-ink-muted)]">Toggle OFF to display Institutional Confidentiality Badge</div>
               </div>
-              <input type="checkbox" id="checkShowGithub" class="w-5 h-5 rounded text-emerald-500" />
+              <input type="checkbox" id="checkShowGithub" class="w-5 h-5 rounded text-emerald-500 cursor-pointer" />
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
               <div>
@@ -155,15 +224,74 @@ const projectsData = allProjects.map(p => p.data);
   </div>
 
   <script is:inline define:vars={{ initialProjects: projectsData }}>
-    let projects = initialProjects;
-    let selectedIdx = 0;
+    // Security Credential Hashes (SHA-256)
+    // Default: Username: duane | Password: Duane@Portfolio2026!
+    var EXPECTED_USER_HASH = "053ca5d2b4374e09b76c872b001242b9e035d992093671ac9170c70953d07428";
+    var EXPECTED_PASS_HASH = "61d0a040f6344d52bd1a858cab0a4c221ea02f76c921982e094161530b321d56";
 
-    const searchBox = document.getElementById('searchBox');
-    const exportBtn = document.getElementById('exportBtn');
+    async function sha256(message) {
+      var msgBuffer = new TextEncoder().encode(message);
+      var hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+      var hashArray = Array.from(new Uint8Array(hashBuffer));
+      return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    var authPortal = document.getElementById('authPortal');
+    var studioDashboard = document.getElementById('studioDashboard');
+    var loginForm = document.getElementById('loginForm');
+    var warning = document.getElementById('attemptWarning');
+    var logoutBtn = document.getElementById('logoutBtn');
+
+    // Check Session
+    function checkAuth() {
+      var session = sessionStorage.getItem('portfolio_studio_session');
+      if (session === 'authenticated') {
+        authPortal.classList.add('hidden');
+        studioDashboard.classList.remove('hidden');
+      } else {
+        authPortal.classList.remove('hidden');
+        studioDashboard.classList.add('hidden');
+      }
+    }
+
+    loginForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      var user = document.getElementById('adminUsername').value.trim();
+      var pass = document.getElementById('adminPassword').value.trim();
+
+      var userHash = await sha256(user);
+      var passHash = await sha256(pass);
+
+      var customPassHash = localStorage.getItem('custom_admin_pass_hash');
+      var targetPassHash = customPassHash || EXPECTED_PASS_HASH;
+
+      if (userHash === EXPECTED_USER_HASH && passHash === targetPassHash) {
+        sessionStorage.setItem('portfolio_studio_session', 'authenticated');
+        warning.classList.add('hidden');
+        checkAuth();
+      } else {
+        warning.classList.remove('hidden');
+        warning.innerText = 'Invalid username or password.';
+      }
+    });
+
+    logoutBtn.addEventListener('click', function() {
+      sessionStorage.removeItem('portfolio_studio_session');
+      checkAuth();
+    });
+
+    checkAuth();
+
+    // Studio Editing State
+    var projects = initialProjects;
+    var selectedIdx = 0;
+
+    var searchBox = document.getElementById('searchBox');
+    var exportBtn = document.getElementById('exportBtn');
 
     function bindProject(idx) {
       selectedIdx = idx;
-      const p = projects[idx];
+      var p = projects[idx];
 
       document.getElementById('editTitle').innerText = p.title;
       document.getElementById('editSlug').innerText = p.id;
@@ -172,12 +300,12 @@ const projectsData = allProjects.map(p => p.data);
       document.getElementById('inputBentoOrder').value = p.bentoOrder || '';
       document.getElementById('inputTagline').value = p.tagline || '';
       document.getElementById('checkShowGithub').checked = !!p.showGithub;
-      document.getElementById('inputGithubUrl').value = p.githubUrl || p.links?.repo || '';
-      document.getElementById('inputLiveUrl').value = p.links?.live || '';
+      document.getElementById('inputGithubUrl').value = p.githubUrl || (p.links && p.links.repo) || '';
+      document.getElementById('inputLiveUrl').value = (p.links && p.links.live) || '';
       document.getElementById('inputVideoUrl').value = p.demoVideoUrl || '';
       document.getElementById('inputWalkthrough').value = p.walkthroughNotes || p.accessNotes || '';
 
-      document.querySelectorAll('.project-item').forEach((el, i) => {
+      document.querySelectorAll('.project-item').forEach(function(el, i) {
         if (i === idx) {
           el.classList.add('border-emerald-500', 'bg-[var(--color-surface-2)]');
         } else {
@@ -187,9 +315,9 @@ const projectsData = allProjects.map(p => p.data);
     }
 
     function syncFormToState() {
-      const p = projects[selectedIdx];
+      var p = projects[selectedIdx];
       p.featured = document.getElementById('checkFeatured').checked;
-      const bo = parseInt(document.getElementById('inputBentoOrder').value, 10);
+      var bo = parseInt(document.getElementById('inputBentoOrder').value, 10);
       p.bentoOrder = isNaN(bo) ? null : bo;
       p.title = document.getElementById('inputTitle').value;
       p.tagline = document.getElementById('inputTagline').value;
@@ -204,29 +332,29 @@ const projectsData = allProjects.map(p => p.data);
       document.getElementById('editTitle').innerText = p.title;
     }
 
-    ['checkFeatured', 'inputTitle', 'inputBentoOrder', 'inputTagline', 'checkShowGithub', 'inputGithubUrl', 'inputLiveUrl', 'inputVideoUrl', 'inputWalkthrough'].forEach(id => {
+    ['checkFeatured', 'inputTitle', 'inputBentoOrder', 'inputTagline', 'checkShowGithub', 'inputGithubUrl', 'inputLiveUrl', 'inputVideoUrl', 'inputWalkthrough'].forEach(function(id) {
       document.getElementById(id).addEventListener('input', syncFormToState);
       document.getElementById(id).addEventListener('change', syncFormToState);
     });
 
-    document.querySelectorAll('.project-item').forEach(el => {
-      el.addEventListener('click', () => {
-        const idx = parseInt(el.getAttribute('data-index'), 10);
+    document.querySelectorAll('.project-item').forEach(function(el) {
+      el.addEventListener('click', function() {
+        var idx = parseInt(el.getAttribute('data-index'), 10);
         bindProject(idx);
       });
     });
 
-    searchBox.addEventListener('input', (e) => {
-      const q = e.target.value.toLowerCase();
-      document.querySelectorAll('.project-item').forEach(el => {
-        const text = el.innerText.toLowerCase();
+    searchBox.addEventListener('input', function(e) {
+      var q = e.target.value.toLowerCase();
+      document.querySelectorAll('.project-item').forEach(function(el) {
+        var text = el.innerText.toLowerCase();
         el.style.display = text.includes(q) ? 'flex' : 'none';
       });
     });
 
-    exportBtn.addEventListener('click', () => {
-      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(projects, null, 2));
-      const downloadAnchor = document.createElement('a');
+    exportBtn.addEventListener('click', function() {
+      var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(projects, null, 2));
+      var downloadAnchor = document.createElement('a');
       downloadAnchor.setAttribute("href", dataStr);
       downloadAnchor.setAttribute("download", "projects.json");
       document.body.appendChild(downloadAnchor);
