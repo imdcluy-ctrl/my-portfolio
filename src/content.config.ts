@@ -102,7 +102,8 @@ export const projectSchema = z.object({
     .default({ live: null, repo: null, localPath: null, notes: null }),
 
   // Access Context & Local Execution
-  accessNotes: z.string().nullable().default(null).describe('Credentials, demo accounts, or test user walkthroughs'),
+  accessNotes: z.string().nullable().default(null).describe('Safe operational notes or guest preview mode'),
+  walkthroughNotes: z.string().nullable().default(null).describe('Guided walkthrough instructions for evaluators'),
   runCommand: z.string().nullable().default(null).describe('Primary terminal command to launch or test locally'),
   run: z
     .object({
@@ -110,6 +111,12 @@ export const projectSchema = z.object({
       url: z.string().nullable().default(null),
     })
     .default({ commands: [], url: null }),
+
+  // Open-Source Governance & Media Walkthroughs
+  showGithub: z.boolean().default(false).describe('Whether to show the public GitHub link button'),
+  githubUrl: z.string().nullable().default(null).describe('Direct GitHub repository URL if public'),
+  demoVideoUrl: z.string().nullable().default(null).describe('Video demo URL (YouTube, Loom, or local MP4)'),
+  isConfidential: z.boolean().default(true).describe('Flags proprietary institutional system under confidentiality'),
 
   // Deep Case Study Data
   caseStudy: z.object({

@@ -4,6 +4,9 @@ import '@fontsource-variable/inter';
 import '@fontsource-variable/jetbrains-mono';
 import '../styles/global.css';
 import ThemeToggle from '../components/islands/ThemeToggle';
+import AmbientCanvas from '../components/AmbientCanvas.astro';
+import CommandPalette from '../components/islands/CommandPalette';
+import { getCollection } from 'astro:content';
 
 export interface Props {
   title?: string;
@@ -27,6 +30,9 @@ const buildFormatted = new Date().toLocaleDateString('en-US', {
   month: 'short',
   day: 'numeric',
 });
+
+const allProjects = await getCollection('projects');
+const projectsData = allProjects.map(p => p.data);
 ---
 
 <!doctype html>
@@ -86,6 +92,9 @@ const buildFormatted = new Date().toLocaleDateString('en-US', {
       Skip to projects
     </a>
 
+    <!-- High-Performance Interactive Ambient Canvas -->
+    <AmbientCanvas />
+
     <!-- Scroll Sentinel for 40px Header Border Transition -->
     <div
       id="scroll-sentinel"
@@ -133,7 +142,17 @@ const buildFormatted = new Date().toLocaleDateString('en-US', {
             >
               Projects
             </a>
+            <a
+              href="/admin"
+              class="hidden sm:inline-block text-[11px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-500 hover:text-emerald-400 border border-emerald-500/30 transition-colors"
+              title="Open Portfolio Studio"
+            >
+              Studio
+            </a>
           </nav>
+
+          <!-- Spotlight Search Command Palette Island -->
+          <CommandPalette client:idle projects={projectsData} />
 
           <div class="h-4 w-[1px] bg-line" aria-hidden="true"></div>
 

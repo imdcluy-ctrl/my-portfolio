@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
+    "admin": "node scripts/admin-server.mjs",
+    "studio": "node scripts/admin-server.mjs",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Drawer } from 'vaul';
-import { ExternalLink, Copy, Check, X, Terminal, Key, ShieldCheck } from 'lucide-react';
+import { ExternalLink, Copy, Check, X, Terminal, ShieldCheck, Play, Lock } from 'lucide-react';
 
 export interface ProjectData {
   id: string;
@@ -28,7 +28,12 @@ export interface ProjectData {
     notes?: string | null;
   };
   accessNotes?: string | null;
+  walkthroughNotes?: string | null;
   runCommand?: string | null;
+  showGithub?: boolean;
+  githubUrl?: string | null;
+  demoVideoUrl?: string | null;
+  isConfidential?: boolean;
   caseStudy: {
     role?: string;
     problem?: string;
@@ -160,48 +165,69 @@ export default function CaseStudyDrawer({ projects }: CaseStudyDrawerProps) {
               </Drawer.Description>
             </div>
 
-            {/* Primary Action Panel */}
-            {isLive && (
-              <div className="p-4 rounded-xl bg-emerald-500/5 border border-emerald-500/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <div className="space-y-0.5">
-                  <div className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
-                    Production Deployed
+            {/* Primary Action Panel & Governance */}
+            <div className="flex flex-wrap items-center gap-3">
+              {isLive && (
+                <div className="w-full p-4 rounded-xl bg-emerald-500/5 border border-emerald-500/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div className="space-y-0.5">
+                    <div className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+                      Production Deployed
+                    </div>
+                    <div className="text-xs text-[var(--color-ink-muted)] truncate max-w-xs">
+                      {project.links.live}
+                    </div>
                   </div>
-                  <div className="text-xs text-[var(--color-ink-muted)] truncate max-w-xs">
-                    {project.links.live}
-                  </div>
+                  <a
+                    href={project.links.live!}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-xs font-medium bg-emerald-600 text-white hover:bg-emerald-700 transition-colors shadow-xs"
+                  >
+                    <span>Launch Live App</span>
+                    <ExternalLink size={14} />
+                  </a>
                 </div>
+              )}
+
+              {project.demoVideoUrl && (
                 <a
-                  href={project.links.live!}
+                  href={project.demoVideoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-xs font-medium bg-emerald-600 text-white hover:bg-emerald-700 transition-colors shadow-xs"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs font-medium bg-indigo-600 text-white hover:bg-indigo-700 transition-colors shadow-xs"
                 >
-                  <span>Launch Live App</span>
-                  <ExternalLink size={14} />
+                  <Play size={14} />
+                  <span>Watch Walkthrough Video</span>
                 </a>
-              </div>
-            )}
+              )}
 
-            {/* Access & Test Credentials */}
-            {project.accessNotes && (
+              {project.showGithub && (project.githubUrl || project.links.repo) ? (
+                <a
+                  href={(project.githubUrl || project.links.repo)!}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs font-medium bg-[var(--color-surface-2)] text-[var(--color-ink)] border border-[var(--color-line)] hover:bg-[var(--color-surface)] transition-colors"
+                >
+                  <span>GitHub Repository</span>
+                  <ExternalLink size={12} />
+                </a>
+              ) : project.isConfidential ? (
+                <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-mono bg-[var(--color-surface-2)] text-[var(--color-ink-muted)] border border-[var(--color-line)]">
+                  <Lock size={12} className="text-zinc-400" />
+                  <span>Institutional Software · Code Private (ZPPSU Governance)</span>
+                </div>
+              ) : null}
+            </div>
+
+            {/* Operational Walkthrough & Safe Access */}
+            {(project.walkthroughNotes || project.accessNotes) && (
               <div className="p-4 rounded-xl bg-[var(--color-surface-2)] border border-[var(--color-line)] space-y-2">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2 text-xs font-semibold text-[var(--color-ink)] uppercase tracking-wider">
-                    <Key size={14} className="text-[var(--color-accent)]" />
-                    <span>Access Context & Test Credentials</span>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => copyToClipboard(project.accessNotes!, 'creds')}
-                    className="text-[11px] font-mono text-[var(--color-ink-muted)] hover:text-[var(--color-ink)] flex items-center gap-1 cursor-pointer"
-                  >
-                    {copied === 'creds' ? <Check size={12} className="text-emerald-500" /> : <Copy size={12} />}
-                    <span>{copied === 'creds' ? 'Copied' : 'Copy'}</span>
-                  </button>
+                <div className="flex items-center gap-2 text-xs font-semibold text-[var(--color-ink)] uppercase tracking-wider">
+                  <ShieldCheck size={14} className="text-emerald-500" />
+                  <span>Operational Architecture & Walkthrough Context</span>
                 </div>
                 <p className="text-xs font-mono text-[var(--color-ink)] bg-[var(--color-surface)] p-2.5 rounded-lg border border-[var(--color-line)] break-all leading-relaxed">
-                  {project.accessNotes}
+                  {project.walkthroughNotes || project.accessNotes}
                 </p>
               </div>
             )}

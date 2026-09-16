@@ -1,0 +1,109 @@
+---
+// AmbientCanvas.astro: High-performance GPU cursor-aware ambient glow
+---
+
+<canvas
+  id="ambient-canvas"
+  class="fixed inset-0 pointer-events-none -z-10 w-full h-full opacity-50 dark:opacity-35 transition-opacity duration-700"
+  aria-hidden="true"
+></canvas>
+
+<script is:inline>
+  (function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var canvas = document.getElementById('ambient-canvas');
+    if (!canvas) return;
+
+    var ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    var width = (canvas.width = window.innerWidth);
+    var height = (canvas.height = window.innerHeight);
+
+    var targetX = width / 2;
+    var targetY = height / 3;
+    var currentX = targetX;
+    var currentY = targetY;
+
+    var isTabVisible = true;
+    var animFrame = null;
+
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener('resize', resize, { passive: true });
+
+    window.addEventListener('mousemove', function (e) {
+      targetX = e.clientX;
+      targetY = e.clientY;
+    }, { passive: true });
+
+    document.addEventListener('visibilitychange', function () {
+      isTabVisible = !document.hidden;
+      if (isTabVisible && !animFrame) {
+        animFrame = requestAnimationFrame(render);
+      }
+    });
+
+    function render() {
+      if (!isTabVisible) {
+        animFrame = null;
+        return;
+      }
+
+      // Smooth lerp towards cursor
+      currentX += (targetX - currentX) * 0.04;
+      currentY += (targetY - currentY) * 0.04;
+
+      ctx.clearRect(0, 0, width, height);
+
+      var isDark = document.documentElement.classList.contains('dark');
+
+      // Primary cursor glow
+      var grad1 = ctx.createRadialGradient(
+        currentX,
+        currentY,
+        0,
+        currentX,
+        currentY,
+        width > 768 ? 420 : 260
+      );
+
+      if (isDark) {
+        grad1.addColorStop(0, 'rgba(16, 185, 129, 0.12)'); // Emerald
+        grad1.addColorStop(0.5, 'rgba(99, 102, 241, 0.05)'); // Indigo
+        grad1.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      } else {
+        grad1.addColorStop(0, 'rgba(16, 185, 129, 0.06)');
+        grad1.addColorStop(0.6, 'rgba(203, 213, 225, 0.2)');
+        grad1.addColorStop(1, 'rgba(255, 255, 255, 0)');
+      }
+
+      ctx.fillStyle = grad1;
+      ctx.fillRect(0, 0, width, height);
+
+      // Secondary floating subtle top ambient orb
+      var topOrbX = width * 0.75 + Math.sin(Date.now() * 0.0006) * 60;
+      var topOrbY = 180 + Math.cos(Date.now() * 0.0008) * 40;
+      var grad2 = ctx.createRadialGradient(topOrbX, topOrbY, 0, topOrbX, topOrbY, 350);
+
+      if (isDark) {
+        grad2.addColorStop(0, 'rgba(99, 102, 241, 0.08)'); // Indigo glow
+        grad2.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      } else {
+        grad2.addColorStop(0, 'rgba(99, 102, 241, 0.04)');
+        grad2.addColorStop(1, 'rgba(255, 255, 255, 0)');
+      }
+
+      ctx.fillStyle = grad2;
+      ctx.fillRect(0, 0, width, height);
+
+      animFrame = requestAnimationFrame(render);
+    }
+
+    render();
+  })();
+</script>

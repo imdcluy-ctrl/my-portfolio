@@ -17,8 +17,13 @@ const remainingCount = allStack.length - topBadges.length;
 ---
 
 <article
-  class="group relative flex flex-col justify-between h-full rounded-[var(--radius-card)] bg-[var(--color-surface)] border border-[var(--color-line)] overflow-hidden transition-colors duration-150 hover:border-[var(--color-accent)]/50 focus-within:ring-2 focus-within:ring-[var(--color-accent)]"
+  class="group relative flex flex-col justify-between h-full rounded-[var(--radius-card)] bg-[var(--color-surface)] border border-[var(--color-line)] overflow-hidden transition-all duration-200 hover:border-[var(--color-accent)]/50 hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-950/20 focus-within:ring-2 focus-within:ring-[var(--color-accent)]"
 >
+  <!-- Subtle Ambient Specular Sheen -->
+  <div
+    class="pointer-events-none absolute -inset-px rounded-[var(--radius-card)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-tr from-emerald-500/5 via-transparent to-indigo-500/10 z-20"
+    aria-hidden="true"
+  ></div>
   <!-- Card Hero / Poster Media (16:10 aspect ratio) -->
   <div class="relative w-full aspect-[16/10] bg-[var(--color-surface-2)] overflow-hidden border-b border-[var(--color-line)]">
     {p.hero ? (

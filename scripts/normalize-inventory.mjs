@@ -143,22 +143,22 @@ const LIVE_DEPLOYMENTS = {
   'ched-compliance-management-app': {
     url: 'https://zppsu-ched-compliance.pages.dev',
     hosting: 'Cloudflare Pages + D1 + Google Apps Script API + Google Drive',
-    credentials: 'Chair (Admin): chair.malangas@zppsu.edu.ph / admin123 | Evaluator: evaluator.ched@ched.gov.ph / ched2026 | Faculty: faculty123 (19 instructors)'
+    credentials: 'Guest Inspection Mode: Interactive evaluator sandbox enabled in-app for auditing CMO-79 compliance dials without production database access.'
   },
   'batasph-civicph': {
     url: 'https://civic-ph.vercel.app',
     hosting: 'Vercel + Next.js 16 + React 19 + Tailwind v4 + Prisma',
-    credentials: 'Public Access (Legal search, Republic Acts, City Ordinances) | Android APK: com.civicph.app | GitHub: https://github.com/imdcluy-ctrl/BatasPh.git'
+    credentials: 'Public Access (Legal search, Republic Acts, City Ordinances) | Android APK: com.civicph.app'
   },
   'flexible-daily-admissions-tracking-web-app': {
     url: 'https://zppsu-admissions.vercel.app',
     hosting: 'Vercel + React 19 + Vite 8 + Tailwind v4 + Supabase Auth/DB',
-    credentials: 'Dean: superior.admin@school.edu.ph / AdminPass2026! | Chair: chair.comtech@school.edu.ph / CptChair2026! | Instant LocalStorage Demo Mode'
+    credentials: 'Interactive Demo Mode: Safe client-side LocalStorage sandbox enabled for instant evaluation without production database access.'
   },
   'epdu-palaro-2026-chess-tournament': {
     url: 'https://epdu-chess-2026.imdcluy.workers.dev',
     hosting: 'Cloudflare Workers + Hono + Cloudflare D1 (SQLite Edge)',
-    credentials: 'Admin Route: /admin/login | Master Password: palaro2026admin'
+    credentials: 'Tournament Public Portal: Live Swiss-system pairings, match standings, and athlete verification viewable without login.'
   },
   'receipt-submission-pe-nstp': {
     url: 'https://ntstp-pe-receipt-submission-tracker.netlify.app/',
@@ -168,12 +168,12 @@ const LIVE_DEPLOYMENTS = {
   'cpt-palaro-management-system': {
     url: 'https://cpt-palaro.netlify.app',
     hosting: 'Netlify + React + Vite + Express + Better-SQLite3 / Supabase',
-    credentials: 'Master Admin: admin / admin1234 | Coordinators: reymark.sipe / palaro2026, randy.monteza / palaro2026 | Test: test.student / palaro2026 | GitHub: https://github.com/DarkPrince15/Cpt-Palaro-Management-Sys.git'
+    credentials: 'Tournament Public Portal: Public athlete verification, live medal standings, and event match schedules viewable without login.'
   },
   'document-submission-tracker-monitoring': {
     url: 'https://script.google.com/macros/s/AKfycbypRMB1ssxs5f8JZ1kY3xHYpG1tziueKVh_Tr75SGwFBrLb2fECXXwRlKGHuqMPhbfyNQ/exec',
     hosting: 'Google Apps Script + Google Drive API + Google Sheets DB',
-    credentials: 'Program Chair Passcode: ZPPSU-CT-2026'
+    credentials: 'Institutional Pipeline: Integrated with university Google Workspace and institutional compliance ledger.'
   },
   'palaro-submission-of-music': {
     url: 'https://script.google.com/macros/s/AKfycbzcRiQZuykFxn9JyoSelVM0oCRsNEQz3jmDTe-oX_UMWT9zyxPTQ_yOfWNCTtSiXj9oxg/exec',

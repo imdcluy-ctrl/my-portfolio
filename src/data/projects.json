@@ -45,9 +45,9 @@
       "live": "https://zppsu-ched-compliance.pages.dev/",
       "repo": null,
       "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\CHED Compliance Management App",
-      "notes": "Chair (Admin): chair.malangas@zppsu.edu.ph / admin123 | Evaluator: evaluator.ched@ched.gov.ph / ched2026 | Faculty: faculty123 (19 instructors)"
+      "notes": "Guest Inspection Mode: Interactive evaluator sandbox enabled in-app for auditing CMO-79 compliance dials without production database access."
     },
-    "accessNotes": "Chair (Admin): chair.malangas@zppsu.edu.ph / admin123 | Evaluator: evaluator.ched@ched.gov.ph / ched2026 | Faculty: faculty123 (19 instructors)",
+    "accessNotes": "Guest Inspection Mode: Interactive evaluator sandbox enabled in-app for auditing CMO-79 compliance dials without production database access.",
     "runCommand": "npm run dev (Port 3000)",
     "run": {
       "commands": [
@@ -62,7 +62,7 @@
       "features": [
         "Folders A–H compliance progress dials",
         "PDF document review queue",
-        "faculty roster credential inspection (19 instructors)",
+        "faculty roster credential inspection (19 instructor profiles)",
         "CHED Annex C/D/E automated export",
         "interactive evaluator inspection mode."
       ],
@@ -71,7 +71,12 @@
     },
     "hero": "/projects/ched-compliance-management-app/screenshot.png",
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": "Guest Inspection Mode: Interactive evaluator sandbox enabled in-app for auditing CMO-79 compliance dials without production database access."
   },
   {
     "id": "comtech-one-web-app",
@@ -144,7 +149,12 @@
     },
     "hero": "/projects/comtech-one-web-app/screenshot.png",
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": null
   },
   {
     "id": "school-directory-system",
@@ -210,7 +220,12 @@
     },
     "hero": null,
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": null
   },
   {
     "id": "student-document-receipt-tracker",
@@ -281,7 +296,12 @@
     },
     "hero": null,
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": null
   },
   {
     "id": "flexible-daily-admissions-tracking-web-app",
@@ -324,9 +344,9 @@
       "live": "https://zppsu-admissions.vercel.app",
       "repo": null,
       "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\Flexible Daily Admissions Tracking Web App",
-      "notes": "Dean: superior.admin@school.edu.ph / AdminPass2026! | Chair: chair.comtech@school.edu.ph / CptChair2026! | Instant LocalStorage Demo Mode"
+      "notes": "Interactive Demo Mode: Safe client-side LocalStorage sandbox enabled for instant evaluation without production database access."
     },
-    "accessNotes": "Dean: superior.admin@school.edu.ph / AdminPass2026! | Chair: chair.comtech@school.edu.ph / CptChair2026! | Instant LocalStorage Demo Mode",
+    "accessNotes": "Interactive Demo Mode: Safe client-side LocalStorage sandbox enabled for instant evaluation without production database access.",
     "runCommand": "npm run dev",
     "run": {
       "commands": [
@@ -350,7 +370,12 @@
     },
     "hero": "/projects/flexible-daily-admissions-tracking-web-app/screenshot.png",
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": "Interactive Demo Mode: Safe client-side LocalStorage sandbox enabled for instant evaluation without production database access."
   },
   {
     "id": "screening-app",
@@ -420,7 +445,12 @@
     },
     "hero": "/projects/screening-app/screenshot.png",
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": null
   },
   {
     "id": "screening-app-v2",
@@ -485,7 +515,12 @@
     },
     "hero": "/projects/screening-app-v2/screenshot.png",
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": null
   },
   {
     "id": "enrollment-app",
@@ -553,7 +588,12 @@
     },
     "hero": "/projects/enrollment-app/screenshot.png",
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": null
   },
   {
     "id": "document-submission-tracker-monitoring",
@@ -593,9 +633,9 @@
       "live": "https://script.google.com/macros/s/AKfycbypRMB1ssxs5f8JZ1kY3xHYpG1tziueKVh_Tr75SGwFBrLb2fECXXwRlKGHuqMPhbfyNQ/exec",
       "repo": null,
       "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\Document_Submission_Tracker-Monitoring",
-      "notes": "Program Chair Passcode: ZPPSU-CT-2026"
+      "notes": "Institutional Pipeline: Integrated with university Google Workspace and institutional compliance ledger."
     },
-    "accessNotes": "Program Chair Passcode: ZPPSU-CT-2026",
+    "accessNotes": "Institutional Pipeline: Integrated with university Google Workspace and institutional compliance ledger.",
     "runCommand": null,
     "run": {
       "commands": [],
@@ -609,14 +649,19 @@
         "Direct Google Drive file storage",
         "Google Sheets ledger",
         "faculty upload portal",
-        "passcode-secured Program Chair dashboard (ZPPSU-CT-2026)."
+        "role-secured Program Chair compliance dashboard."
       ],
       "outcome": null,
       "screenshots": []
     },
     "hero": "/projects/document-submission-tracker-monitoring/screenshot.png",
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": "Institutional Pipeline: Integrated with university Google Workspace and institutional compliance ledger."
   },
   {
     "id": "nc-tracker",
@@ -682,7 +727,12 @@
     },
     "hero": null,
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": null
   },
   {
     "id": "prospectus-generator",
@@ -744,7 +794,12 @@
     },
     "hero": "/projects/prospectus-generator/screenshot.png",
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": null
   },
   {
     "id": "epdu-palaro-2026-chess-tournament",
@@ -792,9 +847,9 @@
       "live": "https://epdu-chess-2026.imdcluy.workers.dev/",
       "repo": null,
       "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\EPDU Palaro 2026 - Chess Tournament",
-      "notes": "Admin Route: /admin/login | Master Password: palaro2026admin"
+      "notes": "Tournament Public Portal: Live Swiss-system pairings, match standings, and athlete verification viewable without login."
     },
-    "accessNotes": "Admin Route: /admin/login | Master Password: palaro2026admin",
+    "accessNotes": "Tournament Public Portal: Live Swiss-system pairings, match standings, and athlete verification viewable without login.",
     "runCommand": null,
     "run": {
       "commands": [],
@@ -808,14 +863,19 @@
         "Online athlete registration",
         "document verification",
         "snapshot JSON export to offline venue LAN server",
-        "arbiter scoring sync. Admin route: /admin/login (palaro2026admin)."
+        "arbiter scoring sync with offline venue backup."
       ],
       "outcome": null,
       "screenshots": []
     },
     "hero": "/projects/epdu-palaro-2026-chess-tournament/screenshot.png",
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": "Tournament Public Portal: Live Swiss-system pairings, match standings, and athlete verification viewable without login."
   },
   {
     "id": "cpt-palaro-management-system",
@@ -865,9 +925,9 @@
       "live": "https://cpt-palaro-management-sys.pages.dev/",
       "repo": "https://github.com/DarkPrince15/Cpt-Palaro-Management-Sys.git",
       "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\CPT Palaro Management System",
-      "notes": "Master Admin: admin / admin1234 | Coordinators: reymark.sipe / palaro2026, randy.monteza / palaro2026 | Test: test.student / palaro2026 | GitHub: https://github.com/DarkPrince15/Cpt-Palaro-Management-Sys.git"
+      "notes": "Tournament Public Portal: Public athlete verification, live medal standings, and event match schedules viewable without login."
     },
-    "accessNotes": "Master Admin: admin / admin1234 | Coordinators: reymark.sipe / palaro2026, randy.monteza / palaro2026 | Test: test.student / palaro2026 | GitHub: https://github.com/DarkPrince15/Cpt-Palaro-Management-Sys.git",
+    "accessNotes": "Tournament Public Portal: Public athlete verification, live medal standings, and event match schedules viewable without login.",
     "runCommand": null,
     "run": {
       "commands": [],
@@ -881,14 +941,19 @@
         "Dynamic QR code athlete credentials",
         "coach/arbiter approval queues",
         "public team standings",
-        "role-based dashboards (admin1234, palaro2026)."
+        "role-based coordinator and arbiter dashboards."
       ],
       "outcome": null,
       "screenshots": []
     },
     "hero": "/projects/cpt-palaro-management-system/screenshot.png",
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": "https://github.com/DarkPrince15/Cpt-Palaro-Management-Sys.git",
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": "Tournament Public Portal: Public athlete verification, live medal standings, and event match schedules viewable without login."
   },
   {
     "id": "local-palaro-chess-tournament-management-system",
@@ -956,7 +1021,12 @@
     },
     "hero": "/projects/local-palaro-chess-tournament-management-system/screenshot.png",
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": null
   },
   {
     "id": "chess-tournament-management-system",
@@ -1019,7 +1089,12 @@
     },
     "hero": null,
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": null
   },
   {
     "id": "event-attendance-logger",
@@ -1086,7 +1161,12 @@
     },
     "hero": "/projects/event-attendance-logger/screenshot.png",
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": null
   },
   {
     "id": "palaro-submission-of-music",
@@ -1146,7 +1226,12 @@
     },
     "hero": "/projects/palaro-submission-of-music/screenshot.png",
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": "Public Intake (Cheerdance, Solo, Duet, Pop Dance audio uploads directly to Google Drive)"
   },
   {
     "id": "board-exam-reviewer-gabay",
@@ -1221,7 +1306,12 @@
     },
     "hero": "/projects/board-exam-reviewer-gabay/screenshot.png",
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": null
   },
   {
     "id": "let-reviewer-web-app",
@@ -1286,7 +1376,12 @@
     },
     "hero": "/projects/let-reviewer-web-app/screenshot.png",
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": null
   },
   {
     "id": "ai-esl-tutor",
@@ -1357,7 +1452,12 @@
     },
     "hero": null,
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": null
   },
   {
     "id": "learning-module-generator",
@@ -1422,7 +1522,12 @@
     },
     "hero": "/projects/learning-module-generator/screenshot.png",
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": null
   },
   {
     "id": "obe-content-generator",
@@ -1484,7 +1589,12 @@
     },
     "hero": "/projects/obe-content-generator/screenshot.png",
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": null
   },
   {
     "id": "obe-content-generator-v2-deepseek",
@@ -1552,7 +1662,12 @@
     },
     "hero": "/projects/obe-content-generator-v2-deepseek/screenshot.png",
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": null
   },
   {
     "id": "obe-lp-generator",
@@ -1613,7 +1728,12 @@
     },
     "hero": "/projects/obe-lp-generator/screenshot.png",
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": null
   },
   {
     "id": "obe-syllabus-generator",
@@ -1675,7 +1795,12 @@
     },
     "hero": null,
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": null
   },
   {
     "id": "localclassroom",
@@ -1749,7 +1874,12 @@
     },
     "hero": "/projects/localclassroom/fig1_1_plc_vs_relay_panel.png",
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": null
   },
   {
     "id": "learning-management-system",
@@ -1815,7 +1945,12 @@
     },
     "hero": null,
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": null
   },
   {
     "id": "faculty-chat",
@@ -1875,7 +2010,12 @@
     },
     "hero": null,
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": null
   },
   {
     "id": "localmedia",
@@ -1942,7 +2082,12 @@
     },
     "hero": "/projects/localmedia/screenshot.png",
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": null
   },
   {
     "id": "batasph-civicph",
@@ -1988,9 +2133,9 @@
       "live": "https://civic-ph.vercel.app",
       "repo": "https://github.com/imdcluy-ctrl/BatasPh.git",
       "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\BatasPh",
-      "notes": "Public Access (Legal search, Republic Acts, City Ordinances) | Android APK: com.civicph.app | GitHub: https://github.com/imdcluy-ctrl/BatasPh.git"
+      "notes": "Civic Legal Portal: Full search across Republic Acts, Supreme Court decisions, and City Ordinances."
     },
-    "accessNotes": "Public Access (Legal search, Republic Acts, City Ordinances) | Android APK: com.civicph.app | GitHub: https://github.com/imdcluy-ctrl/BatasPh.git",
+    "accessNotes": "Civic Legal Portal: Full search across Republic Acts, Supreme Court decisions, and City Ordinances.",
     "runCommand": "npm run dev",
     "run": {
       "commands": [
@@ -2013,7 +2158,12 @@
     },
     "hero": "/projects/batasph-civicph/screenshot.png",
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": "https://github.com/imdcluy-ctrl/BatasPh.git",
+    "demoVideoUrl": null,
+    "isConfidential": false,
+    "walkthroughNotes": "Civic Legal Portal: Full search across Republic Acts, Supreme Court decisions, and City Ordinances."
   },
   {
     "id": "receipt-submission-pe-nstp",
@@ -2075,7 +2225,12 @@
     },
     "hero": "/projects/receipt-submission-pe-nstp/screenshot.png",
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": "Public Student Access (Mobile receipt uploader with image preview & verification)"
   },
   {
     "id": "task-manager",
@@ -2146,7 +2301,12 @@
     },
     "hero": null,
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": null
   },
   {
     "id": "financial-assistant",
@@ -2208,7 +2368,12 @@
     },
     "hero": "/projects/financial-assistant/screenshot.png",
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": null
   },
   {
     "id": "brain-testing-for-cognitive-expert",
@@ -2270,7 +2435,12 @@
     },
     "hero": "/projects/brain-testing-for-cognitive-expert/screenshot.png",
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": null
   },
   {
     "id": "lotto-cracker",
@@ -2340,7 +2510,12 @@
     },
     "hero": null,
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": null
   },
   {
     "id": "sms-email-bulk-sender",
@@ -2407,7 +2582,12 @@
     },
     "hero": "/projects/sms-email-bulk-sender/screenshot.png",
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": null
   },
   {
     "id": "app-trend-tracker",
@@ -2468,6 +2648,11 @@
     },
     "hero": "/projects/app-trend-tracker/screenshot.png",
     "gallery": [],
-    "year": 2026
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true,
+    "walkthroughNotes": null
   }
 ]
