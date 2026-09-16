@@ -6,11 +6,13 @@ dist/
 # Dependencies
 node_modules/
 
-# Environment files
+# Environment & Credentials
 .env
 .env.local
 .env.*
 !.env.example
+CREDENTIALS.md
+credentials.md
 
 # Logs
 npm-debug.log*
