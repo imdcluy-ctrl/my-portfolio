@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Search, X, ArrowRight } from 'lucide-react';
 import type { ProjectData } from './CaseStudyDrawer';
+import { sound } from '../../utils/audio';
 
 interface CommandPaletteProps {
   projects: ProjectData[];
@@ -17,7 +18,11 @@ export default function CommandPalette({ projects }: CommandPaletteProps) {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
-        setIsOpen(prev => !prev);
+        setIsOpen(prev => {
+          const next = !prev;
+          if (next) sound.playSearchOpen();
+          return next;
+        });
       }
       if (e.key === 'Escape' && isOpen) {
         setIsOpen(false);
@@ -50,6 +55,7 @@ export default function CommandPalette({ projects }: CommandPaletteProps) {
   });
 
   const selectProject = (id: string) => {
+    sound.playClick(1450);
     setIsOpen(false);
     // Trigger case study drawer click
     const trigger = document.querySelector(`.case-study-trigger[data-project="${id}"]`) as HTMLElement;
@@ -64,9 +70,11 @@ export default function CommandPalette({ projects }: CommandPaletteProps) {
   const handleInputKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'ArrowDown') {
       e.preventDefault();
+      sound.playHover();
       setSelectedIndex(prev => (prev < filtered.length - 1 ? prev + 1 : 0));
     } else if (e.key === 'ArrowUp') {
       e.preventDefault();
+      sound.playHover();
       setSelectedIndex(prev => (prev > 0 ? prev - 1 : filtered.length - 1));
     } else if (e.key === 'Enter' && filtered[selectedIndex]) {
       e.preventDefault();
@@ -75,6 +83,7 @@ export default function CommandPalette({ projects }: CommandPaletteProps) {
   };
 
   const openPalette = () => {
+    sound.playSearchOpen();
     setIsOpen(true);
   };
 

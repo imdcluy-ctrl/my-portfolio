@@ -138,6 +138,56 @@ html.theme-switching * {
   transition-delay: calc(var(--i, 0) * 65ms);
 }
 
+/* ----------------------------------------------------
+   Futuristic Cybernetic Micro-Visuals & HUD Elements
+   ---------------------------------------------------- */
+@keyframes radarWave {
+  0% { transform: scale(1); opacity: 0.85; }
+  100% { transform: scale(3); opacity: 0; }
+}
+
+.radar-ping {
+  position: relative;
+  display: inline-flex;
+}
+.radar-ping::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 9999px;
+  border: 1.5px solid currentColor;
+  animation: radarWave 2.4s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+  pointer-events: none;
+}
+
+/* 3D Perspective Card Tilt & Dynamic Specular Shine */
+.cyber-card {
+  transform-style: preserve-3d;
+  perspective: 1200px;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.specular-sheen {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle 320px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(16, 185, 129, 0.12), transparent 75%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 5;
+}
+.cyber-card:hover .specular-sheen {
+  opacity: 1;
+}
+
+/* Luminous Cyber Border Beam */
+@keyframes borderBeam {
+  100% {
+    offset-distance: 100%;
+  }
+}
+
 /* Tactile press response */
 .tactile-press {
   transition: transform var(--duration-instant) ease;

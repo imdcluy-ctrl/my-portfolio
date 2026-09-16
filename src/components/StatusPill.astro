@@ -43,6 +43,13 @@ const config = STATUS_CONFIG[status] ?? {
   data-status-pill
   data-status={status}
 >
-  <span class:list={['dot inline-block w-2 h-2 rounded-full shrink-0', config.dotClass]} aria-hidden="true"></span>
+  <span
+    class:list={[
+      'dot inline-block w-2 h-2 rounded-full shrink-0',
+      config.dotClass,
+      status === 'live' && 'radar-ping text-emerald-500'
+    ]}
+    aria-hidden="true"
+  ></span>
   <span>{config.label}</span>
 </div>

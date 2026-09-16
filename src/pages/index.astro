@@ -42,12 +42,20 @@ const projectsData = sortedProjects.map(p => p.data);
     <!-- Hero Section with Staggered Entrance Reveals -->
     <section class="space-y-6 pt-4 pb-4 border-b border-[var(--color-line)]">
       <div class="space-y-2.5">
-        <div
-          class="scroll-reveal inline-flex items-center gap-2 px-2.5 py-1 rounded-full text-xs font-mono bg-[var(--color-surface-2)] text-[var(--color-ink-muted)] border border-[var(--color-line)] shadow-xs"
-          data-delay="0"
-        >
-          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span>ZPPSU Computer Technology & Operations</span>
+        <div class="flex flex-wrap items-center gap-2">
+          <div
+            class="scroll-reveal inline-flex items-center gap-2 px-2.5 py-1 rounded-full text-xs font-mono bg-[var(--color-surface-2)] text-[var(--color-ink-muted)] border border-[var(--color-line)] shadow-xs"
+            data-delay="0"
+          >
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>ZPPSU Computer Technology & Operations</span>
+          </div>
+          <span
+            class="scroll-reveal hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-mono text-[var(--color-ink-muted)]/80 bg-[var(--color-surface-2)]/60 border border-[var(--color-line)]"
+            data-delay="40"
+          >
+            <span class="text-emerald-500">SYS_LOC:</span> 6.9214° N, 122.0790° E // 37 CORES
+          </span>
         </div>
         <h1
           class="scroll-reveal text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-display text-[var(--color-ink)] leading-tight"
@@ -73,9 +81,11 @@ const projectsData = sortedProjects.map(p => p.data);
       <!-- Key Engineering Metrics Banner with Dynamic Numeric Rollup -->
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 py-2">
         <div
-          class="scroll-reveal group relative p-4 rounded-xl bg-[var(--color-surface)] border border-[var(--color-line)] hover:border-[var(--color-accent)]/40 hover:-translate-y-0.5 transition-all duration-300 shadow-xs overflow-hidden"
+          class="scroll-reveal cyber-card group relative p-4 rounded-xl bg-[var(--color-surface)] border border-[var(--color-line)] hover:border-[var(--color-accent)]/50 hover:-translate-y-0.5 transition-all duration-300 shadow-xs overflow-hidden"
           data-delay="260"
+          data-sound-hover="true"
         >
+          <div class="specular-sheen" aria-hidden="true"></div>
           <div class="text-2xl sm:text-3xl font-bold font-mono text-[var(--color-ink)]">
             <span data-counter-target={String(totalCount)}>{totalCount}</span>
           </div>
@@ -84,9 +94,11 @@ const projectsData = sortedProjects.map(p => p.data);
         </div>
 
         <div
-          class="scroll-reveal group relative p-4 rounded-xl bg-[var(--color-surface)] border border-[var(--color-line)] hover:border-emerald-500/40 hover:-translate-y-0.5 transition-all duration-300 shadow-xs overflow-hidden"
+          class="scroll-reveal cyber-card group relative p-4 rounded-xl bg-[var(--color-surface)] border border-[var(--color-line)] hover:border-emerald-500/50 hover:-translate-y-0.5 transition-all duration-300 shadow-xs overflow-hidden"
           data-delay="320"
+          data-sound-hover="true"
         >
+          <div class="specular-sheen" aria-hidden="true"></div>
           <div class="text-2xl sm:text-3xl font-bold font-mono text-emerald-600 dark:text-emerald-400">
             <span data-counter-target={String(liveCount)}>{liveCount}</span>
           </div>
@@ -95,9 +107,11 @@ const projectsData = sortedProjects.map(p => p.data);
         </div>
 
         <div
-          class="scroll-reveal group relative p-4 rounded-xl bg-[var(--color-surface)] border border-[var(--color-line)] hover:border-indigo-500/40 hover:-translate-y-0.5 transition-all duration-300 shadow-xs overflow-hidden"
+          class="scroll-reveal cyber-card group relative p-4 rounded-xl bg-[var(--color-surface)] border border-[var(--color-line)] hover:border-indigo-500/50 hover:-translate-y-0.5 transition-all duration-300 shadow-xs overflow-hidden"
           data-delay="380"
+          data-sound-hover="true"
         >
+          <div class="specular-sheen" aria-hidden="true"></div>
           <div class="text-2xl sm:text-3xl font-bold font-mono text-indigo-600 dark:text-indigo-400">
             <span data-counter-target={`${lanCount}+`}>{lanCount}+</span>
           </div>
@@ -106,9 +120,11 @@ const projectsData = sortedProjects.map(p => p.data);
         </div>
 
         <div
-          class="scroll-reveal group relative p-4 rounded-xl bg-[var(--color-surface)] border border-[var(--color-line)] hover:border-amber-500/40 hover:-translate-y-0.5 transition-all duration-300 shadow-xs overflow-hidden"
+          class="scroll-reveal cyber-card group relative p-4 rounded-xl bg-[var(--color-surface)] border border-[var(--color-line)] hover:border-amber-500/50 hover:-translate-y-0.5 transition-all duration-300 shadow-xs overflow-hidden"
           data-delay="440"
+          data-sound-hover="true"
         >
+          <div class="specular-sheen" aria-hidden="true"></div>
           <div class="text-2xl sm:text-3xl font-bold font-mono text-[var(--color-ink)]">
             <span data-counter-target="$0/mo">$0/mo</span>
           </div>

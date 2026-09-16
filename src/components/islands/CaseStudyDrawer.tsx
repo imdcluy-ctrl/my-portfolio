@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Drawer } from 'vaul';
 import { ExternalLink, Copy, Check, X, Terminal, ShieldCheck, Play, Lock } from 'lucide-react';
+import { sound } from '../../utils/audio';
 
 export interface ProjectData {
   id: string;
@@ -63,6 +64,7 @@ export default function CaseStudyDrawer({ projects }: CaseStudyDrawerProps) {
         if (projectId) {
           setSelectedId(projectId);
           setIsOpen(true);
+          sound.playDrawerOpen();
         }
       }
     };
@@ -91,6 +93,7 @@ export default function CaseStudyDrawer({ projects }: CaseStudyDrawerProps) {
     if (queryProject && projects.some(p => p.id === queryProject || p.slug === queryProject)) {
       setSelectedId(queryProject);
       setIsOpen(true);
+      sound.playDrawerOpen();
     }
   }, [projects]);
 
@@ -99,10 +102,16 @@ export default function CaseStudyDrawer({ projects }: CaseStudyDrawerProps) {
   const copyToClipboard = (text: string, id: string) => {
     navigator.clipboard.writeText(text);
     setCopied(id);
+    sound.playCopySuccess();
     setTimeout(() => setCopied(null), 2000);
   };
 
   const handleOpenChange = (open: boolean) => {
+    if (!open && isOpen) {
+      sound.playDrawerClose();
+    } else if (open && !isOpen) {
+      sound.playDrawerOpen();
+    }
     setIsOpen(open);
   };
 

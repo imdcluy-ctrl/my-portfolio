@@ -17,8 +17,12 @@ const remainingCount = allStack.length - topBadges.length;
 ---
 
 <article
-  class="scroll-reveal group relative flex flex-col justify-between h-full rounded-[var(--radius-card)] bg-[var(--color-surface)] border border-[var(--color-line)] overflow-hidden transition-all duration-300 hover:border-[var(--color-accent)]/50 hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-950/20 focus-within:ring-2 focus-within:ring-[var(--color-accent)]"
+  class="scroll-reveal cyber-card group relative flex flex-col justify-between h-full rounded-[var(--radius-card)] bg-[var(--color-surface)] border border-[var(--color-line)] overflow-hidden transition-all duration-300 hover:border-[var(--color-accent)]/60 hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-950/20 focus-within:ring-2 focus-within:ring-[var(--color-accent)]"
+  data-sound-hover="true"
 >
+  <!-- Dynamic Specular Cursor-Tracked Light Sheen -->
+  <div class="specular-sheen" aria-hidden="true"></div>
+
   <!-- Subtle Ambient Specular Sheen -->
   <div
     class="pointer-events-none absolute -inset-px rounded-[var(--radius-card)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-tr from-emerald-500/8 via-transparent to-indigo-500/12 z-20"

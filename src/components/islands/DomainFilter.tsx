@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef, type KeyboardEvent } from 'react';
+import { sound } from '../../utils/audio';
 
 interface DomainFilterProps {
   counts: Record<string, number>;
@@ -28,6 +29,9 @@ export default function DomainFilter({ counts, totalCount }: DomainFilterProps) 
 
   const applyFilter = (key: string) => {
     setActive(key);
+    const tabIndex = TABS.findIndex(t => t.key === key);
+    sound.playFilterSelect(tabIndex >= 0 ? tabIndex : 0);
+
     const grid = document.getElementById('project-grid');
     if (grid) {
       grid.dataset.active = key;

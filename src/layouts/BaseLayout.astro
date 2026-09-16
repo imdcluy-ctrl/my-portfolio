@@ -9,6 +9,7 @@ import AmbientCanvas from '../components/AmbientCanvas.astro';
 import NoiseOverlay from '../components/NoiseOverlay.astro';
 import ScrollProgress from '../components/ScrollProgress.astro';
 import CommandPalette from '../components/islands/CommandPalette';
+import CinematicIntro from '../components/CinematicIntro.astro';
 import { getCollection } from 'astro:content';
 
 export interface Props {
@@ -87,6 +88,9 @@ const projectsData = allProjects.map(p => p.data);
   </head>
 
   <body class="bg-canvas text-ink font-sans min-h-screen flex flex-col antialiased selection:bg-accent selection:text-white relative">
+    <!-- High-Impact Cinematic Neural Bootloader -->
+    <CinematicIntro />
+
     <!-- Top Scroll Progress Bar -->
     <ScrollProgress />
 
@@ -211,6 +215,14 @@ const projectsData = allProjects.map(p => p.data);
 
         <div class="flex flex-col sm:flex-row items-center gap-4 font-mono text-[11px]">
           <span>Audio: <a href="https://incompetech.com" target="_blank" rel="noopener noreferrer" class="underline hover:text-ink">Kevin MacLeod</a> (CC-BY 4.0)</span>
+          <span class="hidden sm:inline" aria-hidden="true">•</span>
+          <button
+            type="button"
+            onclick="window.replayIntro && window.replayIntro()"
+            class="hover:text-ink transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm tactile-press cursor-pointer underline text-[11px]"
+          >
+            Replay Intro ↺
+          </button>
           <span class="hidden sm:inline" aria-hidden="true">•</span>
           <span>Built: <time datetime={buildTimestamp}>{buildFormatted}</time></span>
           <span aria-hidden="true">•</span>

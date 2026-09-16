@@ -1,0 +1,211 @@
+---
+// src/components/CinematicIntro.astro
+// High-Impact Cinematic Neural Bootloader for Duane Luy's Portfolio
+---
+
+<div
+  id="cinematic-intro"
+  class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#020205] text-emerald-400 font-mono select-none overflow-hidden transition-all duration-700 pointer-events-auto"
+  style="display: none;"
+  aria-label="System Initializing"
+>
+  <!-- Futuristic Perspective Vector Grid -->
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(16,185,129,0.12)_0%,transparent_70%)] pointer-events-none"></div>
+  <div class="absolute inset-0 opacity-[0.07] bg-[linear-gradient(to_right,#10b981_1px,transparent_1px),linear-gradient(to_bottom,#10b981_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_at_center,white_30%,transparent_80%)] pointer-events-none"></div>
+
+  <!-- CRT Scanline Overlay -->
+  <div class="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.35)_50%)] bg-[length:100%_4px] pointer-events-none z-10 opacity-50"></div>
+
+  <!-- Top Telemetry Header -->
+  <div class="absolute top-6 left-6 right-6 flex items-center justify-between text-[11px] text-emerald-500/70 z-20">
+    <div class="flex items-center gap-2">
+      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+      <span class="tracking-widest">ZPPSU CORE ARCHITECTURE // BOOT_SEQ_v4.2</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <span class="hidden sm:inline text-emerald-600">LAT: 6.9214° N // LON: 122.0790° E</span>
+      <button
+        id="intro-skip-btn"
+        type="button"
+        class="px-3 py-1 rounded border border-emerald-500/30 text-emerald-400/80 hover:text-emerald-300 hover:border-emerald-400 hover:bg-emerald-950/40 transition-all cursor-pointer text-xs uppercase tracking-wider"
+      >
+        Skip [ESC]
+      </button>
+    </div>
+  </div>
+
+  <!-- Central Holographic HUD Aperture -->
+  <div class="relative z-20 flex flex-col items-center max-w-lg px-6 text-center space-y-6">
+    <!-- Cybernetic Monogram Emblem -->
+    <div class="relative w-28 h-28 flex items-center justify-center">
+      <!-- Rotating Exterior Reticle -->
+      <svg class="absolute inset-0 w-full h-full animate-[spin_8s_linear_infinite]" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="46" fill="none" stroke="rgba(16, 185, 129, 0.2)" stroke-width="1.5" stroke-dasharray="4 8" />
+        <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(99, 102, 241, 0.3)" stroke-width="1" stroke-dasharray="12 18" />
+      </svg>
+      
+      <!-- Counter-Rotating Inner Reticle -->
+      <svg class="absolute inset-0 w-full h-full animate-[spin_12s_linear_infinite_reverse]" viewBox="0 0 100 100">
+        <polygon points="50,6 90,26 90,74 50,94 10,74 10,26" fill="none" stroke="rgba(16, 185, 129, 0.4)" stroke-width="1.5" />
+      </svg>
+
+      <!-- Center Monogram -->
+      <div class="relative flex flex-col items-center justify-center w-16 h-16 rounded-xl bg-emerald-950/50 border border-emerald-500/50 backdrop-blur-md shadow-[0_0_24px_rgba(16,185,129,0.3)]">
+        <span class="font-display font-black text-2xl tracking-tighter text-white drop-shadow-[0_0_8px_rgba(16,185,129,0.8)]">
+          DL
+        </span>
+        <span class="text-[8px] text-emerald-400 font-semibold tracking-widest -mt-1">
+          ZPPSU
+        </span>
+      </div>
+    </div>
+
+    <!-- Terminal Status Stream -->
+    <div class="w-full bg-black/60 border border-emerald-500/20 rounded-lg p-3.5 text-left font-mono shadow-2xl backdrop-blur-md space-y-1 text-xs">
+      <div class="flex items-center justify-between text-[10px] text-emerald-500/60 pb-1 border-b border-emerald-500/10">
+        <span>SECURITY PROTOCOL · ENCRYPTED</span>
+        <span>NODE: ZPPSU-AMBC-01</span>
+      </div>
+      <div id="intro-terminal-log" class="space-y-0.5 text-[11px] text-emerald-300 min-h-[58px]">
+        <!-- Injected via JavaScript Typewriter -->
+      </div>
+    </div>
+
+    <!-- Quantum Progress Bar & Counter -->
+    <div class="w-full space-y-2">
+      <div class="flex items-center justify-between text-xs font-mono text-emerald-400/80">
+        <span class="tracking-wider">SYNCHRONIZING INTERFACE</span>
+        <span id="intro-percent" class="font-bold text-emerald-300">00%</span>
+      </div>
+      <div class="w-full h-1.5 bg-emerald-950/80 rounded-full overflow-hidden border border-emerald-500/30 p-[1px]">
+        <div
+          id="intro-progress-bar"
+          class="h-full bg-gradient-to-r from-emerald-500 via-teal-400 to-indigo-400 rounded-full transition-all duration-75 shadow-[0_0_12px_rgba(16,185,129,0.8)]"
+          style="width: 0%;"
+        ></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Telemetry Footer -->
+  <div class="absolute bottom-6 text-center text-[10px] text-emerald-600/70 z-20 tracking-widest">
+    DUANE LUY · SYSTEMS ARCHITECT & INSTITUTIONAL SOFTWARE ENGINEER
+  </div>
+</div>
+
+<script>
+  import { sound } from '../utils/audio';
+
+  function setupIntro() {
+    const intro = document.getElementById('cinematic-intro');
+    const skipBtn = document.getElementById('intro-skip-btn');
+    const terminal = document.getElementById('intro-terminal-log');
+    const percentEl = document.getElementById('intro-percent');
+    const barEl = document.getElementById('intro-progress-bar');
+
+    if (!intro || !terminal || !percentEl || !barEl) return;
+
+    // Check if user already saw intro in current session
+    const hasSeen = sessionStorage.getItem('portfolio_intro_seen');
+    if (hasSeen === 'true') {
+      return;
+    }
+
+    // Show intro
+    intro.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+
+    const terminalLines = [
+      '> [INIT] MOUNTING KERNEL PROTOCOLS...',
+      '> [DATA] SCANNING 37 INSTITUTIONAL ARCHITECTURES...',
+      '> [AUTH] IDENTITY CONFIRMED: DUANE LUY [ZPPSU]',
+      '> [READY] INTERFACE DEPLOYED. LAUNCHING CORE...'
+    ];
+
+    let currentLine = 0;
+    let progress = 0;
+    let isTerminated = false;
+
+    // Typewriter message feeder
+    const lineInterval = setInterval(() => {
+      if (isTerminated) {
+        clearInterval(lineInterval);
+        return;
+      }
+      if (currentLine < terminalLines.length) {
+        const line = document.createElement('div');
+        line.className = 'flex items-center gap-1.5 text-emerald-400';
+        line.innerHTML = `<span class="text-emerald-500">›</span><span>${terminalLines[currentLine]}</span>`;
+        terminal.appendChild(line);
+        currentLine++;
+        sound.playHover();
+      }
+    }, 450);
+
+    // Smooth quantum progress counter
+    const startTime = performance.now();
+    const duration = 2100; // 2.1s sequence
+
+    function updateProgress(time: number) {
+      if (isTerminated) return;
+      const elapsed = time - startTime;
+      progress = Math.min(100, Math.floor((elapsed / duration) * 100));
+
+      percentEl!.textContent = `${String(progress).padStart(2, '0')}%`;
+      barEl!.style.width = `${progress}%`;
+
+      if (progress < 100) {
+        requestAnimationFrame(updateProgress);
+      } else {
+        finishIntro();
+      }
+    }
+
+    requestAnimationFrame(updateProgress);
+
+    function finishIntro() {
+      if (isTerminated) return;
+      isTerminated = true;
+      clearInterval(lineInterval);
+
+      // Play sci-fi boot chime!
+      sound.playBootChime();
+
+      // Mark session as seen
+      sessionStorage.setItem('portfolio_intro_seen', 'true');
+
+      // Aperture lens-warp exit transition
+      intro!.style.opacity = '0';
+      intro!.style.transform = 'scale(1.08)';
+      intro!.style.filter = 'blur(6px)';
+      intro!.style.pointerEvents = 'none';
+
+      setTimeout(() => {
+        intro!.style.display = 'none';
+        document.body.style.overflow = '';
+      }, 700);
+    }
+
+    // Skip handler
+    function handleSkip() {
+      if (isTerminated) return;
+      finishIntro();
+    }
+
+    skipBtn?.addEventListener('click', handleSkip);
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') handleSkip();
+    }, { once: true });
+  }
+
+  // Allow manual replay from anywhere
+  (window as unknown as { replayIntro: () => void }).replayIntro = () => {
+    sessionStorage.removeItem('portfolio_intro_seen');
+    window.location.reload();
+  };
+
+  // Run on mount
+  if (typeof window !== 'undefined') {
+    setupIntro();
+  }
+</script>
