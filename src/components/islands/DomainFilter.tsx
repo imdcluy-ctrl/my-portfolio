@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef, type KeyboardEvent } from 'react';
+import { sound } from '../../utils/audio';
 
 interface DomainFilterProps {
   counts: Record<string, number>;
@@ -26,7 +27,7 @@ export default function DomainFilter({ counts, totalCount }: DomainFilterProps) 
   const [announcement, setAnnouncement] = useState<string>('');
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
-  const applyFilter = (key: string) => {
+  const applyFilter = (key: string, triggerSound = true) => {
     setActive(key);
     const grid = document.getElementById('project-grid');
     if (grid) {
@@ -38,12 +39,18 @@ export default function DomainFilter({ counts, totalCount }: DomainFilterProps) 
     const count = key === 'all' ? totalCount : counts[key] || 0;
     const tab = TABS.find(t => t.key === key);
     setAnnouncement(`Showing ${count} projects in ${tab?.label || key}`);
+
+    if (triggerSound) {
+      const idx = TABS.findIndex(t => t.key === key);
+      const freq = 520 + (idx >= 0 ? idx : 0) * 70;
+      sound.playClick(freq);
+    }
   };
 
   useEffect(() => {
     const initialHash = window.location.hash.replace('#', '').toLowerCase();
     if (initialHash && TABS.some(t => t.key === initialHash)) {
-      applyFilter(initialHash);
+      applyFilter(initialHash, false); // don't play sound on initial silent load
     }
   }, []);
 
@@ -63,7 +70,7 @@ export default function DomainFilter({ counts, totalCount }: DomainFilterProps) 
 
     e.preventDefault();
     tabRefs.current[nextIndex]?.focus();
-    applyFilter(TABS[nextIndex].key);
+    applyFilter(TABS[nextIndex].key, true);
   };
 
   return (
@@ -94,9 +101,9 @@ export default function DomainFilter({ counts, totalCount }: DomainFilterProps) 
               aria-selected={isSelected}
               aria-controls="project-grid"
               tabIndex={isSelected ? 0 : -1}
-              onClick={() => applyFilter(tab.key)}
+              onClick={() => applyFilter(tab.key, true)}
               onKeyDown={e => handleKeyDown(e, idx)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-all duration-150 flex items-center gap-1.5 cursor-pointer select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] ${
+              className={`tactile-press px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-all duration-150 flex items-center gap-1.5 cursor-pointer select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] ${
                 isSelected
                   ? 'bg-[var(--color-ink)] text-[var(--color-canvas)] shadow-xs'
                   : 'text-[var(--color-ink-muted)] hover:text-[var(--color-ink)] hover:bg-[var(--color-surface-2)]'

@@ -1,10 +1,10 @@
 ---
-// AmbientCanvas.astro: High-performance GPU cursor-aware ambient glow
+// AmbientCanvas.astro: High-performance GPU cursor-aware ambient glow & drifting particle field
 ---
 
 <canvas
   id="ambient-canvas"
-  class="fixed inset-0 pointer-events-none -z-10 w-full h-full opacity-50 dark:opacity-35 transition-opacity duration-700"
+  class="fixed inset-0 pointer-events-none -z-10 w-full h-full opacity-60 dark:opacity-45 transition-opacity duration-700"
   aria-hidden="true"
 ></canvas>
 
@@ -18,8 +18,20 @@
     var ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    var width = (canvas.width = window.innerWidth);
-    var height = (canvas.height = window.innerHeight);
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+
+    function resize() {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      canvas.style.width = width + 'px';
+      canvas.style.height = height + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resize();
 
     var targetX = width / 2;
     var targetY = height / 3;
@@ -29,9 +41,21 @@
     var isTabVisible = true;
     var animFrame = null;
 
-    function resize() {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
+    // Drifting constellation particles
+    var PARTICLE_COUNT = width > 768 ? 35 : 18;
+    var particles = [];
+
+    for (var i = 0; i < PARTICLE_COUNT; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        radius: Math.random() * 1.5 + 0.8,
+        vx: (Math.random() - 0.5) * 0.25,
+        vy: (Math.random() - 0.5) * 0.25,
+        baseAlpha: Math.random() * 0.25 + 0.08,
+        pulseSpeed: Math.random() * 0.02 + 0.008,
+        phase: Math.random() * Math.PI * 2,
+      });
     }
 
     window.addEventListener('resize', resize, { passive: true });
@@ -41,6 +65,13 @@
       targetY = e.clientY;
     }, { passive: true });
 
+    window.addEventListener('touchmove', function (e) {
+      if (e.touches && e.touches[0]) {
+        targetX = e.touches[0].clientX;
+        targetY = e.touches[0].clientY;
+      }
+    }, { passive: true });
+
     document.addEventListener('visibilitychange', function () {
       isTabVisible = !document.hidden;
       if (isTabVisible && !animFrame) {
@@ -48,62 +79,101 @@
       }
     });
 
-    function render() {
+    function render(timestamp) {
       if (!isTabVisible) {
         animFrame = null;
         return;
       }
 
       // Smooth lerp towards cursor
-      currentX += (targetX - currentX) * 0.04;
-      currentY += (targetY - currentY) * 0.04;
+      currentX += (targetX - currentX) * 0.045;
+      currentY += (targetY - currentY) * 0.045;
 
       ctx.clearRect(0, 0, width, height);
 
       var isDark = document.documentElement.classList.contains('dark');
 
-      // Primary cursor glow
+      // 1. Primary cursor radial glow
+      var radius1 = width > 768 ? 440 : 280;
       var grad1 = ctx.createRadialGradient(
         currentX,
         currentY,
         0,
         currentX,
         currentY,
-        width > 768 ? 420 : 260
+        radius1
       );
 
       if (isDark) {
-        grad1.addColorStop(0, 'rgba(16, 185, 129, 0.12)'); // Emerald
-        grad1.addColorStop(0.5, 'rgba(99, 102, 241, 0.05)'); // Indigo
+        grad1.addColorStop(0, 'rgba(16, 185, 129, 0.14)'); // Vibrant emerald core
+        grad1.addColorStop(0.45, 'rgba(99, 102, 241, 0.07)'); // Deep indigo midtone
         grad1.addColorStop(1, 'rgba(0, 0, 0, 0)');
       } else {
-        grad1.addColorStop(0, 'rgba(16, 185, 129, 0.06)');
-        grad1.addColorStop(0.6, 'rgba(203, 213, 225, 0.2)');
+        grad1.addColorStop(0, 'rgba(16, 185, 129, 0.08)');
+        grad1.addColorStop(0.5, 'rgba(203, 213, 225, 0.25)');
         grad1.addColorStop(1, 'rgba(255, 255, 255, 0)');
       }
 
       ctx.fillStyle = grad1;
       ctx.fillRect(0, 0, width, height);
 
-      // Secondary floating subtle top ambient orb
-      var topOrbX = width * 0.75 + Math.sin(Date.now() * 0.0006) * 60;
-      var topOrbY = 180 + Math.cos(Date.now() * 0.0008) * 40;
-      var grad2 = ctx.createRadialGradient(topOrbX, topOrbY, 0, topOrbX, topOrbY, 350);
+      // 2. Secondary floating top ambient orb
+      var now = timestamp || Date.now();
+      var topOrbX = width * 0.72 + Math.sin(now * 0.0006) * 70;
+      var topOrbY = 160 + Math.cos(now * 0.0007) * 45;
+      var grad2 = ctx.createRadialGradient(topOrbX, topOrbY, 0, topOrbX, topOrbY, 360);
 
       if (isDark) {
-        grad2.addColorStop(0, 'rgba(99, 102, 241, 0.08)'); // Indigo glow
+        grad2.addColorStop(0, 'rgba(129, 140, 248, 0.09)'); // Soft indigo glow
         grad2.addColorStop(1, 'rgba(0, 0, 0, 0)');
       } else {
-        grad2.addColorStop(0, 'rgba(99, 102, 241, 0.04)');
+        grad2.addColorStop(0, 'rgba(99, 102, 241, 0.05)');
         grad2.addColorStop(1, 'rgba(255, 255, 255, 0)');
       }
 
       ctx.fillStyle = grad2;
       ctx.fillRect(0, 0, width, height);
 
+      // 3. Subtle floating particles
+      for (var p = 0; p < particles.length; p++) {
+        var pt = particles[p];
+        pt.x += pt.vx;
+        pt.y += pt.vy;
+
+        // Wrap around boundaries
+        if (pt.x < 0) pt.x = width;
+        if (pt.x > width) pt.x = 0;
+        if (pt.y < 0) pt.y = height;
+        if (pt.y > height) pt.y = 0;
+
+        // Subtle attraction to cursor when close
+        var dx = currentX - pt.x;
+        var dy = currentY - pt.y;
+        var dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 180 && dist > 20) {
+          pt.x += (dx / dist) * 0.15;
+          pt.y += (dy / dist) * 0.15;
+        }
+
+        // Breathing alpha
+        var currentAlpha = pt.baseAlpha + Math.sin(now * pt.pulseSpeed + pt.phase) * 0.06;
+        currentAlpha = Math.max(0.02, Math.min(0.35, currentAlpha));
+
+        ctx.beginPath();
+        ctx.arc(pt.x, pt.y, pt.radius, 0, Math.PI * 2);
+        if (isDark) {
+          ctx.fillStyle = p % 3 === 0
+            ? 'rgba(52, 211, 153, ' + currentAlpha + ')' // Emerald
+            : 'rgba(165, 180, 252, ' + currentAlpha + ')'; // Indigo
+        } else {
+          ctx.fillStyle = 'rgba(71, 85, 105, ' + (currentAlpha * 0.8) + ')';
+        }
+        ctx.fill();
+      }
+
       animFrame = requestAnimationFrame(render);
     }
 
-    render();
+    render(0);
   })();
 </script>

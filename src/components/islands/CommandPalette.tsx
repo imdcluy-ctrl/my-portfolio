@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Search, X, ArrowRight } from 'lucide-react';
 import type { ProjectData } from './CaseStudyDrawer';
+import { sound } from '../../utils/audio';
 
 interface CommandPaletteProps {
   projects: ProjectData[];
@@ -17,7 +18,11 @@ export default function CommandPalette({ projects }: CommandPaletteProps) {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
-        setIsOpen(prev => !prev);
+        setIsOpen(prev => {
+          const next = !prev;
+          if (next) sound.playClick(880);
+          return next;
+        });
       }
       if (e.key === 'Escape' && isOpen) {
         setIsOpen(false);
@@ -51,6 +56,7 @@ export default function CommandPalette({ projects }: CommandPaletteProps) {
 
   const selectProject = (id: string) => {
     setIsOpen(false);
+    sound.playDrawerChime();
     // Trigger case study drawer click
     const trigger = document.querySelector(`.case-study-trigger[data-project="${id}"]`) as HTMLElement;
     if (trigger) {
@@ -64,14 +70,27 @@ export default function CommandPalette({ projects }: CommandPaletteProps) {
   const handleInputKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'ArrowDown') {
       e.preventDefault();
-      setSelectedIndex(prev => (prev < filtered.length - 1 ? prev + 1 : 0));
+      setSelectedIndex(prev => {
+        const next = prev < filtered.length - 1 ? prev + 1 : 0;
+        sound.playHover();
+        return next;
+      });
     } else if (e.key === 'ArrowUp') {
       e.preventDefault();
-      setSelectedIndex(prev => (prev > 0 ? prev - 1 : filtered.length - 1));
+      setSelectedIndex(prev => {
+        const next = prev > 0 ? prev - 1 : filtered.length - 1;
+        sound.playHover();
+        return next;
+      });
     } else if (e.key === 'Enter' && filtered[selectedIndex]) {
       e.preventDefault();
       selectProject(filtered[selectedIndex].id);
     }
+  };
+
+  const openPalette = () => {
+    sound.playClick(880);
+    setIsOpen(true);
   };
 
   return (
@@ -79,8 +98,8 @@ export default function CommandPalette({ projects }: CommandPaletteProps) {
       {/* Search Trigger Button in Header */}
       <button
         type="button"
-        onClick={() => setIsOpen(true)}
-        className="inline-flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs font-mono bg-[var(--color-surface-2)] text-[var(--color-ink-muted)] hover:text-[var(--color-ink)] border border-[var(--color-line)] hover:border-[var(--color-accent)]/50 transition-colors cursor-pointer"
+        onClick={openPalette}
+        className="tactile-press inline-flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs font-mono bg-[var(--color-surface-2)] text-[var(--color-ink-muted)] hover:text-[var(--color-ink)] border border-[var(--color-line)] hover:border-[var(--color-accent)]/50 transition-all cursor-pointer shadow-xs"
         aria-label="Search systems (Ctrl+K)"
         title="Search systems (Ctrl+K)"
       >
@@ -94,11 +113,11 @@ export default function CommandPalette({ projects }: CommandPaletteProps) {
       {/* Modal Backdrop & Dialog */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-start justify-center p-4 sm:p-6 md:p-20 overflow-y-auto animate-in fade-in duration-150"
+          className="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-start justify-center p-4 sm:p-6 md:p-20 overflow-y-auto"
           onClick={() => setIsOpen(false)}
         >
           <div
-            className="w-full max-w-2xl rounded-2xl bg-[var(--color-surface)] border border-[var(--color-line)] shadow-2xl overflow-hidden flex flex-col"
+            className="w-full max-w-2xl rounded-2xl bg-[var(--color-surface)] border border-[var(--color-line)] shadow-2xl overflow-hidden flex flex-col animate-in fade-in zoom-in-95 duration-150"
             onClick={e => e.stopPropagation()}
           >
             {/* Search Input Bar */}
@@ -119,7 +138,7 @@ export default function CommandPalette({ projects }: CommandPaletteProps) {
               <button
                 type="button"
                 onClick={() => setIsOpen(false)}
-                className="p-1 rounded-lg text-[var(--color-ink-muted)] hover:text-[var(--color-ink)] hover:bg-[var(--color-surface)] transition-colors cursor-pointer"
+                className="tactile-press p-1 rounded-lg text-[var(--color-ink-muted)] hover:text-[var(--color-ink)] hover:bg-[var(--color-surface)] transition-colors cursor-pointer"
               >
                 <X size={16} />
               </button>
@@ -139,10 +158,13 @@ export default function CommandPalette({ projects }: CommandPaletteProps) {
                       key={p.id}
                       type="button"
                       onClick={() => selectProject(p.id)}
-                      onMouseEnter={() => setSelectedIndex(idx)}
+                      onMouseEnter={() => {
+                        setSelectedIndex(idx);
+                        sound.playHover();
+                      }}
                       className={`w-full text-left p-3 rounded-xl transition-all flex items-center justify-between gap-3 cursor-pointer ${
                         isSel
-                          ? 'bg-emerald-500/10 text-[var(--color-ink)] border border-emerald-500/40'
+                          ? 'bg-emerald-500/15 text-[var(--color-ink)] border border-emerald-500/40 shadow-xs'
                           : 'hover:bg-[var(--color-surface-2)] text-[var(--color-ink-muted)] border border-transparent'
                       }`}
                     >

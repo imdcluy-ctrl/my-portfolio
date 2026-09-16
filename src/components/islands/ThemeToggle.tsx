@@ -2,17 +2,12 @@ import { useState, useEffect, useRef } from 'react';
 import { Sun, Moon } from 'lucide-react';
 
 export default function ThemeToggle() {
-  const [dark, setDark] = useState<boolean>(() => {
-    if (typeof document !== 'undefined') {
-      return document.documentElement.classList.contains('dark');
-    }
-    return true; // Default fallback to dark
-  });
+  const [dark, setDark] = useState<boolean>(true);
 
   const switchTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    // Sync with DOM on client mount
+    // Sync with DOM on client mount after hydration
     if (typeof document !== 'undefined') {
       setDark(document.documentElement.classList.contains('dark'));
     }

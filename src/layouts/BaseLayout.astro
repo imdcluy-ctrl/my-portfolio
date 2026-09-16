@@ -4,7 +4,10 @@ import '@fontsource-variable/inter';
 import '@fontsource-variable/jetbrains-mono';
 import '../styles/global.css';
 import ThemeToggle from '../components/islands/ThemeToggle';
+import AudioToggle from '../components/islands/AudioToggle';
 import AmbientCanvas from '../components/AmbientCanvas.astro';
+import NoiseOverlay from '../components/NoiseOverlay.astro';
+import ScrollProgress from '../components/ScrollProgress.astro';
 import CommandPalette from '../components/islands/CommandPalette';
 import { getCollection } from 'astro:content';
 
@@ -83,7 +86,10 @@ const projectsData = allProjects.map(p => p.data);
     <slot name="head" />
   </head>
 
-  <body class="bg-canvas text-ink font-sans min-h-screen flex flex-col antialiased selection:bg-accent selection:text-white">
+  <body class="bg-canvas text-ink font-sans min-h-screen flex flex-col antialiased selection:bg-accent selection:text-white relative">
+    <!-- Top Scroll Progress Bar -->
+    <ScrollProgress />
+
     <!-- Accessible Skip-to-Content Anchor -->
     <a
       href="#main"
@@ -94,6 +100,9 @@ const projectsData = allProjects.map(p => p.data);
 
     <!-- High-Performance Interactive Ambient Canvas -->
     <AmbientCanvas />
+
+    <!-- Film Grain Texture Overlay for Anti-Banding Luxury Glass -->
+    <NoiseOverlay />
 
     <!-- Scroll Sentinel for 40px Header Border Transition -->
     <div
@@ -111,14 +120,14 @@ const projectsData = allProjects.map(p => p.data);
         <!-- Monogram / Branding -->
         <a
           href="/"
-          class="group flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+          class="group flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm tactile-press"
           aria-label="ZPPSU Portfolio Homepage"
         >
-          <div class="w-8 h-8 rounded-[--radius-pill] bg-surface-2 border border-line flex items-center justify-center font-display font-black text-sm text-ink group-hover:border-accent group-hover:text-accent transition-colors">
+          <div class="w-8 h-8 rounded-[--radius-pill] bg-surface-2 border border-line flex items-center justify-center font-display font-black text-sm text-ink group-hover:border-accent group-hover:text-accent transition-colors shadow-xs">
             Z
           </div>
           <div class="flex flex-col">
-            <span class="font-display font-bold text-sm sm:text-base tracking-tight text-ink leading-tight">
+            <span class="font-display font-bold text-sm sm:text-base tracking-tight text-ink leading-tight group-hover:text-accent transition-colors">
               ZPPSU Systems
             </span>
             <span class="font-mono text-[10px] sm:text-xs text-ink-muted leading-tight">
@@ -128,8 +137,8 @@ const projectsData = allProjects.map(p => p.data);
         </a>
 
         <!-- Header Navigation & Island Container -->
-        <div class="flex items-center gap-4 sm:gap-6">
-          <nav class="flex items-center gap-4 text-sm font-medium" aria-label="Main Navigation">
+        <div class="flex items-center gap-2.5 sm:gap-4">
+          <nav class="hidden sm:flex items-center gap-4 text-sm font-medium mr-1" aria-label="Main Navigation">
             <a
               href="/#bento-hero"
               class="text-ink-muted hover:text-ink transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm px-1 py-0.5"
@@ -147,7 +156,10 @@ const projectsData = allProjects.map(p => p.data);
           <!-- Spotlight Search Command Palette Island -->
           <CommandPalette client:idle projects={projectsData} />
 
-          <div class="h-4 w-[1px] bg-line" aria-hidden="true"></div>
+          <!-- Audio Equalizer Mute/Unmute Toggle Island -->
+          <AudioToggle client:load />
+
+          <div class="h-4 w-[1px] bg-line hidden sm:block" aria-hidden="true"></div>
 
           <!-- Theme Toggle React Island -->
           <ThemeToggle client:load />
@@ -202,12 +214,18 @@ const projectsData = allProjects.map(p => p.data);
           <span aria-hidden="true">•</span>
           <a
             href="#"
-            class="hover:text-ink transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+            class="hover:text-ink transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm tactile-press"
           >
             Top ↑
           </a>
         </div>
       </div>
     </footer>
+
+    <!-- Client-Side Scroll Reveal & Micro-Haptic Observer -->
+    <script>
+      import { initScrollReveal } from '../utils/scrollReveal';
+      initScrollReveal();
+    </script>
   </body>
 </html>

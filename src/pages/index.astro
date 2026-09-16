@@ -39,57 +39,96 @@ const projectsData = sortedProjects.map(p => p.data);
 
 <BaseLayout title="Duane Luy — Systems Architect & Developer Portfolio">
   <div class="space-y-12">
-    <!-- Hero Section -->
-    <section class="space-y-6 pt-4 pb-2 border-b border-[var(--color-line)]">
-      <div class="space-y-2">
-        <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full text-xs font-mono bg-[var(--color-surface-2)] text-[var(--color-ink-muted)] border border-[var(--color-line)]">
+    <!-- Hero Section with Staggered Entrance Reveals -->
+    <section class="space-y-6 pt-4 pb-4 border-b border-[var(--color-line)]">
+      <div class="space-y-2.5">
+        <div
+          class="scroll-reveal inline-flex items-center gap-2 px-2.5 py-1 rounded-full text-xs font-mono bg-[var(--color-surface-2)] text-[var(--color-ink-muted)] border border-[var(--color-line)] shadow-xs"
+          data-delay="0"
+        >
           <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
           <span>ZPPSU Computer Technology & Operations</span>
         </div>
-        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-display text-[var(--color-ink)] leading-tight">
+        <h1
+          class="scroll-reveal text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-display text-[var(--color-ink)] leading-tight"
+          data-delay="80"
+        >
           Duane Luy
         </h1>
-        <p class="text-base sm:text-xl font-medium text-[var(--color-ink-muted)] max-w-2xl">
+        <p
+          class="scroll-reveal text-base sm:text-xl font-medium text-[var(--color-ink-muted)] max-w-2xl"
+          data-delay="140"
+        >
           Systems Architect & Institutional Software Engineer
         </p>
       </div>
 
-      <p class="text-sm sm:text-base text-[var(--color-ink-muted)] max-w-3xl leading-relaxed">
+      <p
+        class="scroll-reveal text-sm sm:text-base text-[var(--color-ink-muted)] max-w-3xl leading-relaxed"
+        data-delay="200"
+      >
         Engineering high-reliability university software, FIDE sports tournament networks, and offline-first classroom systems designed to operate without internet dependency across Zamboanga Peninsula Polytechnic State University.
       </p>
 
-      <!-- Key Engineering Metrics Banner -->
+      <!-- Key Engineering Metrics Banner with Dynamic Numeric Rollup -->
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 py-2">
-        <div class="p-3.5 rounded-xl bg-[var(--color-surface)] border border-[var(--color-line)]">
-          <div class="text-2xl font-bold font-mono text-[var(--color-ink)]">{totalCount}</div>
-          <div class="text-xs text-[var(--color-ink-muted)] mt-0.5">Software Systems</div>
+        <div
+          class="scroll-reveal group relative p-4 rounded-xl bg-[var(--color-surface)] border border-[var(--color-line)] hover:border-[var(--color-accent)]/40 hover:-translate-y-0.5 transition-all duration-300 shadow-xs overflow-hidden"
+          data-delay="260"
+        >
+          <div class="text-2xl sm:text-3xl font-bold font-mono text-[var(--color-ink)]">
+            <span data-counter-target={String(totalCount)}>{totalCount}</span>
+          </div>
+          <div class="text-xs font-medium text-[var(--color-ink-muted)] mt-1">Software Systems</div>
+          <div class="absolute -right-2 -bottom-2 w-12 h-12 bg-emerald-500/5 rounded-full blur-xl group-hover:bg-emerald-500/15 transition-all"></div>
         </div>
-        <div class="p-3.5 rounded-xl bg-[var(--color-surface)] border border-[var(--color-line)]">
-          <div class="text-2xl font-bold font-mono text-emerald-600 dark:text-emerald-400">{liveCount}</div>
-          <div class="text-xs text-[var(--color-ink-muted)] mt-0.5">Live Production Apps</div>
+
+        <div
+          class="scroll-reveal group relative p-4 rounded-xl bg-[var(--color-surface)] border border-[var(--color-line)] hover:border-emerald-500/40 hover:-translate-y-0.5 transition-all duration-300 shadow-xs overflow-hidden"
+          data-delay="320"
+        >
+          <div class="text-2xl sm:text-3xl font-bold font-mono text-emerald-600 dark:text-emerald-400">
+            <span data-counter-target={String(liveCount)}>{liveCount}</span>
+          </div>
+          <div class="text-xs font-medium text-[var(--color-ink-muted)] mt-1">Live Production Apps</div>
+          <div class="absolute -right-2 -bottom-2 w-12 h-12 bg-emerald-500/10 rounded-full blur-xl group-hover:bg-emerald-500/20 transition-all"></div>
         </div>
-        <div class="p-3.5 rounded-xl bg-[var(--color-surface)] border border-[var(--color-line)]">
-          <div class="text-2xl font-bold font-mono text-indigo-600 dark:text-indigo-400">{lanCount}+</div>
-          <div class="text-xs text-[var(--color-ink-muted)] mt-0.5">Offline LAN Deployments</div>
+
+        <div
+          class="scroll-reveal group relative p-4 rounded-xl bg-[var(--color-surface)] border border-[var(--color-line)] hover:border-indigo-500/40 hover:-translate-y-0.5 transition-all duration-300 shadow-xs overflow-hidden"
+          data-delay="380"
+        >
+          <div class="text-2xl sm:text-3xl font-bold font-mono text-indigo-600 dark:text-indigo-400">
+            <span data-counter-target={`${lanCount}+`}>{lanCount}+</span>
+          </div>
+          <div class="text-xs font-medium text-[var(--color-ink-muted)] mt-1">Offline LAN Deployments</div>
+          <div class="absolute -right-2 -bottom-2 w-12 h-12 bg-indigo-500/10 rounded-full blur-xl group-hover:bg-indigo-500/20 transition-all"></div>
         </div>
-        <div class="p-3.5 rounded-xl bg-[var(--color-surface)] border border-[var(--color-line)]">
-          <div class="text-2xl font-bold font-mono text-[var(--color-ink)]">$0/mo</div>
-          <div class="text-xs text-[var(--color-ink-muted)] mt-0.5">Serverless Edge Cost</div>
+
+        <div
+          class="scroll-reveal group relative p-4 rounded-xl bg-[var(--color-surface)] border border-[var(--color-line)] hover:border-amber-500/40 hover:-translate-y-0.5 transition-all duration-300 shadow-xs overflow-hidden"
+          data-delay="440"
+        >
+          <div class="text-2xl sm:text-3xl font-bold font-mono text-[var(--color-ink)]">
+            <span data-counter-target="$0/mo">$0/mo</span>
+          </div>
+          <div class="text-xs font-medium text-[var(--color-ink-muted)] mt-1">Serverless Edge Cost</div>
+          <div class="absolute -right-2 -bottom-2 w-12 h-12 bg-amber-500/5 rounded-full blur-xl group-hover:bg-amber-500/15 transition-all"></div>
         </div>
       </div>
     </section>
 
-    <!-- Marquee Bento Hero (6 Flagships) -->
+    <!-- Marquee Bento Hero (Flagships) -->
     <BentoGrid projects={sortedProjects} />
 
     <!-- Full Categorized Catalog -->
     <section id="catalog" class="space-y-6 pt-4">
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+      <div class="scroll-reveal flex flex-col sm:flex-row sm:items-end justify-between gap-3" data-delay="0">
         <div>
           <h2 class="font-display font-bold text-2xl sm:text-3xl text-[var(--color-ink)]">
             Complete Systems Directory
           </h2>
-          <p class="text-sm text-[var(--color-ink-muted)]">
+          <p class="text-sm text-[var(--color-ink-muted)] mt-1">
             Filter through all 37 systems across university operations, sports tournaments, AI tools, and offline hubs.
           </p>
         </div>
@@ -113,7 +152,7 @@ const projectsData = sortedProjects.map(p => p.data);
     <CaseStudyDrawer client:idle projects={projectsData} />
 
     <!-- Footer -->
-    <footer class="pt-12 pb-8 border-t border-[var(--color-line)] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[var(--color-ink-muted)]">
+    <footer class="scroll-reveal pt-12 pb-8 border-t border-[var(--color-line)] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[var(--color-ink-muted)]" data-delay="60">
       <div>
         <span>Duane Luy (`imdcluy`) · ZPPSU AMBC</span>
       </div>
@@ -126,7 +165,7 @@ const projectsData = sortedProjects.map(p => p.data);
           href="https://github.com/imdcluy-ctrl"
           target="_blank"
           rel="noopener noreferrer"
-          class="hover:text-[var(--color-ink)] transition-colors"
+          class="hover:text-[var(--color-ink)] transition-colors tactile-press"
         >
           GitHub Profile
         </a>
