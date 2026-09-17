@@ -2,7 +2,7 @@ import { defineCollection, z } from 'astro:content';
 import { file } from 'astro/loaders';
 
 /**
- * Domain enumeration for Duane Luy's 37 institutional and software projects.
+ * Domain enumeration for Duane Luy's 38 institutional and software projects.
  */
 export const DOMAINS = [
   'institutional',

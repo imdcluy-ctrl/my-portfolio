@@ -99,7 +99,7 @@ export default function CommandPalette({ projects }: CommandPaletteProps) {
         title="Search systems (Ctrl+K)"
       >
         <Search size={13} />
-        <span className="hidden sm:inline">Search 37 systems...</span>
+        <span className="hidden sm:inline">Search 38 systems...</span>
         <kbd className="hidden sm:inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[10px] rounded bg-[var(--color-surface)] border border-[var(--color-line)] font-mono text-[var(--color-ink-muted)]">
           <span className="text-[9px]">Ctrl</span> K
         </kbd>
@@ -127,7 +127,7 @@ export default function CommandPalette({ projects }: CommandPaletteProps) {
                   setSelectedIndex(0);
                 }}
                 onKeyDown={handleInputKeyDown}
-                placeholder="Search across 37 systems, tech stack (React, Python, Cloudflare...), or domain..."
+                placeholder="Search across 38 systems, tech stack (React, Python, Cloudflare...), or domain..."
                 className="w-full bg-transparent text-sm text-[var(--color-ink)] placeholder-[var(--color-ink-muted)] focus:outline-none border-none ring-0 font-sans"
               />
               <button

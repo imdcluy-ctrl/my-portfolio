@@ -2,28 +2,28 @@
 **Prepared for Opus 4.6 Implementation Planning**  
 **Workspace Directory:** `C:\Users\ACER\OneDrive\Desktop\ZPPSU A.Y. 2026-2027\My Project`  
 **Portfolio Directory:** `C:\Users\ACER\OneDrive\Desktop\ZPPSU A.Y. 2026-2027\My Project\My Portfolio`  
-**Total Scanned Entities:** 48 filesystem directories  
-**Total Functional Software Projects:** **37 distinct production systems**  
-**Confirmed Live Cloud Deployments:** **8 active production applications**  
+**Total Scanned Entities:** 49 filesystem directories  
+**Total Functional Software Projects:** **38 distinct production systems**  
+**Confirmed Live Cloud Deployments:** **9 active production applications**  
 
 ---
 
 ## 1. Executive Summary & Developer Profile
 
-This portfolio documents the engineering work of **Duane Luy (`imdcluy`)**, showcasing a prolific body of **37 distinct, fully functional software systems**. The projects demonstrate deep expertise across full-stack cloud engineering, institutional enterprise systems, pedagogical AI integration, and resilient offline-first/LAN architectures designed for environments with zero or unstable internet connectivity.
+This portfolio documents the engineering work of **Duane Luy (`imdcluy`)**, showcasing a prolific body of **38 distinct, fully functional software systems**. The projects demonstrate deep expertise across full-stack cloud engineering, institutional enterprise systems, pedagogical AI integration, and resilient offline-first/LAN architectures designed for environments with zero or unstable internet connectivity.
 
 ### Core Metrics at a Glance:
-- **37 Distinct Functional Systems** across 5 specialized domains.
-- **8 Live Cloud Production Deployments** on Cloudflare Pages/Workers, Vercel, Netlify, and Google Apps Script.
+- **38 Distinct Functional Systems** across 5 specialized domains.
+- **9 Live Cloud Production Deployments** on Cloudflare Pages/Workers, Vercel, Netlify, and Google Apps Script.
 - **100% Offline-First / Zero-Internet LAN Capabilities** in 14 institutional systems leveraging SQLite in WAL mode, Server-Sent Events, WebSockets, and local router broadcasting.
 - **100+ Production Visual Assets On Disk** including 67 high-resolution educational schematics, 13 interactive HTML wireframes, tournament brand banners, and official institutional documents ready for instant portfolio embedding.
 - **$0/Month Serverless & Edge Architecture** taking full advantage of Cloudflare Pages/Workers, D1, Supabase free tiers, and static Jamstack pipelines.
 
 ---
 
-## 2. Live Cloud Deployments & Access Context (8 Confirmed Sites)
+## 2. Live Cloud Deployments & Access Context (9 Confirmed Sites)
 
-These 8 systems are live in production on the internet and can be directly linked with interactive "Launch Live App" buttons in the portfolio:
+These 9 systems are live in production on the internet and can be directly linked with interactive "Launch Live App" buttons in the portfolio:
 
 | # | Project Name | Live Production URL | Credentials & Role Context | Hosting & Architecture |
 | :-: | :--- | :--- | :--- | :--- |
@@ -35,6 +35,7 @@ These 8 systems are live in production on the internet and can be directly linke
 | **6** | **CPT Palaro Management System** | [https://cpt-palaro.netlify.app](https://cpt-palaro.netlify.app)<br>*(Alt: [comtech-palaro-webapp.netlify.app](https://comtech-palaro-webapp.netlify.app))* | **Public Tournament Portal:** Public athlete verification, live medal standings, and event match schedules viewable without login | **Netlify** + React + Vite + Express + Better-SQLite3 / Supabase |
 | **7** | **Document Submission Tracker** | [Live GAS Web App](https://script.google.com/macros/s/AKfycbypRMB1ssxs5f8JZ1kY3xHYpG1tziueKVh_Tr75SGwFBrLb2fECXXwRlKGHuqMPhbfyNQ/exec) | **Institutional Pipeline:** Direct sync to department Google Drive compliance folders | **Google Apps Script** + Google Drive API + Google Sheets DB |
 | **8** | **Palaro Submission of Music** | [Live GAS Webhook](https://script.google.com/macros/s/AKfycbzcRiQZuykFxn9JyoSelVM0oCRsNEQz3jmDTe-oX_UMWT9zyxPTQ_yOfWNCTtSiXj9oxg/exec) | **Cultural Events Intake:** Cheerdance, Vocal Solo, Duet, Pop Dance audio file uploads directly to Google Drive | **Google Apps Script** + Responsive HTML5/JS |
+| **9** | **Faculty Intake Web App** | [https://zppsu-faculty-intake.imdcluy.workers.dev](https://zppsu-faculty-intake.imdcluy.workers.dev) | **Public Faculty Access:** Live 157-course autocomplete, 7-step guided intake wizard, and JSON export | **Cloudflare Workers / Pages** + Astro 5 + React 19 + Tailwind v4 + KV |
 
 ---
 
@@ -251,6 +252,14 @@ These 8 systems are live in production on the internet and can be directly linke
 - **Visual Assets On Disk:** University header logo `assets/main_logo.png`
 - **Role & Problem Solved:** Complete relational database archive, visual editor, and batch document exporter for college syllabi.
 - **Run Command:** `streamlit run app.py`
+
+#### 26. ZPPSU Faculty Intake Web Application
+- **Directory:** `C:\Users\ACER\OneDrive\Desktop\ZPPSU A.Y. 2026-2027\Getting done\Generating content for Syllabus & Lesson Plan\faculty-intake`
+- **Tech Stack:** Astro 5, React 19, Tailwind CSS 4, TypeScript, Cloudflare Workers / Pages, KV Namespace
+- **Deployment:** Live Cloud ([https://zppsu-faculty-intake.imdcluy.workers.dev](https://zppsu-faculty-intake.imdcluy.workers.dev))
+- **Role & Problem Solved:** Mobile-responsive 7-step faculty course intake wizard generating standardized curriculum JSON profiles for automated AI syllabus and lesson plan compilation.
+- **Key Features:** Live 157-course fuzzy autocomplete, interactive grading weight balance sliders strictly enforcing 100%, AACCUP 5-year textbook recency validation, department lab presets, and one-click JSON profile export.
+- **Run Command:** `npm run dev`
 
 ---
 

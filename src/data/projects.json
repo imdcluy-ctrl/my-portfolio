@@ -2757,5 +2757,91 @@
     "demoVideoUrl": null,
     "isConfidential": true,
     "walkthroughNotes": null
+  },
+  {
+    "id": "faculty-intake",
+    "slug": "faculty-intake",
+    "title": "ZPPSU Faculty Intake Web Application",
+    "name": "ZPPSU Faculty Intake Web Application",
+    "domain": "edtech",
+    "domainLabel": "EdTech & AI",
+    "status": "live",
+    "statusLabel": "Live Cloud",
+    "tier": "production",
+    "featured": false,
+    "bentoOrder": null,
+    "bentoTile": null,
+    "tagline": "Mobile-responsive 7-step faculty course intake wizard generating curriculum JSONs for AI lesson planners.",
+    "summary": "A modern, mobile-responsive web questionnaire and curriculum intake wizard built with Astro 5, React 19, and Tailwind CSS 4 for instructors at Zamboanga Peninsula Polytechnic State University (ZPPSU) College of Engineering & Technology. Connects to 157 indexed courses and exports structured JSON profiles directly into AI syllabus and lesson plan generators.",
+    "highlightMetric": {
+      "value": "157 Courses",
+      "label": "7-Step Intake Wizard"
+    },
+    "metrics": {
+      "loc": 3200,
+      "tests": "Astro build & schema validation",
+      "scale": "157 courses · CpT, ELT, ELX departments"
+    },
+    "stack": {
+      "frontend": [
+        "Astro 5",
+        "React 19",
+        "Tailwind CSS 4",
+        "TypeScript"
+      ],
+      "backend": [
+        "Cloudflare Workers",
+        "KV Namespace Storage",
+        "Astro Server Endpoints"
+      ],
+      "data": [
+        "Cloudflare KV (INTAKE_STORE)",
+        "JSON Curriculum Store (157 courses)"
+      ],
+      "infra": [
+        "Cloudflare Workers / Pages",
+        "Edge Network"
+      ]
+    },
+    "links": {
+      "live": "https://zppsu-faculty-intake.imdcluy.workers.dev",
+      "repo": null,
+      "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\Getting done\\Generating content for Syllabus & Lesson Plan\\faculty-intake",
+      "notes": "Live Production Deployment: Faculty course questionnaire with live course autocomplete and JSON profile export."
+    },
+    "accessNotes": "Live Cloud Deployment on Cloudflare Workers / Pages. Connects to 157 indexed ZPPSU engineering & technology courses.",
+    "walkthroughNotes": "Open the live app, search for any course code (e.g. BCP 111, ELT 211), proceed through the 7-step intake questionnaire, and export the standardized intake JSON.",
+    "runCommand": "npm run dev",
+    "run": {
+      "commands": [
+        "npm install",
+        "npm run dev"
+      ],
+      "url": "http://localhost:4321"
+    },
+    "caseStudy": {
+      "role": "Frontend Architect & Educational Tool Developer",
+      "problem": "Faculty members teaching diverse technical courses struggled to submit complete, consistent syllabus specifications and teaching parameters. Unstructured submissions lacked textbook copyright verification under AACCUP accreditation standards, had inconsistent grading breakdowns, and failed to account for department-specific laboratory equipment limits, leading to weeks of manual revision.",
+      "architecture": "Modern edge application built with Astro 5 and React 19 islands, deployed on Cloudflare Workers with KV persistence (env.INTAKE_STORE) and pass-code protected administrator export. Connects an in-memory searchable catalog of 157 ZPPSU courses with reactive client-side validation rules enforcing a strict 100% grading allocation and AACCUP 5-year textbook recency constraints.",
+      "features": [
+        "157-Course Live Autocomplete: Instant fuzzy-search connecting Computer Technology (CpT), Electrical (ELT), and Electronics (ELX)",
+        "7-Step Guided Intake Flow: Course Info, Lab Constraints, Student Profiles, Grading, References, Preferences, and Signatories",
+        "Interactive Grading Weight Sliders: Real-time visual balance sliders strictly enforcing a 100% total assessment constraint",
+        "AACCUP Recency Validation: Validates textbook publication dates against the official 5-year accreditation recency threshold",
+        "Department-Specific Lab Presets: Customizes hardware, software, and safety constraints based on technical specialization",
+        "4-Tier Institutional Signatory Matrix: Formats official review hierarchies across Instructor, Chair, Dean, and VPAA",
+        "One-Click Profile JSON Export: Produces structured intake schemas formatted for downstream AI syllabus and lesson plan generators",
+        "Cloudflare Edge & KV Store: Edge-rendered on Cloudflare Workers with secure administrative review and data persistence"
+      ],
+      "outcome": "Accelerated the faculty syllabus onboarding process across 3 engineering departments, ensuring 100% mathematical validity in grading breakdowns and instant compatibility with automated AI syllabus compilation pipelines.",
+      "screenshots": []
+    },
+    "hero": null,
+    "gallery": [],
+    "year": 2026,
+    "showGithub": false,
+    "githubUrl": null,
+    "demoVideoUrl": null,
+    "isConfidential": true
   }
 ]
