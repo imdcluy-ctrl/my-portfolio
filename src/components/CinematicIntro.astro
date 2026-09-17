@@ -5,7 +5,7 @@
 
 <div
   id="cinematic-intro"
-  class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#020205] text-emerald-400 font-mono select-none overflow-hidden transition-all duration-700 pointer-events-auto"
+  class="fixed inset-0 z-[999] flex flex-col items-center justify-center bg-[#020205] text-emerald-400 font-mono select-none overflow-hidden transition-all duration-700 pointer-events-auto"
   style="display: none;"
   aria-label="System Initializing"
 >
@@ -27,7 +27,7 @@
       <button
         id="intro-skip-btn"
         type="button"
-        class="px-3 py-1 rounded border border-emerald-500/30 text-emerald-400/80 hover:text-emerald-300 hover:border-emerald-400 hover:bg-emerald-950/40 transition-all cursor-pointer text-xs uppercase tracking-wider"
+        class="tactile-press px-3 py-1 rounded border border-emerald-500/30 text-emerald-400/80 hover:text-emerald-300 hover:border-emerald-400 hover:bg-emerald-950/40 transition-all cursor-pointer text-xs uppercase tracking-wider font-mono"
       >
         Skip [ESC]
       </button>
@@ -35,7 +35,7 @@
   </div>
 
   <!-- Central Holographic HUD Aperture -->
-  <div class="relative z-20 flex flex-col items-center max-w-lg px-6 text-center space-y-6">
+  <div class="relative z-20 flex flex-col items-center w-full max-w-lg px-6 text-center space-y-6">
     <!-- Cybernetic Monogram Emblem -->
     <div class="relative w-28 h-28 flex items-center justify-center">
       <!-- Rotating Exterior Reticle -->
@@ -61,12 +61,15 @@
     </div>
 
     <!-- Terminal Status Stream -->
-    <div class="w-full bg-black/60 border border-emerald-500/20 rounded-lg p-3.5 text-left font-mono shadow-2xl backdrop-blur-md space-y-1 text-xs">
-      <div class="flex items-center justify-between text-[10px] text-emerald-500/60 pb-1 border-b border-emerald-500/10">
-        <span>SECURITY PROTOCOL · ENCRYPTED</span>
+    <div class="w-full bg-black/75 border border-emerald-500/25 rounded-lg p-3.5 text-left font-mono shadow-2xl backdrop-blur-md space-y-1.5 text-xs">
+      <div class="flex items-center justify-between text-[10px] text-emerald-500/60 pb-1 border-b border-emerald-500/15">
+        <span class="flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          SECURITY PROTOCOL · ENCRYPTED
+        </span>
         <span>NODE: ZPPSU-AMBC-01</span>
       </div>
-      <div id="intro-terminal-log" class="space-y-0.5 text-[11px] text-emerald-300 min-h-[58px]">
+      <div id="intro-terminal-log" class="space-y-1 text-[11px] text-emerald-300 min-h-[120px] max-h-[140px] overflow-y-auto pr-1">
         <!-- Injected via JavaScript Typewriter -->
       </div>
     </div>
@@ -74,7 +77,10 @@
     <!-- Quantum Progress Bar & Counter -->
     <div class="w-full space-y-2">
       <div class="flex items-center justify-between text-xs font-mono text-emerald-400/80">
-        <span class="tracking-wider">SYNCHRONIZING INTERFACE</span>
+        <span class="tracking-wider flex items-center gap-2">
+          <span>SYNCHRONIZING INTERFACE</span>
+          <span class="inline-block w-1.5 h-2.5 bg-emerald-400 animate-pulse"></span>
+        </span>
         <span id="intro-percent" class="font-bold text-emerald-300">00%</span>
       </div>
       <div class="w-full h-1.5 bg-emerald-950/80 rounded-full overflow-hidden border border-emerald-500/30 p-[1px]">
@@ -88,7 +94,7 @@
   </div>
 
   <!-- Bottom Telemetry Footer -->
-  <div class="absolute bottom-6 text-center text-[10px] text-emerald-600/70 z-20 tracking-widest">
+  <div class="absolute bottom-6 text-center text-[10px] text-emerald-600/70 z-20 tracking-widest font-mono">
     DUANE LUY · SYSTEMS ARCHITECT & INSTITUTIONAL SOFTWARE ENGINEER
   </div>
 </div>
@@ -105,9 +111,12 @@
 
     if (!intro || !terminal || !percentEl || !barEl) return;
 
-    // Check if user already saw intro in current session
+    // Check if user already saw intro in current session (allow force via ?intro or ?boot)
+    const urlParams = new URLSearchParams(window.location.search);
+    const forceIntro = urlParams.has('intro') || urlParams.has('boot');
     const hasSeen = sessionStorage.getItem('portfolio_intro_seen');
-    if (hasSeen === 'true') {
+
+    if (hasSeen === 'true' && !forceIntro) {
       return;
     }
 
@@ -115,36 +124,25 @@
     intro.style.display = 'flex';
     document.body.style.overflow = 'hidden';
 
-    const terminalLines = [
-      '> [INIT] MOUNTING KERNEL PROTOCOLS...',
-      '> [DATA] SCANNING 37 INSTITUTIONAL ARCHITECTURES...',
-      '> [AUTH] IDENTITY CONFIRMED: DUANE LUY [ZPPSU]',
-      '> [READY] INTERFACE DEPLOYED. LAUNCHING CORE...'
+    // 7 Telemetry Milestones paced across ~5.0 seconds
+    const terminalEvents = [
+      { tag: 'INIT', text: 'HARDWARE BOOT: MOUNTING KERNEL PROTOCOLS...', time: 250, pitch: 1250 },
+      { tag: 'DATA', text: 'SCANNING 37 INSTITUTIONAL ARCHITECTURES...', time: 950, pitch: 1350 },
+      { tag: 'FIDE', text: 'TOURNAMENT ENGINES & REAL-TIME WEBSOCKETS [ONLINE]', time: 1700, pitch: 1450 },
+      { tag: 'LAN',  text: 'LOCALCLASSROOM OFFLINE-FIRST APPLIANCES [MOUNTED]', time: 2450, pitch: 1550 },
+      { tag: 'AUTH', text: 'IDENTITY CONFIRMED: DUANE LUY [ZPPSU]', time: 3200, pitch: 1650 },
+      { tag: 'CORE', text: 'SECURITY CLEARANCE: LEVEL_3 [AUTHORIZED]', time: 3950, pitch: 1750 },
+      { tag: 'READY', text: 'SYSTEM OPERATIONAL · ENTERING PORTFOLIO INTERFACE', time: 4550, pitch: 1880 }
     ];
 
-    let currentLine = 0;
+    let currentEventIndex = 0;
     let progress = 0;
     let isTerminated = false;
+    const pingedMilestones = new Set<number>();
+    const milestones = [25, 50, 75, 90];
 
-    // Typewriter message feeder
-    const lineInterval = setInterval(() => {
-      if (isTerminated) {
-        clearInterval(lineInterval);
-        return;
-      }
-      if (currentLine < terminalLines.length) {
-        const line = document.createElement('div');
-        line.className = 'flex items-center gap-1.5 text-emerald-400';
-        line.innerHTML = `<span class="text-emerald-500">›</span><span>${terminalLines[currentLine]}</span>`;
-        terminal.appendChild(line);
-        currentLine++;
-        sound.playHover();
-      }
-    }, 450);
-
-    // Smooth quantum progress counter
     const startTime = performance.now();
-    const duration = 2100; // 2.1s sequence
+    const duration = 5000; // Exact 5.0s cinematic sequence
 
     function updateProgress(time: number) {
       if (isTerminated) return;
@@ -153,6 +151,31 @@
 
       percentEl!.textContent = `${String(progress).padStart(2, '0')}%`;
       barEl!.style.width = `${progress}%`;
+
+      // Trigger telemetry lines when their timestamp arrives
+      while (
+        currentEventIndex < terminalEvents.length &&
+        elapsed >= terminalEvents[currentEventIndex].time
+      ) {
+        const ev = terminalEvents[currentEventIndex];
+        const line = document.createElement('div');
+        line.className = 'flex items-center gap-1.5 text-emerald-300 animate-in fade-in slide-in-from-left-1 duration-150';
+        line.innerHTML = `<span class="text-emerald-500 font-bold shrink-0">›</span><span class="px-1 py-0.5 rounded bg-emerald-950/80 text-[9px] text-emerald-400 border border-emerald-500/30 font-semibold shrink-0">[${ev.tag}]</span><span class="truncate">${ev.text}</span>`;
+        terminal!.appendChild(line);
+        terminal!.scrollTop = terminal!.scrollHeight;
+
+        // Play cybernetic typewriter micro-beep
+        sound.playTypewriterBeep(ev.pitch);
+        currentEventIndex++;
+      }
+
+      // Check milestone sound pings
+      for (const m of milestones) {
+        if (progress >= m && !pingedMilestones.has(m)) {
+          pingedMilestones.add(m);
+          sound.playProgressPing(m);
+        }
+      }
 
       if (progress < 100) {
         requestAnimationFrame(updateProgress);
@@ -166,9 +189,8 @@
     function finishIntro() {
       if (isTerminated) return;
       isTerminated = true;
-      clearInterval(lineInterval);
 
-      // Play sci-fi boot chime!
+      // Play rising sci-fi boot fanfare
       sound.playBootChime();
 
       // Mark session as seen
@@ -176,19 +198,20 @@
 
       // Aperture lens-warp exit transition
       intro!.style.opacity = '0';
-      intro!.style.transform = 'scale(1.08)';
-      intro!.style.filter = 'blur(6px)';
+      intro!.style.transform = 'scale(1.06)';
+      intro!.style.filter = 'blur(8px)';
       intro!.style.pointerEvents = 'none';
 
       setTimeout(() => {
         intro!.style.display = 'none';
         document.body.style.overflow = '';
-      }, 700);
+      }, 750);
     }
 
     // Skip handler
     function handleSkip() {
       if (isTerminated) return;
+      sound.playClick(1500);
       finishIntro();
     }
 

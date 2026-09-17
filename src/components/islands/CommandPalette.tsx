@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { Search, X, ArrowRight } from 'lucide-react';
 import type { ProjectData } from './CaseStudyDrawer';
 import { sound } from '../../utils/audio';
@@ -104,18 +105,18 @@ export default function CommandPalette({ projects }: CommandPaletteProps) {
         </kbd>
       </button>
 
-      {/* Modal Backdrop & Dialog */}
-      {isOpen && (
+      {/* Modal Backdrop & Dialog mounted at body root to avoid header clipping */}
+      {isOpen && typeof document !== 'undefined' && createPortal(
         <div
-          className="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-start justify-center p-4 sm:p-6 md:p-20 overflow-y-auto"
+          className="fixed inset-0 z-[9999] bg-black/80 backdrop-blur-md flex items-start justify-center p-3 sm:p-6 pt-16 sm:pt-24 pb-8 overflow-y-auto"
           onClick={() => setIsOpen(false)}
         >
           <div
-            className="w-full max-w-2xl rounded-2xl bg-[var(--color-surface)] border border-[var(--color-line)] shadow-2xl overflow-hidden flex flex-col animate-in fade-in zoom-in-95 duration-150"
+            className="w-full max-w-2xl max-h-[85vh] rounded-2xl bg-[var(--color-surface)] border border-[var(--color-line)] shadow-2xl overflow-hidden flex flex-col my-auto sm:my-0 animate-in fade-in zoom-in-95 duration-150"
             onClick={e => e.stopPropagation()}
           >
             {/* Search Input Bar */}
-            <div className="flex items-center gap-3 px-4 py-3.5 border-b border-[var(--color-line)] bg-[var(--color-surface-2)]">
+            <div className="flex items-center gap-3 px-4 py-3.5 border-b border-[var(--color-line)] bg-[var(--color-surface-2)] shrink-0">
               <Search size={18} className="text-[var(--color-ink-muted)] shrink-0" />
               <input
                 ref={inputRef}
@@ -127,7 +128,7 @@ export default function CommandPalette({ projects }: CommandPaletteProps) {
                 }}
                 onKeyDown={handleInputKeyDown}
                 placeholder="Search across 37 systems, tech stack (React, Python, Cloudflare...), or domain..."
-                className="w-full bg-transparent text-sm text-[var(--color-ink)] placeholder-[var(--color-ink-muted)] focus:outline-none font-sans"
+                className="w-full bg-transparent text-sm text-[var(--color-ink)] placeholder-[var(--color-ink-muted)] focus:outline-none border-none ring-0 font-sans"
               />
               <button
                 type="button"
@@ -139,7 +140,7 @@ export default function CommandPalette({ projects }: CommandPaletteProps) {
             </div>
 
             {/* Results List */}
-            <div className="max-h-96 overflow-y-auto p-2 space-y-1">
+            <div className="flex-1 overflow-y-auto max-h-[58vh] p-2 space-y-1">
               {filtered.length === 0 ? (
                 <div className="py-12 text-center text-xs font-mono text-[var(--color-ink-muted)]">
                   No systems matching "{query}"
@@ -194,7 +195,7 @@ export default function CommandPalette({ projects }: CommandPaletteProps) {
             </div>
 
             {/* Footer Keyboard Hints */}
-            <div className="px-4 py-2.5 bg-[var(--color-surface-2)] border-t border-[var(--color-line)] flex items-center justify-between text-[11px] font-mono text-[var(--color-ink-muted)]">
+            <div className="px-4 py-2.5 bg-[var(--color-surface-2)] border-t border-[var(--color-line)] flex items-center justify-between text-[11px] font-mono text-[var(--color-ink-muted)] shrink-0">
               <div className="flex items-center gap-3">
                 <span>↑↓ Navigate</span>
                 <span>↵ Open Case Study</span>
@@ -203,7 +204,8 @@ export default function CommandPalette({ projects }: CommandPaletteProps) {
               <div>{filtered.length} of {projects.length} systems</div>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );

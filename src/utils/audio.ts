@@ -431,6 +431,69 @@ class SoundEngine {
     }
   }
 
+  /**
+   * Cyber Typewriter Micro-Beep for Cinematic Boot Sequence
+   */
+  public playTypewriterBeep(pitch = 1450) {
+    if (!this.sfxEnabled || !this.initContext() || !this.ctx || !this.sfxGain) return;
+
+    try {
+      const now = this.ctx.currentTime;
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(pitch, now);
+      osc.frequency.exponentialRampToValueAtTime(pitch * 1.3, now + 0.022);
+
+      gain.gain.setValueAtTime(0.08, now);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.022);
+
+      osc.connect(gain);
+      gain.connect(this.sfxGain);
+
+      osc.start(now);
+      osc.stop(now + 0.022);
+    } catch {
+      // Silently catch
+    }
+  }
+
+  /**
+   * Quantum Telemetry Progress Ping (Fires during intro progress milestones)
+   */
+  public playProgressPing(progress: number) {
+    if (!this.sfxEnabled || !this.initContext() || !this.ctx || !this.sfxGain) return;
+
+    try {
+      const now = this.ctx.currentTime;
+      const freq = 440 + (progress / 100) * 880; // 440Hz ramping up to 1320Hz
+      const osc = this.ctx.createOscillator();
+      const filter = this.ctx.createBiquadFilter();
+      const gain = this.ctx.createGain();
+
+      filter.type = 'bandpass';
+      filter.frequency.setValueAtTime(freq * 1.5, now);
+      filter.Q.setValueAtTime(4.5, now);
+
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(freq, now);
+      osc.frequency.exponentialRampToValueAtTime(freq * 1.15, now + 0.045);
+
+      gain.gain.setValueAtTime(0.09, now);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.045);
+
+      osc.connect(filter);
+      filter.connect(gain);
+      gain.connect(this.sfxGain);
+
+      osc.start(now);
+      osc.stop(now + 0.045);
+    } catch {
+      // Silently catch
+    }
+  }
+
   // Backwards compatibility aliases
   public playDrawerChime() {
     this.playDrawerOpen();
