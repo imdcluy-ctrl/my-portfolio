@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Drawer } from 'vaul';
-import { ExternalLink, Copy, Check, X, Terminal, ShieldCheck, Play, Lock } from 'lucide-react';
+import { ExternalLink, Copy, Check, X, Terminal, ShieldCheck, Play, Lock, Layers, TrendingUp } from 'lucide-react';
 import { sound } from '../../utils/audio';
 
 export interface ProjectData {
@@ -280,6 +280,19 @@ export default function CaseStudyDrawer({ projects }: CaseStudyDrawerProps) {
               </div>
             )}
 
+            {/* Engineering & System Architecture */}
+            {project.caseStudy.architecture && (
+              <div className="space-y-2">
+                <h4 className="text-xs font-mono uppercase tracking-wider text-[var(--color-ink-muted)] flex items-center gap-1.5">
+                  <Layers size={13} className="text-indigo-500 dark:text-indigo-400" />
+                  <span>System Architecture & Data Flow</span>
+                </h4>
+                <p className="text-xs font-mono text-[var(--color-ink)] leading-relaxed bg-[var(--color-surface)] p-3.5 rounded-xl border border-[var(--color-line)]">
+                  {project.caseStudy.architecture}
+                </p>
+              </div>
+            )}
+
             {/* Key Capabilities */}
             {project.caseStudy.features && project.caseStudy.features.length > 0 && (
               <div className="space-y-2.5">
@@ -353,6 +366,19 @@ export default function CaseStudyDrawer({ projects }: CaseStudyDrawerProps) {
                 )}
               </div>
             </div>
+
+            {/* Measurable Impact & Outcomes */}
+            {project.caseStudy.outcome && (
+              <div className="space-y-2 pt-2">
+                <h4 className="text-xs font-mono uppercase tracking-wider text-[var(--color-ink-muted)] flex items-center gap-1.5">
+                  <TrendingUp size={13} className="text-emerald-500" />
+                  <span>Measurable Impact & Outcomes</span>
+                </h4>
+                <p className="text-xs text-[var(--color-ink)] leading-relaxed bg-emerald-500/5 p-3.5 rounded-xl border border-emerald-500/20">
+                  {project.caseStudy.outcome}
+                </p>
+              </div>
+            )}
 
             {/* Metrics Footer */}
             {project.highlightMetric && (

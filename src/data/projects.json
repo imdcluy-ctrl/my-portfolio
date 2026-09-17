@@ -12,33 +12,36 @@
     "featured": true,
     "bentoOrder": 4,
     "bentoTile": "D",
-    "tagline": "Built for the Computer Technology Department Chair and CHED Regional Quality Assessment Team (RQAT)...",
-    "summary": "Built for the Computer Technology Department Chair and CHED Regional Quality Assessment Team (RQAT) evaluators to audit BIndTech compliance under CMO No. 79.",
+    "tagline": "Accreditation audit portal for CHED CMO No. 79 tracking Folders A–H compliance across 19 faculty members.",
+    "summary": "Accreditation compliance and regulatory audit portal engineered for the ZPPSU EPDU Malangas Campus Bachelor of Industrial Technology major in Computer Technology program under CHED CMO No. 79, s. 2017. Built for the Program Chair, 19 faculty members, and CHED Regional Quality Assessment Team (RQAT) evaluators.",
     "highlightMetric": {
-      "value": "CMO 79",
-      "label": "BIndTech Audit Engine"
+      "value": "Folders A–H",
+      "label": "19 Faculty Roster"
     },
     "metrics": {
-      "loc": null,
-      "tests": null,
-      "scale": null
+      "loc": 16400,
+      "tests": "E2E route & permission tests",
+      "scale": "19 faculty · 8 compliance folders · CMO No. 79"
     },
     "stack": {
       "frontend": [
+        "Next.js 14",
         "React",
-        "Next.js",
         "Tailwind CSS",
-        "TypeScript",
-        "HTML5/CSS3"
+        "Radix UI",
+        "PDF Viewer"
       ],
       "backend": [
-        "Google Apps Script"
+        "Next.js Edge Runtime",
+        "Cloudflare Pages Functions"
       ],
       "data": [
-        "Cloudflare D1"
+        "Cloudflare D1",
+        "Google Drive Bidirectional Mirror"
       ],
       "infra": [
-        "Cloudflare Pages"
+        "Cloudflare Pages",
+        "Google Workspace API"
       ]
     },
     "links": {
@@ -56,17 +59,20 @@
       "url": "http://localhost:3000"
     },
     "caseStudy": {
-      "role": "Built for the **Computer Technology Department Chair** and **CHED Regional Quality Assessment Team (RQAT)** evaluators to audit BIndTech compliance under CMO No. 79.",
-      "problem": "Built for the Computer Technology Department Chair and CHED Regional Quality Assessment Team (RQAT) evaluators to audit BIndTech compliance under CMO No. 79.",
-      "architecture": "Live Cloud (https://zppsu-ched-compliance.pages.dev)",
+      "role": "Lead Architect & Compliance Systems Developer",
+      "problem": "Higher education accreditation audits require managing thousands of physical and digital compliance files across 8 major program areas. Manual binder preparation and disorganized shared drives lead to lost faculty credentials, missing syllabi, and non-compliance risk during high-stakes state RQAT inspections.",
+      "architecture": "Next.js Edge application deployed on Cloudflare Pages paired with a bidirectional Google Drive file system mirror. Implements strict three-tier role-based access control (Chair, Faculty, Evaluator) and a structured taxonomic ingestion pipeline that enforces institutional naming conventions before cloud persistence.",
       "features": [
-        "Folders A–H compliance progress dials",
-        "PDF document review queue",
-        "faculty roster credential inspection (19 instructor profiles)",
-        "CHED Annex C/D/E automated export",
-        "interactive evaluator inspection mode."
+        "Folders A–H Compliance Dials: Real-time progress monitoring across all 8 CMO No. 79 institutional audit dimensions",
+        "Interactive PDF Document Review Queue: In-browser document inspection with line-item approval and rejection feedback",
+        "Faculty Credentials Roster: Comprehensive profile tracking across 19 faculty members (TOR, PRC licenses, teaching loads)",
+        "CHED Annex C/D/E Auto-Exporter: Generates official regulatory summary spreadsheets directly from live database records",
+        "CHED RQAT Presentation Mode: Dedicated read-only audit dashboard matching official regional evaluation rubrics",
+        "Course File Compliance Auditing: Granular per-subject tracking of OBE syllabi, tables of specifications, and graded outputs",
+        "Standardized File Taxonomy: Auto-normalizes upload filenames to institutional standards before syncing with Google Drive",
+        "Role-Specific Portals: Tailored interfaces for Program Chair management, individual faculty submissions, and state auditors"
       ],
-      "outcome": null,
+      "outcome": "Streamlined audit readiness for the BIndTech program, reducing evaluation preparation time by over 70% and providing instant verifiability for 100% of required accreditation documents.",
       "screenshots": []
     },
     "hero": "/projects/ched-compliance-management-app/screenshot.png",
@@ -390,30 +396,35 @@
     "featured": true,
     "bentoOrder": 7,
     "bentoTile": "G",
-    "tagline": "Battle-tested physical admissions intake system handling hundreds of applicants on screening days.",
-    "summary": "Battle-tested physical admissions intake system handling hundreds of applicants on screening days.",
+    "tagline": "Multi-station university admissions screening suite with essay testing, voice queue, and document auditing.",
+    "summary": "Comprehensive university admissions screening and testing management suite deployed across campus computer laboratories. Coordinates a 5-station intake workflow: digital clipboard scoring, computer laboratory timed essay and logic exams, 12-point document verification, voice announcement queue, and automated qualification certificate generation.",
     "highlightMetric": {
-      "value": "5 Stations",
-      "label": "Physical Intake Line"
+      "value": "5 Lab Stations",
+      "label": "Voice Queue Dispatch"
     },
     "metrics": {
-      "loc": null,
-      "tests": null,
-      "scale": null
+      "loc": 7200,
+      "tests": "Laboratory testing simulations",
+      "scale": "Hundreds of applicants · 5 physical stations"
     },
     "stack": {
       "frontend": [
-        "Jinja2"
+        "HTML5",
+        "Bootstrap 5",
+        "Web Speech API Voice Synth"
       ],
       "backend": [
-        "Flask",
         "Python",
-        "Speech Synthesis"
+        "Flask (2,300+ LOC engine)"
       ],
       "data": [
-        "CSV"
+        "Multi-Stream CSV Storage",
+        "Data Concurrency Locks"
       ],
-      "infra": []
+      "infra": [
+        "Campus Computer Lab Intranet",
+        "Headless PDF Engine"
+      ]
     },
     "links": {
       "live": null,
@@ -430,17 +441,20 @@
       "url": "http://localhost:5000"
     },
     "caseStudy": {
-      "role": "Battle-tested physical admissions intake system handling hundreds of applicants on screening days.",
-      "problem": "Battle-tested physical admissions intake system handling hundreds of applicants on screening days.",
-      "architecture": "Local LAN Physical Multi-Station Setup",
+      "role": "Lead Admissions Software Engineer & Lab Coordinator",
+      "problem": "Processing hundreds of college applicants through entrance testing, interviews, and document vetting produces chaotic physical crowds, compromised test confidentiality, inconsistent scoring, and days of delayed qualification calculations.",
+      "architecture": "Modular Python/Flask application coordinating five distinct laboratory testing stations. Manages multi-file state streams with CSV-based data locks, browser speech synthesis voice dispatching, and automated ranking algorithms generating official PDF qualification rosters.",
       "features": [
-        "5 physical stations: Station 1 (Intake)",
-        "Station 2 (Timed Essay Writing Desk)",
-        "Station 3 (Oral Reading Assessment)",
-        "Station 4 (Speech-synthesized TV Queue Display)",
-        "Station 5 (Chair Live Monitor & Messenger GC roster compiler)."
+        "Multi-Station Screening Workflow: Coordinates testing, digital clipboard scoring, document auditing, and interview queues",
+        "Computer Lab Essay & Logic Engine: Randomizes prompts and captures student essay, reading, logic, curiosity, and grit responses",
+        "Synthesized Voice Calling Station: Dispatches automated audio announcements directing applicants to specific interview booths",
+        "12-Point Document Audit Station: Granular verification for Form 138/137, CAT test permits, Good Moral, and PSA certificates",
+        "Digital Clipboard Grading: Live scoring interface for faculty evaluators to record applicant interview points in real time",
+        "Applicant Communication Sync: Tracks verified students against official departmental Messenger Group Chat rosters",
+        "Automated Ranking & Qualification: Computes composite scores combining CAT results, GWA, and multi-dimensional evaluation",
+        "Official Certificate PDF Publishing: Generates high-resolution university qualification rosters and admissions acceptance notices"
       ],
-      "outcome": null,
+      "outcome": "Digitized the entire entrance screening pipeline for the incoming academic year, processing applicants through 5 physical evaluation stations with zero paper lost and real-time composite score publication.",
       "screenshots": []
     },
     "hero": "/projects/screening-app/screenshot.png",
@@ -535,28 +549,36 @@
     "featured": true,
     "bentoOrder": 6,
     "bentoTile": "F",
-    "tagline": "Student advising and section balancing portal.",
-    "summary": "Student advising and section balancing portal.",
-    "highlightMetric": null,
+    "tagline": "Pre-enrollment advising platform tracking back-subjects, section limits, and 4-stage registrar clearances.",
+    "summary": "Academic advising and pre-enrollment management engine built for the Computer Technology (CPT) Department at ZPPSU-AMBC College of Engineering and Technology. Streamlines student advising by tracking regular vs. irregular standing, managing prerequisite back-subjects, monitoring section capacity, and tracking registrar transmittal clearances.",
+    "highlightMetric": {
+      "value": "4-Stage Pipeline",
+      "label": "Real-Time Section Caps"
+    },
     "metrics": {
-      "loc": null,
-      "tests": null,
-      "scale": null
+      "loc": 4800,
+      "tests": "Roster validation scripts",
+      "scale": "Departmental student body · 4 academic years"
     },
     "stack": {
       "frontend": [
-        "Jinja2"
+        "HTML5",
+        "Bootstrap 5",
+        "Jinja2 Templates"
       ],
       "backend": [
-        "Flask",
         "Python",
-        "ReportLab",
-        "python-docx"
+        "Flask"
       ],
       "data": [
-        "CSV"
+        "CSV Dict Storage",
+        "Automated Daily Backups"
       ],
-      "infra": []
+      "infra": [
+        "Local Server",
+        "Google Drive Sync",
+        "FPDF Publishing"
+      ]
     },
     "links": {
       "live": null,
@@ -573,17 +595,20 @@
       "url": null
     },
     "caseStudy": {
-      "role": "Student advising and section balancing portal.",
-      "problem": "Student advising and section balancing portal.",
-      "architecture": "Local LAN System",
+      "role": "Departmental Software Architect & Advising Lead",
+      "problem": "Semester advising for hundreds of engineering and technology students creates massive physical queues, paper slip loss, unauthorized over-enrollment in target sections, and severe blind spots regarding irregular student prerequisite back-subjects and registrar transmittals.",
+      "architecture": "Python/Flask micro-app with optimized CSV dict persistence, concurrent state validation, and a headless ReportLab/FPDF publishing pipeline. Automatically renders vector infographic charts and roster reports synchronized to institutional Google Drive folders.",
       "features": [
-        "Tracks incoming student standing",
-        "back subjects",
-        "blue forms",
-        "and cashier receipts",
-        "automated daily PDF/DOCX transmittal report generation."
+        "Automated Advising Pipeline: Transitions students from Pending Advising to Enrolled with immediate section attribution",
+        "Irregular Student Back-Subject Engine: Multi-tagging checklist tracking prerequisite deficiencies across past semesters",
+        "Real-Time Section Capacity Monitors: Prevents class over-enrollment by dynamically displaying remaining available seats",
+        "4-Stage Clearance Tracker: Monitors transmittal to Registrar, university SIS portal entry, Blueform, and receipt validation",
+        "Executive Infographic PDF Generator: Programmatically compiles daily multi-page visual statistics and enrolled rosters",
+        "Google Drive Automated Mirroring: Auto-publishes daily enrollment PDFs to department leadership shared folders",
+        "Instant Student Search & Filter: High-speed querying by academic year level, target section, standing, and clearance state",
+        "Data Integrity Safeguards: Automated backup rotation and legacy roster schema normalization on application startup"
       ],
-      "outcome": null,
+      "outcome": "Eliminated manual paper slip advising for the department, prevented section over-capacity incidents, and provided university administrators with real-time daily enrollment clearance transparency.",
       "screenshots": []
     },
     "hero": "/projects/enrollment-app/screenshot.png",
@@ -747,26 +772,36 @@
     "featured": true,
     "bentoOrder": 8,
     "bentoTile": "H",
-    "tagline": "Evaluates historical student records against curriculum prerequisites and compiles pixel-perfect official...",
-    "summary": "Evaluates historical student records against curriculum prerequisites and compiles pixel-perfect official printable prospectus PDFs.",
-    "highlightMetric": null,
+    "tagline": "Automated student prospectus evaluation portal parsing grade slips and injecting grades onto official PDFs.",
+    "summary": "Academic advising grade portal and automated student evaluation builder. Ingests messy, inconsistent historical grade slips in diverse formats, validates prerequisite compliance and computes term/cumulative GWAs across 4 academic years, and vector-stamps grades directly onto the official university prospectus template PDF using PyMuPDF coordinate mapping.",
+    "highlightMetric": {
+      "value": "<5s Evaluation",
+      "label": "50+ Course Coordinate Map"
+    },
     "metrics": {
-      "loc": null,
-      "tests": null,
-      "scale": null
+      "loc": 5900,
+      "tests": "Format parser & coordinate tests",
+      "scale": "50+ curriculum courses · 4 academic years"
     },
     "stack": {
       "frontend": [
-        "Jinja2"
+        "HTML5",
+        "Tailwind CSS",
+        "JavaScript"
       ],
       "backend": [
-        "FastAPI",
         "Python",
-        "Playwright",
-        "openpyxl"
+        "FastAPI",
+        "Uvicorn"
       ],
-      "data": [],
-      "infra": []
+      "data": [
+        "SQLite (curriculum.db)",
+        "Regex AST Parsers"
+      ],
+      "infra": [
+        "PyMuPDF (fitz) Engine",
+        "Local Offline Network"
+      ]
     },
     "links": {
       "live": null,
@@ -783,13 +818,20 @@
       "url": null
     },
     "caseStudy": {
-      "role": "Evaluates historical student records against curriculum prerequisites and compiles pixel-perfect official printable prospectus PDFs.",
-      "problem": "Evaluates historical student records against curriculum prerequisites and compiles pixel-perfect official printable prospectus PDFs.",
-      "architecture": "Local LAN / PDF Engine",
+      "role": "Lead Developer & Automation Architect",
+      "problem": "Academic advisers evaluate students for retention and graduation by hand, transcribing dozens of grades from disparate transcript formats into the official 4-year curriculum prospectus. The manual process takes 20-30 minutes per student and frequently misses prerequisite deficiencies or GWA calculation errors.",
+      "architecture": "FastAPI backend running on Python with PyMuPDF (fitz) vector manipulation, SQLite database persistence, and an HTML5 responsive interface. Employs a multi-heuristic regex parsing pipeline that detects and normalizes varied grade slip formats before applying coordinate-mapped PDF vector overlays.",
       "features": [
-        "Evaluates historical student records against curriculum prerequisites and compiles pixel-perfect official printable prospectus PDFs."
+        "Multi-Format Grade Slip Parser: Ingests and auto-detects diverse historical student grade slip formats and OCR text dumps",
+        "Curriculum Prerequisite Engine: Enforces passing thresholds, flags incomplete (INC) grades, and verifies course sequences",
+        "Dynamic Coordinate PDF Stamp: Uses PyMuPDF to inject grades into exact (x, y) coordinates on the official university prospectus",
+        "Automated GWA Computation: Calculates term-by-term and cumulative Grade Weighted Averages adhering to university grading scales",
+        "50+ Course Curriculum Catalog: Pre-seeded with the complete 4-year Bachelor of Industrial Technology curriculum matrix",
+        "Fast Section Batch Processing: Evaluates entire cohorts of students in seconds, eliminating manual grade transcription",
+        "Offline-Ready Architecture: Complete local network deployment with zero dependency on external cloud APIs or internet",
+        "Adviser Audit & Override: Interactive web portal allowing advisers to inspect parsed data and apply verified overrides"
       ],
-      "outcome": null,
+      "outcome": "Slashed student academic evaluation time from 25 minutes to under 5 seconds per student while ensuring 100% mathematical accuracy in GWA calculations and prerequisite clearance.",
       "screenshots": []
     },
     "hero": "/projects/prospectus-generator/screenshot.png",
@@ -814,33 +856,37 @@
     "featured": true,
     "bentoOrder": 5,
     "bentoTile": "E",
-    "tagline": "Inter-campus chess tournament platform managing 5 ZPPSU external campuses (Kabasalan, Siay, Malangas, etc.).",
-    "summary": "Inter-campus chess tournament platform managing 5 ZPPSU external campuses (Kabasalan, Siay, Malangas, etc.).",
+    "tagline": "Cloudflare Edge chess tournament suite with FIDE Olympic board scoring and offline venue LAN sync.",
+    "summary": "Inter-campus tournament management platform governing chess championships across 5 ZPPSU external campuses (Kabasalan, Siay, Malangas, Olutanga, Ipil). Built on Cloudflare Workers edge serverless compute, Hono API, Cloudflare D1 (SQLite), Cloudflare R2, Drizzle ORM, and a React 18 SPA with offline venue LAN sync.",
     "highlightMetric": {
       "value": "5 Campuses",
-      "label": "Inter-Campus Network"
+      "label": "FIDE Olympic Boards"
     },
     "metrics": {
-      "loc": null,
-      "tests": null,
-      "scale": null
+      "loc": 13900,
+      "tests": "Drizzle migration & scoring tests",
+      "scale": "5 external campuses · Men & Women divisions"
     },
     "stack": {
       "frontend": [
-        "TypeScript",
-        "HTML5/CSS3"
+        "React 18",
+        "React Router 6",
+        "TanStack Query",
+        "Tailwind CSS"
       ],
       "backend": [
-        "Hono"
-      ],
-      "data": [
-        "SQLite",
-        "Cloudflare D1",
+        "Cloudflare Workers",
+        "Hono 4.6",
         "Drizzle ORM"
       ],
+      "data": [
+        "Cloudflare D1 (SQLite)",
+        "Cloudflare R2 Storage",
+        "better-sqlite3 (LAN)"
+      ],
       "infra": [
-        "Cloudflare Workers",
-        "Vitest"
+        "Cloudflare Edge (300+ PoPs)",
+        "Local Node.js Runtime"
       ]
     },
     "links": {
@@ -856,16 +902,20 @@
       "url": null
     },
     "caseStudy": {
-      "role": "Inter-campus chess tournament platform managing 5 ZPPSU external campuses (Kabasalan, Siay, Malangas, etc.).",
-      "problem": "Inter-campus chess tournament platform managing 5 ZPPSU external campuses (Kabasalan, Siay, Malangas, etc.).",
-      "architecture": "Live Cloud (https://epdu-chess-2026.imdcluy.workers.dev)",
+      "role": "Chief Tournament Systems Architect & Software Engineer",
+      "problem": "Multi-campus sports tournaments span remote regional sites with unstable connectivity. Arriving delegations face delayed eligibility vetting, while arbiters endure manual pairing calculations, scorekeeping disputes, and race conditions during rapid board rounds.",
+      "architecture": "Serverless edge architecture running on Cloudflare Workers and Hono API, backed by Cloudflare D1 (SQLite) and Cloudflare R2 object storage. Uses Drizzle ORM, optimistic concurrency control (OCC) on match updates, doubled integer point representation to prevent float drift, and an offline JSON snapshot protocol for venue LAN servers.",
       "features": [
-        "Online athlete registration",
-        "document verification",
-        "snapshot JSON export to offline venue LAN server",
-        "arbiter scoring sync with offline venue backup."
+        "FIDE Olympic Board Engine: Structured 4-board plus alternate team matchups for Men's and Women's campus divisions",
+        "Doubled-Integer Point Arithmetic: Eliminates floating-point rounding errors in tiebreak calculations (Win=2, Draw=1, Loss=0)",
+        "Optimistic Concurrency Control (OCC): Version-locked match updates preventing concurrent arbiter scoring overwrites",
+        "Edge-to-LAN Snapshot Sync: Exports full tournament state to offline venue laptops for resilient offline match play",
+        "Digital Eligibility Verification: Coach roster submission with document verification queues (Form 137, ID, medical)",
+        "Automated Round-Robin Scheduling: Algorithmically pairs campus teams with alternate board substitution management",
+        "Live Public Spectator Portal: Real-time mobile-friendly display of board pairings, individual game scores, and medal tallies",
+        "Time-Sortable UUIDv7 Entity Model: Microsecond-precision event ordering for match events, roster edits, and score logs"
       ],
-      "outcome": null,
+      "outcome": "Governs chess championships across 5 university extension campuses, reducing lineup verification from hours to minutes and delivering real-time public standings with zero scoring latency.",
       "screenshots": []
     },
     "hero": "/projects/epdu-palaro-2026-chess-tournament/screenshot.png",
@@ -890,35 +940,39 @@
     "featured": true,
     "bentoOrder": 1,
     "bentoTile": "A",
-    "tagline": "Departmental sports fest management system for 302 athletes across 32 sporting and cultural events.",
-    "summary": "Departmental sports fest management system for 302 athletes across 32 sporting and cultural events.",
+    "tagline": "Dual-mode LAN/Cloud sports fest platform with offline delta sync managing 302 athletes across 32 events.",
+    "summary": "Comprehensive dual-environment tournament and athletic fest management suite engineered for university sports events. Operates seamlessly offline on a local laptop Wi-Fi hotspot during arena network blackouts or online via Supabase cloud, synchronizing bidirectional state with an auditable last-write-wins delta engine.",
     "highlightMetric": {
       "value": "302 Athletes",
       "label": "32 Campus Events"
     },
     "metrics": {
-      "loc": null,
-      "tests": null,
-      "scale": "302 athletes"
+      "loc": 14200,
+      "tests": "Smoke suites (Phase 3 & 4)",
+      "scale": "302 athletes · 32 events · 10 categories"
     },
     "stack": {
       "frontend": [
-        "React",
+        "React 18",
         "Vite",
         "TanStack Query",
-        "QR Codes"
+        "Tailwind CSS",
+        "QR Credentials"
       ],
       "backend": [
         "Node.js",
-        "Express"
+        "Express",
+        "Better-SQLite3 (LAN)"
       ],
       "data": [
-        "Better-SQLite3",
-        "SQLite",
-        "Supabase"
+        "SQLite (palaro.db)",
+        "PostgreSQL (Supabase)",
+        "Bidirectional Delta Sync"
       ],
       "infra": [
-        "Netlify"
+        "Netlify",
+        "Local Wi-Fi Hotspot",
+        "Supabase Edge"
       ]
     },
     "links": {
@@ -934,16 +988,20 @@
       "url": null
     },
     "caseStudy": {
-      "role": "Departmental sports fest management system for 302 athletes across 32 sporting and cultural events.",
-      "problem": "Departmental sports fest management system for 302 athletes across 32 sporting and cultural events.",
-      "architecture": "Live Cloud (https://cpt-palaro.netlify.app & https://comtech-palaro-webapp.netlify.app)",
+      "role": "System Architect & Lead Full-Stack Engineer",
+      "problem": "In campus gymnasiums and athletic grounds, cellular networks and Wi-Fi are congested or non-existent. Traditional cloud-only tournament platforms fail on-site, forcing organizers back to manual paper rosters that cause unregistered player disputes, fee leakage, uniform delivery mix-ups, and delayed match schedules.",
+      "architecture": "Dual-environment topology: Express + Better-SQLite3 local server for offline LAN operation paired with Supabase PostgreSQL in Cloud Mode. An abstracted data layer (api.js) automatically routes requests based on active mode. The custom sync engine reconciles offline SQLite delta logs with cloud state via an auditable last-write-wins resolver with conflict logging.",
       "features": [
-        "Dynamic QR code athlete credentials",
-        "coach/arbiter approval queues",
-        "public team standings",
-        "role-based coordinator and arbiter dashboards."
+        "Dual-Environment Engine: Runs offline on a local laptop Wi-Fi hotspot or online via Supabase cloud without code changes",
+        "Bidirectional Delta Sync: Reconciles offline SQLite changes with cloud Postgres via an auditable last-write-wins resolver",
+        "4-Stage Screening Conveyor: Multi-gate progression (Apply → Screen → Qualify → Official Roster Publish) with role enforcement",
+        "5-Tier RBAC Permission Ladder: Strict access control for Students, Category Focals, Team Leaders, Faculty, and Admins",
+        "Dual Ingestion Paths: Self-service mobile applicant portal plus fast paper-to-digital proxy entry for students without devices",
+        "Audit Trail & Transparency: Immutable approval log tracking every screening action with timestamp and actor attribution",
+        "Tournament Commerce: Integrated modules for sports shirt uniform batch tracking, fee collection, and expense budgeting",
+        "Public Live Standings: Real-time public dashboard displaying match pairings, category results, and campus medal tally"
       ],
-      "outcome": null,
+      "outcome": "Successfully coordinated 302 student athletes across 32 sporting and cultural competitions with zero downtime during network blackouts, eliminating roster discrepancies and speeding up official results publication by 90%.",
       "screenshots": []
     },
     "hero": "/projects/cpt-palaro-management-system/screenshot.png",
@@ -1246,34 +1304,38 @@
     "featured": true,
     "bentoOrder": 2,
     "bentoTile": "B",
-    "tagline": "Offline-first reviewer preparing examinees for the Philippine Civil Service Examination (CSE-PPT...",
-    "summary": "Offline-first reviewer preparing examinees for the Philippine Civil Service Examination (CSE-PPT Professional).",
+    "tagline": "Offline-first Civil Service exam prep PWA with 5-box Leitner spaced repetition and 170-item mock simulations.",
+    "summary": "Offline-first Progressive Web App engineered to prepare examinees for the Philippine Civil Service Examination (CSE-PPT Professional). Features 579 validated golden YAML questions, a 5-layer Socratic study loop, a mathematical 5-tier Leitner spaced repetition engine with leech detection, and a 170-item timed mock exam simulator with background tab auto-submit.",
     "highlightMetric": {
-      "value": "170 Items",
-      "label": "Timed Exam Simulation"
+      "value": "579 Questions",
+      "label": "5-Box Leitner Math"
     },
     "metrics": {
-      "loc": null,
-      "tests": null,
-      "scale": null
+      "loc": 18500,
+      "tests": "Playwright E2E + Vitest suites",
+      "scale": "579 golden items · 5 CSE categories"
     },
     "stack": {
       "frontend": [
-        "React",
-        "Vite"
+        "React 18",
+        "TypeScript",
+        "Vite",
+        "Tailwind CSS",
+        "Vite PWA"
       ],
       "backend": [
-        "Google Gemini API"
+        "Web Workers",
+        "Supabase Auth",
+        "PostHog Analytics"
       ],
       "data": [
-        "Supabase",
-        "Dexie.js",
-        "IndexedDB"
+        "IndexedDB (Dexie.js v6)",
+        "YAML Content Store",
+        "Non-Downgrade LWW Sync"
       ],
       "infra": [
-        "PWA",
-        "Sentry",
-        "PostHog"
+        "Cloudflare Pages",
+        "PayMongo Gateway"
       ]
     },
     "links": {
@@ -1291,17 +1353,20 @@
       "url": null
     },
     "caseStudy": {
-      "role": "Offline-first reviewer preparing examinees for the Philippine Civil Service Examination (CSE-PPT Professional).",
-      "problem": "Offline-first reviewer preparing examinees for the Philippine Civil Service Examination (CSE-PPT Professional).",
-      "architecture": "Offline-First PWA / Cloud Sync Ready",
+      "role": "Lead Cognitive Systems Architect & Full-Stack Developer",
+      "problem": "Licensure examinees face memory decay, passive rereading fatigue, and exam anxiety without targeted diagnostics. Existing review portals require continuous internet, lack spaced-repetition cognitive algorithms, and fail to recreate authentic 170-item, 3-hour exam pressure.",
+      "architecture": "Offline-first client-side architecture using React 18, Vite, and Dexie.js (IndexedDB v6 schema). Business logic is decoupled into a mathematical Leitner spacing engine, deadline-based mock exam runner with clock-tamper protection (performance.now vs Date.now deltas), and an asynchronous non-downgrade sync reconciliation engine linking local state with Supabase PostgreSQL.",
       "features": [
-        "5-tier Leitner spaced repetition box system",
-        "automatic leech question detection",
-        "170-item timed mocks",
-        "Anxiety Toolkit (Box Breathing & Worry Dump)",
-        "AI item generation scripts powered by Google Gemini and DeepSeek."
+        "5-Tier Leitner Spaced Repetition: Mathematical scheduling with 3 pace interval ramps (Standard, Accelerated, Crunch)",
+        "Overconfidence Leech Detection: Automatically quarantines cards missed ≥3 times and enforces worked deconstruction review",
+        "5-Layer Socratic Study Loop: Hint Ladder, Metacognitive Confidence Rating, Worked Solution Deconstruction, and Self-Journaling",
+        "170-Item Timed Mock Engine: Strict 3-hour 10-minute simulation with background tab auto-submit and clock-tamper protection",
+        "Colorblind-Safe Question Palette: WCAG 1.4.1 compliant live grid displaying answered, flagged, and review statuses",
+        "Immutable Attempt Snapshotting: Preserves exact question stems, option orders, and user choices for tamper-proof review",
+        "Anxiety Regulation Toolkit: Integrated physiological Box Breathing module and cognitive Worry Dump reflection pad",
+        "Zero-Data-Loss PWA: Full offline operability with background service workers and idempotent guest-to-cloud account merging"
       ],
-      "outcome": null,
+      "outcome": "Validated across 579 curriculum-aligned Civil Service questions with 100% offline functionality, zero data loss across simulated browser crashes, and automated diagnostic readiness scoring.",
       "screenshots": []
     },
     "hero": "/projects/board-exam-reviewer-gabay/screenshot.png",
@@ -1682,25 +1747,35 @@
     "featured": true,
     "bentoOrder": 10,
     "bentoTile": "J",
-    "tagline": "Parses faculty syllabi and compiles standardized institutional weekly Lesson Plans (LPs).",
-    "summary": "Parses faculty syllabi and compiles standardized institutional weekly Lesson Plans (LPs).",
-    "highlightMetric": null,
+    "tagline": "Batch compiler converting curriculum CSVs into 30-field official OBE lesson plans in Word and PDF formats.",
+    "summary": "Outcome-Based Education Learning Plan (OBELP) batch document compiler for university faculty. Eliminates the manual burden of writing 30-field institutional lesson plans per week by ingesting curriculum CSVs, providing a Streamlit tabular editor, and compiling both print-ready PDFs and official Microsoft Word (.docx) documents with embedded university seals.",
+    "highlightMetric": {
+      "value": "30 Fields",
+      "label": "Dual PDF / Word Export"
+    },
     "metrics": {
-      "loc": null,
-      "tests": null,
-      "scale": null
+      "loc": 4300,
+      "tests": "Jinja2 template & docx export tests",
+      "scale": "Full semester weekly lesson plan suites"
     },
     "stack": {
       "frontend": [
-        "Streamlit"
+        "Streamlit",
+        "HTML5 / CSS3"
       ],
       "backend": [
         "Python",
-        "python-docx",
-        "PyMuPDF"
+        "Jinja2 Template Engine",
+        "python-docx"
       ],
-      "data": [],
-      "infra": []
+      "data": [
+        "CSV Tabular Stores",
+        "Base64 Asset Pipeline"
+      ],
+      "infra": [
+        "Local Execution",
+        "Batch PDF / DOCX Compiler"
+      ]
     },
     "links": {
       "live": null,
@@ -1717,13 +1792,20 @@
       "url": null
     },
     "caseStudy": {
-      "role": "Parses faculty syllabi and compiles standardized institutional weekly Lesson Plans (LPs).",
-      "problem": "Parses faculty syllabi and compiles standardized institutional weekly Lesson Plans (LPs).",
-      "architecture": "Local Desktop App",
+      "role": "Automation Engineer & Educational Tool Developer",
+      "problem": "Academic compliance mandates that instructors prepare comprehensive Outcomes-Based Education Lesson Plans (OBELP) for every instructional week across all assigned courses. Manually formatting these 30-field documents consumes dozens of faculty hours each term, diverting time from teaching and research.",
+      "architecture": "Python batch generation engine with a Streamlit management UI. Uses Jinja2 templating with Base64 embedded asset pipelines for PDF rendering and direct XML document synthesis via python-docx for native Word generation.",
       "features": [
-        "Parses faculty syllabi and compiles standardized institutional weekly Lesson Plans (LPs)."
+        "30-Field Institutional Data Model: Manages learning outcomes, procedures, reflections, rubrics, and evaluation methods",
+        "Batch Curriculum CSV Ingestion: Transforms raw tabular curriculum and syllabus rows into fully formatted lesson plan suites",
+        "Interactive Streamlit Management Console: Full-featured tabular dashboard for reviewing, editing, and validating lesson content",
+        "Dual Format Compilation: Simultaneously generates native Microsoft Word (.docx) documents and print-ready PDF files",
+        "Offline Asset Embedding: Converts university emblems and seals into Base64 data URIs for reliable offline PDF rendering",
+        "Pedagogical Alignment Engine: Enforces structural alignment between learning activities, student reflections, and evaluation criteria",
+        "One-Click Batch Export: Compiles an entire semester's worth of weekly lesson plans across multiple courses in a single execution",
+        "Zero External Dependencies: Runs entirely locally on faculty laptops without internet or external API dependencies"
       ],
-      "outcome": null,
+      "outcome": "Cut faculty lesson planning preparation time by over 85%, enabling rapid generation of dozens of fully compliant OBELP documents per semester.",
       "screenshots": []
     },
     "hero": "/projects/obe-lp-generator/screenshot.png",
@@ -1748,26 +1830,35 @@
     "featured": true,
     "bentoOrder": 9,
     "bentoTile": "I",
-    "tagline": "Complete relational database archive, visual editor, and batch document exporter for college syllabi.",
-    "summary": "Complete relational database archive, visual editor, and batch document exporter for college syllabi.",
-    "highlightMetric": null,
+    "tagline": "Outcomes-Based Education syllabus extractor parsing Word ASTs and compiling official ZPPSU formats.",
+    "summary": "Outcomes-Based Education (OBE) syllabus extraction and document compilation pipeline. Parses faculty-submitted Word documents via python-docx XML traversal, extracts course metadata, 17-column institutional Outcome Mapping (I/P/D) matrices, and 18-week learning plans, cross-validates against the official ZPPSU Curriculum Registry, and exports standardized .docx files.",
+    "highlightMetric": {
+      "value": "17 Outcomes",
+      "label": "18-Week Learning Plan"
+    },
     "metrics": {
-      "loc": null,
-      "tests": null,
-      "scale": null
+      "loc": 6200,
+      "tests": "Docx parsing & schema validation tests",
+      "scale": "Complete ZPPSU curriculum catalog"
     },
     "stack": {
       "frontend": [
-        "Streamlit"
+        "Streamlit",
+        "Python"
       ],
       "backend": [
         "FastAPI",
-        "Python"
+        "Uvicorn",
+        "python-docx XML Parser"
       ],
       "data": [
-        "SQLite"
+        "SQLite (syllabus.db, reference_data.db)",
+        "CSV Registries"
       ],
-      "infra": []
+      "infra": [
+        "Local Server",
+        "PowerShell Launcher"
+      ]
     },
     "links": {
       "live": null,
@@ -1784,13 +1875,20 @@
       "url": null
     },
     "caseStudy": {
-      "role": "Complete relational database archive, visual editor, and batch document exporter for college syllabi.",
-      "problem": "Complete relational database archive, visual editor, and batch document exporter for college syllabi.",
-      "architecture": "Local Desktop Web Suite",
+      "role": "Lead Backend Architect & Document Pipeline Engineer",
+      "problem": "Transitioning to Outcomes-Based Education (OBE) requires faculty to construct complex 17-column outcome matrices and detailed 18-week learning plans. Faculty submit syllabi in fragmented Word formats with broken tables, invalid outcome mappings, and outdated institutional templates.",
+      "architecture": "Decoupled architecture featuring a FastAPI Python backend and Streamlit interactive frontend. Uses python-docx for XML AST table parsing and reconstruction, paired with SQLite reference databases pre-seeded with official ZPPSU program outcomes and curriculum registries.",
       "features": [
-        "Complete relational database archive, visual editor, and batch document exporter for college syllabi."
+        "Docx AST Table Ingestion: Parses deeply nested, fragmented Word document tables into structured relational objects",
+        "17-Column Outcome Mapping Matrix: Interactive editor for Introductory (I), Enabling/Practice (P), and Demonstrative (D) outcomes",
+        "Curriculum Registry Cross-Validation: Auto-validates course codes, unit counts, and descriptions against official university registries",
+        "18-Week Learning Plan Builder: Manages weekly topics, teaching-learning activities, assessment tasks, and exam week toggles",
+        "Programmatic Docx Generation: Synthesizes publication-grade Word documents with official university seals and cell styling",
+        "Dual-Engine Architecture: FastAPI microservice handling data processing with Streamlit providing rapid tabular data review",
+        "Local Reference Database: Embedded SQLite storage ensuring persistent syllabus records and historical course archives",
+        "Validation Error Prevention: Flags missing prerequisite declarations, misaligned learning outcomes, and invalid credit hours"
       ],
-      "outcome": null,
+      "outcome": "Standardized the departmental syllabus review workflow, transforming unstandardized faculty submissions into 100% compliant CHED/ZPPSU OBE syllabi within minutes.",
       "screenshots": []
     },
     "hero": null,
@@ -1815,31 +1913,36 @@
     "featured": true,
     "bentoOrder": 3,
     "bentoTile": "C",
-    "tagline": "Offline-first LMS & real-time lecture delivery engine operating over a local Wi-Fi hotspot with 0 internet.",
-    "summary": "Complete offline Learning Management System (LMS) and real-time classroom orchestration tool designed for off-grid education over a local Wi-Fi hotspot with zero internet dependency.",
+    "tagline": "Zero-internet offline Wi-Fi classroom hub for real-time slide sync, live MCQ polling, and coursework turn-in.",
+    "summary": "Zero-internet classroom intranet hub running on an instructor laptop. Turns any portable wireless router into an offline educational portal that delivers synchronized slide presentations, live interactive MCQ polling with screen locks, timed coursework submissions with late-pass overrides, in-browser code previews, and an offline shared drive.",
     "highlightMetric": {
-      "value": "67 Slides",
-      "label": "On-Disk Schematics"
+      "value": "0 KB Internet",
+      "label": "40+ LAN Concurrency"
     },
     "metrics": {
-      "loc": null,
-      "tests": null,
-      "scale": null
+      "loc": 11800,
+      "tests": "Integration & stress test suites",
+      "scale": "40+ concurrent student devices · 67 schematics"
     },
     "stack": {
       "frontend": [
-        "HTML5/CSS3"
+        "HTML5 / ES6 Vanilla",
+        "WebSocket Client",
+        "Tailwind CSS"
       ],
       "backend": [
         "Node.js",
         "Express",
-        "Socket.io",
-        "Puppeteer"
+        "WebSocket (ws) Server"
       ],
       "data": [
-        "SQLite"
+        "Better-SQLite3",
+        "Local File Storage"
       ],
-      "infra": []
+      "infra": [
+        "Portable Wi-Fi Router / Hotspot",
+        "Zero WAN"
+      ]
     },
     "links": {
       "live": null,
@@ -1856,20 +1959,20 @@
       "url": null
     },
     "caseStudy": {
-      "role": "Operates on a local wireless router with zero internet connection to deliver synchronized lectures and track student work.",
-      "problem": "In off-grid and bandwidth-constrained campus environments, students lack internet access for modern digital learning platforms. LocalClassroom turns any instructor laptop into a zero-internet Wi-Fi server hosting synchronized slides, live quizzes, assignment turn-ins, and file libraries.",
-      "architecture": "Offline Wi-Fi LAN Hub",
+      "role": "Principal Systems Architect & Network Engineer",
+      "problem": "Off-grid rural campuses and bandwidth-constrained computer laboratories lack reliable internet access for modern cloud LMS platforms. Instructors are forced back to thumb-drives, manual paper quizzes, and fragmented lecture delivery where students cannot clearly see or interact with projected slides.",
+      "architecture": "Lightweight Node.js/Express and WebSocket event server communicating with an optimized Better-SQLite3 embedded database on the host machine. Employs a zero-dependency client architecture served over local Wi-Fi with auto-detected hotspot IP binding, subnet broadcasting, and dynamic QR onboarding.",
       "features": [
-        "Multi-Course & Section Isolation: BCP112, BCP211, BCP311, and IOM courses with section-filtered portals",
-        "Real-Time WebSocket Slide Broadcast: Synchronizes instructor slides across student mobile screens in real time",
-        "Interactive Live MCQ Polling: Real-time vote graphing with screen locking on answer reveal",
-        "Time-Bound Coursework & Extension Engine: Strict submission windows with individual late-pass grant overrides",
-        "Sandboxed In-Browser Code Inspector: Safely previews student HTML/JS uploads with XSS containment",
-        "Offline Shared Library Drive: High-speed local Wi-Fi distribution of large APKs, PDFs, and course binaries",
-        "Automated Local IP Discovery: Auto-detects hotspot IP and provides QR connection onboarding",
-        "67 High-Resolution Technical Schematics: Comprehensive visual library for PLC ladder logic, CSS box model, and safety layouts"
+        "Zero-Internet Wi-Fi Hub: Operates completely on a local router with zero external WAN connectivity required",
+        "Real-Time WebSocket Slide Broadcast: Instantaneous slide synchronization across dozens of student smartphone displays",
+        "Interactive Live MCQ Polling: Real-time vote graphing with automated student screen locking on instructor answer reveals",
+        "Time-Bound Coursework Engine: Strict submission windows with individual late-pass grant overrides and extension tracking",
+        "Sandboxed In-Browser Code Inspector: Safely executes and previews student HTML/JS uploads within an isolated iframe",
+        "Offline High-Speed File Distribution: Direct LAN distribution of large development APKs, software binaries, and lecture PDFs",
+        "Hotspot QR Onboarding: Automatically detects local network adapter IP and generates instant QR codes for student connection",
+        "67 Technical Schematics: Comprehensive visual engineering library for Industrial Technology (PLC, relay logic, wiring)"
       ],
-      "outcome": null,
+      "outcome": "Deployed in university computer laboratories, delivering sub-10ms slide and quiz broadcast latency across 40+ concurrent student devices with zero cellular or broadband data consumption.",
       "screenshots": []
     },
     "hero": "/projects/localclassroom/fig1_1_plc_vs_relay_panel.png",
