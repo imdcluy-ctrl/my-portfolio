@@ -1981,10 +1981,24 @@
         "67 Technical Schematics: Comprehensive visual engineering library for Industrial Technology (PLC, relay logic, wiring)"
       ],
       "outcome": "Deployed in university computer laboratories, delivering sub-10ms slide and quiz broadcast latency across 40+ concurrent student devices with zero cellular or broadband data consumption.",
-      "screenshots": []
+      "screenshots": [
+        "/projects/localclassroom/admin_dashboard.png",
+        "/projects/localclassroom/student_portal.png"
+      ]
     },
-    "hero": "/projects/localclassroom/fig1_1_plc_vs_relay_panel.png",
-    "gallery": [],
+    "hero": "/projects/localclassroom/admin_dashboard.png",
+    "gallery": [
+      {
+        "src": "/projects/localclassroom/admin_dashboard.png",
+        "alt": "LocalClassroom Admin Dashboard showing Content Manager, Quizzes, and Management Menus",
+        "caption": "Teacher & Admin Dashboard showing course modules, active quizzes, and 11 feature menus."
+      },
+      {
+        "src": "/projects/localclassroom/student_portal.png",
+        "alt": "LocalClassroom Student Portal with Coursework and Assignments",
+        "caption": "Student Portal interface displaying active coursework submissions, instructions, and due dates."
+      }
+    ],
     "year": 2026,
     "showGithub": false,
     "githubUrl": null,
