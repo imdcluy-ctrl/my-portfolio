@@ -3,7 +3,7 @@ import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://your-domain.pages.dev',
+  site: 'https://my-portfolio.imdcluy.workers.dev',
   output: 'static',
   vite: { plugins: [tailwindcss()] },
   image: { service: { entrypoint: 'astro/assets/services/sharp' } },

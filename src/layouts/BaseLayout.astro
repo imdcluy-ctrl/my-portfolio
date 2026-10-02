@@ -20,13 +20,13 @@ export interface Props {
 }
 
 const {
-  title = 'ZPPSU Institutional Developer Portfolio',
-  description = '38 institutional software systems, sports management platforms, and offline-first classroom architectures.',
+  title = 'Duane Chino Atis (Duane Luy) — AI Application Developer & Systems Architect',
+  description = 'AI application developer and systems architect. Shipped 38 software systems including 11 production cloud apps, multi-model AI tutors, and institutional automation.',
   ogImage = '/og/default.png',
   canonicalUrl,
 } = Astro.props;
 
-const siteUrl = Astro.site?.origin || 'https://zppsu-portfolio.pages.dev';
+const siteUrl = Astro.site?.origin || 'https://my-portfolio.imdcluy.workers.dev';
 const canonical = canonicalUrl || new URL(Astro.url.pathname, siteUrl).href;
 const buildTimestamp = new Date().toISOString();
 const buildFormatted = new Date().toLocaleDateString('en-US', {
@@ -88,8 +88,8 @@ const projectsData = allProjects.map(p => p.data);
   </head>
 
   <body class="bg-canvas text-ink font-sans min-h-screen flex flex-col antialiased selection:bg-accent selection:text-white relative">
-    <!-- High-Impact Cinematic Neural Bootloader -->
-    <CinematicIntro />
+    <!-- High-Impact Cinematic Neural Bootloader (Disabled by default so visitors see work instantly) -->
+    <!-- <CinematicIntro /> -->
 
     <!-- Top Scroll Progress Bar -->
     <ScrollProgress />

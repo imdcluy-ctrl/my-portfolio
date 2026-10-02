@@ -12,16 +12,16 @@
     "featured": true,
     "bentoOrder": 4,
     "bentoTile": "D",
-    "tagline": "Accreditation audit portal for CHED CMO No. 79 tracking Folders A–H compliance across 19 faculty members.",
+    "tagline": "Accreditation audit portal for CHED CMO No. 79 tracking Folders A\u2013H compliance across 19 faculty members.",
     "summary": "Accreditation compliance and regulatory audit portal engineered for the ZPPSU EPDU Malangas Campus Bachelor of Industrial Technology major in Computer Technology program under CHED CMO No. 79, s. 2017. Built for the Program Chair, 19 faculty members, and CHED Regional Quality Assessment Team (RQAT) evaluators.",
     "highlightMetric": {
-      "value": "Folders A–H",
+      "value": "Folders A\u2013H",
       "label": "19 Faculty Roster"
     },
     "metrics": {
       "loc": 16400,
       "tests": "E2E route & permission tests",
-      "scale": "19 faculty · 8 compliance folders · CMO No. 79"
+      "scale": "19 faculty \u00b7 8 compliance folders \u00b7 CMO No. 79"
     },
     "stack": {
       "frontend": [
@@ -63,7 +63,7 @@
       "problem": "Higher education accreditation audits require managing thousands of physical and digital compliance files across 8 major program areas. Manual binder preparation and disorganized shared drives lead to lost faculty credentials, missing syllabi, and non-compliance risk during high-stakes state RQAT inspections.",
       "architecture": "Next.js Edge application deployed on Cloudflare Pages paired with a bidirectional Google Drive file system mirror. Implements strict three-tier role-based access control (Chair, Faculty, Evaluator) and a structured taxonomic ingestion pipeline that enforces institutional naming conventions before cloud persistence.",
       "features": [
-        "Folders A–H Compliance Dials: Real-time progress monitoring across all 8 CMO No. 79 institutional audit dimensions",
+        "Folders A\u2013H Compliance Dials: Real-time progress monitoring across all 8 CMO No. 79 institutional audit dimensions",
         "Interactive PDF Document Review Queue: In-browser document inspection with line-item approval and rejection feedback",
         "Faculty Credentials Roster: Comprehensive profile tracking across 19 faculty members (TOR, PRC licenses, teaching loads)",
         "CHED Annex C/D/E Auto-Exporter: Generates official regulatory summary spreadsheets directly from live database records",
@@ -347,7 +347,7 @@
       ]
     },
     "links": {
-      "live": "https://zppsu-admissions.vercel.app",
+      "live": "https://zppsu-admissions-portal.imdcluy.workers.dev",
       "repo": null,
       "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\Flexible Daily Admissions Tracking Web App",
       "notes": "Interactive Demo Mode: Safe client-side LocalStorage sandbox enabled for instant evaluation without production database access."
@@ -405,7 +405,7 @@
     "metrics": {
       "loc": 7200,
       "tests": "Laboratory testing simulations",
-      "scale": "Hundreds of applicants · 5 physical stations"
+      "scale": "Hundreds of applicants \u00b7 5 physical stations"
     },
     "stack": {
       "frontend": [
@@ -558,7 +558,7 @@
     "metrics": {
       "loc": 4800,
       "tests": "Roster validation scripts",
-      "scale": "Departmental student body · 4 academic years"
+      "scale": "Departmental student body \u00b7 4 academic years"
     },
     "stack": {
       "frontend": [
@@ -781,7 +781,7 @@
     "metrics": {
       "loc": 5900,
       "tests": "Format parser & coordinate tests",
-      "scale": "50+ curriculum courses · 4 academic years"
+      "scale": "50+ curriculum courses \u00b7 4 academic years"
     },
     "stack": {
       "frontend": [
@@ -865,7 +865,7 @@
     "metrics": {
       "loc": 13900,
       "tests": "Drizzle migration & scoring tests",
-      "scale": "5 external campuses · Men & Women divisions"
+      "scale": "5 external campuses \u00b7 Men & Women divisions"
     },
     "stack": {
       "frontend": [
@@ -949,7 +949,7 @@
     "metrics": {
       "loc": 14200,
       "tests": "Smoke suites (Phase 3 & 4)",
-      "scale": "302 athletes · 32 events · 10 categories"
+      "scale": "302 athletes \u00b7 32 events \u00b7 10 categories"
     },
     "stack": {
       "frontend": [
@@ -994,7 +994,7 @@
       "features": [
         "Dual-Environment Engine: Runs offline on a local laptop Wi-Fi hotspot or online via Supabase cloud without code changes",
         "Bidirectional Delta Sync: Reconciles offline SQLite changes with cloud Postgres via an auditable last-write-wins resolver",
-        "4-Stage Screening Conveyor: Multi-gate progression (Apply → Screen → Qualify → Official Roster Publish) with role enforcement",
+        "4-Stage Screening Conveyor: Multi-gate progression (Apply \u2192 Screen \u2192 Qualify \u2192 Official Roster Publish) with role enforcement",
         "5-Tier RBAC Permission Ladder: Strict access control for Students, Category Focals, Team Leaders, Faculty, and Admins",
         "Dual Ingestion Paths: Self-service mobile applicant portal plus fast paper-to-digital proxy entry for students without devices",
         "Audit Trail & Transparency: Immutable approval log tracking every screening action with timestamp and actor attribution",
@@ -1313,7 +1313,7 @@
     "metrics": {
       "loc": 18500,
       "tests": "Playwright E2E + Vitest suites",
-      "scale": "579 golden items · 5 CSE categories"
+      "scale": "579 golden items \u00b7 5 CSE categories"
     },
     "stack": {
       "frontend": [
@@ -1358,7 +1358,7 @@
       "architecture": "Offline-first client-side architecture using React 18, Vite, and Dexie.js (IndexedDB v6 schema). Business logic is decoupled into a mathematical Leitner spacing engine, deadline-based mock exam runner with clock-tamper protection (performance.now vs Date.now deltas), and an asynchronous non-downgrade sync reconciliation engine linking local state with Supabase PostgreSQL.",
       "features": [
         "5-Tier Leitner Spaced Repetition: Mathematical scheduling with 3 pace interval ramps (Standard, Accelerated, Crunch)",
-        "Overconfidence Leech Detection: Automatically quarantines cards missed ≥3 times and enforces worked deconstruction review",
+        "Overconfidence Leech Detection: Automatically quarantines cards missed \u22653 times and enforces worked deconstruction review",
         "5-Layer Socratic Study Loop: Hint Ladder, Metacognitive Confidence Rating, Worked Solution Deconstruction, and Self-Journaling",
         "170-Item Timed Mock Engine: Strict 3-hour 10-minute simulation with background tab auto-submit and clock-tamper protection",
         "Colorblind-Safe Question Palette: WCAG 1.4.1 compliant live grid displaying answered, flagged, and review statuses",
@@ -1458,34 +1458,41 @@
     "status": "internal",
     "statusLabel": "Internal Tool",
     "tier": "production",
-    "featured": false,
+    "featured": true,
     "bentoOrder": null,
     "bentoTile": null,
-    "tagline": "Task-based conversational ESL coach.",
-    "summary": "Task-based conversational ESL coach.",
-    "highlightMetric": null,
+    "tagline": "Task-based conversational ESL coach with 3-step SLA scaffolding and DeepSeek / Local LLM routing.",
+    "summary": "Full-stack AI tutoring web application built with Next.js 15, React 19, and Tailwind CSS. Features 3-step SLA graduated scaffolding (Location -> Clue -> Recast), browser-native Web Speech voice recognition and synthesis, CEFR 5-skill radar diagnostics, and dual-provider LLM routing (DeepSeek-Chat primary API with local Ollama fallback for low-latency/offline resilience).",
+    "highlightMetric": {
+      "value": "Dual LLM Engine",
+      "label": "3-Step SLA Scaffolding"
+    },
     "metrics": {
-      "loc": null,
-      "tests": null,
-      "scale": null
+      "loc": 3400,
+      "tests": "TypeScript + Automated Eval Harness (src/eval/run.ts)",
+      "scale": "DeepSeek-Chat API + Local LLM Fallback"
     },
     "stack": {
       "frontend": [
-        "React",
-        "Next.js",
-        "Tailwind CSS",
+        "Next.js 15 App Router",
+        "React 19",
         "TypeScript",
-        "HTML5/CSS3",
-        "Web Speech API"
+        "Tailwind CSS",
+        "Web Speech API (ASR/TTS)"
       ],
       "backend": [
-        "DeepSeek API"
+        "DeepSeek-Chat API",
+        "Local LLM (Ollama) Fallback",
+        "Next.js Server Actions"
       ],
       "data": [
-        "Drizzle ORM",
-        "PostgreSQL"
+        "PostgreSQL",
+        "Drizzle ORM"
       ],
-      "infra": []
+      "infra": [
+        "Node.js Runtime",
+        "Dual Provider Router"
+      ]
     },
     "links": {
       "live": null,
@@ -1502,17 +1509,18 @@
       "url": "http://localhost:3080"
     },
     "caseStudy": {
-      "role": "Task-based conversational ESL coach.",
-      "problem": "Task-based conversational ESL coach.",
-      "architecture": "AI Web Application",
+      "role": "Lead AI Application Developer & Full-Stack Architect",
+      "problem": "Traditional ESL applications either reveal corrections prematurely (halting cognitive recall) or rely solely on text chat without spoken phonics. The objective was to engineer an interactive, voice-enabled language coach grounded in Second Language Acquisition (SLA) pedagogy with resilient LLM routing.",
+      "architecture": "Architected on Next.js 15 App Router with a decoupled LLM provider abstraction layer. Conversational prompts default to DeepSeek-Chat for cost-effective, high-reasoning dialogue, while maintaining configurable failover to local Ollama endpoints (e.g. Qwen/Llama) to guarantee zero outage and zero API bill runaways during classroom batch runs. Browser-native Web Speech API delivers real-time ASR speech transcription and natural TTS voice playback.",
       "features": [
-        "3-step SLA graduated scaffolding (Location → Clue → Recast)",
-        "Web Speech voice recognition and synthesis",
-        "CEFR 5-skill radar diagnostic",
-        "spaced review center (1, 3, 7, 14 days)",
-        "spoken roleplay and written email evaluation."
+        "3-Step SLA Graduated Scaffolding: Step 1 (Location) highlights the specific error clause without revealing the answer; Step 2 (Clue) prompts with grammatical rule clues; Step 3 (Recast) provides the fluent rephrasing and pedagogical explanation.",
+        "Dual-Provider LLM Routing: Primary execution on DeepSeek-Chat with automated failover hooks to local Ollama LLMs for offline classroom resilience.",
+        "Voice Interaction via Web Speech API: Real-time Speech-to-Text (ASR) with editable transcript buffer before submission, and natural Text-to-Speech (TTS) audio coach responses.",
+        "CEFR 5-Skill Baseline Radar: Interactive SVG radar diagnostic measuring Speaking, Listening, Grammar Accuracy, Vocabulary Richness, and Conversational Confidence.",
+        "Spaced Retention Weaving: Scheduled error reinforcement intervals at 1, 3, 7, and 14 days to cement long-term language retention.",
+        "Evaluation Benchmark Harness: Standalone verification harness in src/eval/run.ts executing automated test sets against target grammar forms."
       ],
-      "outcome": null,
+      "outcome": "Successfully demonstrated task-based conversational coaching across roleplay and formal email scenarios, maintaining sub-second voice synthesis and zero model hallucination via structured prompt constraints.",
       "screenshots": []
     },
     "hero": null,
@@ -1578,7 +1586,7 @@
       "problem": "Generates Philippine DepEd/CHED self-learning modules from syllabus files.",
       "architecture": "Local Pedagogical Tool",
       "features": [
-        "Implements the official IDEA framework (Introduction → Development → Engagement → Assimilation)",
+        "Implements the official IDEA framework (Introduction \u2192 Development \u2192 Engagement \u2192 Assimilation)",
         "BYOK LLM pipeline",
         "automated DOCX compilation."
       ],
@@ -1719,7 +1727,7 @@
       "architecture": "Local AI Generation Studio",
       "features": [
         "Verified with 60 passing automated unit tests (npm test)",
-        "course outcome alignments (CO1–CO4)",
+        "course outcome alignments (CO1\u2013CO4)",
         "18-week learning plans."
       ],
       "outcome": null,
@@ -1922,7 +1930,7 @@
     "metrics": {
       "loc": 11800,
       "tests": "Integration & stress test suites",
-      "scale": "40+ concurrent student devices · 67 schematics"
+      "scale": "40+ concurrent student devices \u00b7 67 schematics"
     },
     "stack": {
       "frontend": [
@@ -2233,7 +2241,7 @@
       ]
     },
     "links": {
-      "live": "https://civic-ph.vercel.app",
+      "live": "https://batas-ph.vercel.app",
       "repo": "https://github.com/imdcluy-ctrl/BatasPh.git",
       "localPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\ZPPSU A.Y. 2026-2027\\My Project\\BatasPh",
       "notes": "Civic Legal Portal: Full search across Republic Acts, Supreme Court decisions, and City Ordinances."
@@ -2780,7 +2788,7 @@
     "metrics": {
       "loc": 3200,
       "tests": "Astro build & schema validation",
-      "scale": "157 courses · CpT, ELT, ELX departments"
+      "scale": "157 courses \u00b7 CpT, ELT, ELX departments"
     },
     "stack": {
       "frontend": [

@@ -48,7 +48,18 @@ const orderNumber = String(p.bentoOrder || index + 1).padStart(2, '0');
       </div>
     </div>
 
-    <div class="relative z-10 my-5 space-y-2">
+    {p.hero ? (
+      <div class="relative w-full aspect-[16/9] rounded-lg overflow-hidden bg-[var(--color-surface-2)] border border-[var(--color-line)] mt-4 mb-2 shadow-xs group-hover:border-[var(--color-accent)]/50 transition-colors">
+        <img
+          src={p.hero}
+          alt={`${p.title} preview`}
+          class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+          loading="lazy"
+        />
+      </div>
+    ) : null}
+
+    <div class="relative z-10 my-3 space-y-2">
       <h3 class="font-display font-bold text-2xl sm:text-3xl text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors">
         {p.title}
       </h3>
@@ -162,6 +173,17 @@ const orderNumber = String(p.bentoOrder || index + 1).padStart(2, '0');
       </div>
     </div>
 
+    {p.hero && (
+      <div class="relative w-full aspect-[21/9] sm:aspect-[28/9] rounded-xl overflow-hidden bg-[var(--color-surface-2)] border border-[var(--color-line)] my-3 shadow-xs">
+        <img
+          src={p.hero}
+          alt={`${p.title} preview`}
+          class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.01]"
+          loading="lazy"
+        />
+      </div>
+    )}
+
     <div class="relative z-10 pt-2 text-xs font-mono text-[var(--color-ink-muted)] flex items-center justify-between">
       <span>{p.domainLabel}</span>
       <span>Express + SQLite WAL + Socket.io</span>
@@ -198,7 +220,18 @@ const orderNumber = String(p.bentoOrder || index + 1).padStart(2, '0');
       <span class="text-[11px] font-mono text-[var(--color-ink-muted)] truncate">{p.domainLabel}</span>
     </div>
 
-    <div class="relative z-10 my-3 space-y-1.5">
+    {p.hero ? (
+      <div class="relative w-full aspect-[16/9] rounded-lg overflow-hidden bg-[var(--color-surface-2)] border border-[var(--color-line)] my-2 shadow-xs group-hover:border-[var(--color-accent)]/40 transition-colors">
+        <img
+          src={p.hero}
+          alt={`${p.title} preview`}
+          class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+          loading="lazy"
+        />
+      </div>
+    ) : null}
+
+    <div class="relative z-10 my-2 space-y-1.5">
       <h4 class="font-display font-semibold text-lg text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors line-clamp-1">
         {p.title}
       </h4>
